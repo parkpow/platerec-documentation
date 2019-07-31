@@ -20,14 +20,15 @@ search: true
 
 # Introduction
 
-Welcome to the Plate recognizer API! You can use our API to access our API endpoints, which can read license plates from images.
+Welcome to the Plate Recognizer API! You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions
+on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/).
 
 We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 
 # Authentication
 
-Platerecognizer.com API is only available to registered users. You first have to register and **[get an API key](https://platerecognizer.com/)**. It has to be included in all API calls. The HTTP **headers** must contain:
+Plate Recognizer API is only available to registered users. You first have to register and **[get an API key](https://platerecognizer.com/)**. It has to be included in all API calls. The HTTP **headers** must contain:
 
 `Authorization: Token API_TOKEN`
 

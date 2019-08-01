@@ -216,6 +216,39 @@ score | Score of the plate reader text. Range [0, 1].
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in C Sharp and Python.
 </aside>
 
+## Camera and Location Support
+```shell
+curl -F 'upload=@/path/to/car.jpg' \
+  -F regions=fr -F regions=us-ca \
+  -F camera_id=123 \
+  -F latitude=1.23366 \
+  -F longitude=-12.44556 \
+  -H 'Authorization: Token API_TOKEN' \
+  https://api.platerecognizer.com/v1/plate-reader-dashboard/
+
+```
+
+This endpoint suports additional camera and location parameters.
+
+### HTTP Request
+
+`POST https://api.platerecognizer.com/v1/plate-reader-dashboard/`
+
+### POST Parameters
+
+Parameter | Required | Description
+--------- | ----------- | -----------
+upload | Yes |The file to be uploaded
+regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used 
+camera_id | Yes | unique ID for camera
+latitude | Yes | Latitude location of the camera
+longitude | Yes | Logitude location of the camera
+
+<aside class="notice">
+Support for camera and location is currently in beta testing and is only available on invite-only basis.
+</aside>
+
+
 ## Regions supported
 
 The regions parameter can take one of the following codes. In addition to country, you can also provide a [states](#states) to select more specific license plate patterns. States are only supported for USA and Australia.

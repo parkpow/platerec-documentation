@@ -228,7 +228,7 @@ curl -F 'upload=@/path/to/car.jpg' \
 
 ```
 
-This endpoint suports additional camera and location parameters.
+This endpoint supports additional camera and location parameters. <a href="https://platerecognizer.com/contact/">Contact</a> us is you are interested in using this feature.
 
 ### HTTP Request
 
@@ -241,8 +241,8 @@ Parameter | Required | Description
 upload | Yes |The file to be uploaded
 regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used 
 camera_id | Yes | unique ID for camera
-latitude | Yes | Latitude location of the camera
-longitude | Yes | Logitude location of the camera
+latitude | No | Latitude location of the camera
+longitude | No | Logitude location of the camera
 
 <aside class="notice">
 Support for camera and location is currently in beta testing and is only available on invite-only basis.

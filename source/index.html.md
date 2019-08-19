@@ -198,6 +198,8 @@ Parameter | Required | Description
 --------- | ----------- | -----------
 upload | Yes |The file to be uploaded
 regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used **multiple times** to specify more than one region. *
+camera_id | No | Unique camera identifier.
+timestamp | No | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
@@ -216,6 +218,7 @@ score | Score of the plate reader text. Range [0, 1].
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in C Sharp and Python.
 </aside>
 
+<!--
 ## Camera and Location Support
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
@@ -239,7 +242,7 @@ This endpoint supports additional camera and location parameters. <a href="https
 Parameter | Required | Description
 --------- | ----------- | -----------
 upload | Yes |The file to be uploaded
-regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used 
+regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used multiple times.
 camera_id | Yes | unique ID for camera
 latitude | No | Latitude location of the camera
 longitude | No | Logitude location of the camera
@@ -247,7 +250,7 @@ longitude | No | Logitude location of the camera
 <aside class="notice">
 Support for camera and location is currently in beta testing and is only available on invite-only basis.
 </aside>
-
+ -->
 
 ## Regions supported
 

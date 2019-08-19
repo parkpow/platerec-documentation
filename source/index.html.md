@@ -38,7 +38,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 
 # License Plate Recognition
 
-## Read number plates from an image
+## Read Number Plates from an Image
 
 ```ruby
 # gem install multipart-post
@@ -421,6 +421,10 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 `POST http://localhost:8080/alpr`
 
 Accepts the same parameters as the [recognition API](#read-number-plates-from-an-image).
+
+<aside class="notice">
+SDK API does not support fields <code>camera_id</code> and <code>timestamp</code>.
+</aside>
 
 ### JSON Response
 

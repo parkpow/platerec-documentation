@@ -430,6 +430,36 @@ SDK API does not support fields <code>camera_id</code> and <code>timestamp</code
 
 Returns the same parameters as the [recognition API](#read-number-plates-from-an-image). In addition to that, it returns the **number of calls** used.
 
+#Webhooks
+
+> Example of post payload
+
+```json
+{
+   "version":1,
+   "results":{
+      "box":{
+         "xmin":563,
+         "ymin":530,
+         "ymax":579,
+         "xmax":702
+      },
+      "plate":"407209",
+      "score":0.710816590325453,
+      "dscore":0.6558905848883905
+   },
+   "filename":"12_41_test_iqbAVwV.jpeg"
+}
+```
+
+Our service also have a webhook service that allows you to receive a post request to a target link of your choosing. To configure webhooks, go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
+
+
+
+
+
+
+
 
 # Statistics
 

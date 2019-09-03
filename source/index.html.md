@@ -171,19 +171,26 @@ HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 > Return value
 
 ```json
-[
-  {
-    "box": {
-      "xmin": 159,
-      "ymin": 169,
-      "ymax": 194,
-      "xmax": 203
-    },
-    "plate": "abc123",
-    "score": 0.868,
-    "dscore": 0.718
-  }
-]
+{
+  "processing_time":138.959,
+  "timestamp":"2019-09-03T08:14:25.963264Z",
+  "results":[
+    {
+      "box":{
+        "xmin":152,
+        "ymin":485,
+        "ymax":574,
+        "xmax":282
+      },
+      "plate":"nhk552",
+      "score":0.919,
+      "dscore":0.701
+    }
+  ],
+  "filename":"08_14_car_zZamHuC.jpg",
+  "version":1,
+  "camera_id":null
+}
 ```
 
 This endpoint reads all license plates from an image.

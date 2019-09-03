@@ -437,9 +437,9 @@ SDK API does not support fields <code>camera_id</code> and <code>timestamp</code
 
 Returns the same parameters as the [recognition API](#read-number-plates-from-an-image). In addition to that, it returns the **number of calls** used.
 
-#Webhooks
+#WebHooks
 
-> Example of post payload
+> Example of POST payload
 
 ```json
 {
@@ -482,10 +482,9 @@ Returns the same parameters as the [recognition API](#read-number-plates-from-an
 }
 ```
 
-Our service also have a webhook service that allows you to receive a post request to a target link of your choosing. To configure webhooks, go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
+Our service also have a webhook service that allows you to receive a HTTP **POST** request to a target URL of your choosing. To configure webhooks, go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
 
-
-
+To quickly test out this feature, you can use the URL from a (webhook tester)[http://webhook.site].
 
 
 

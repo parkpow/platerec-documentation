@@ -291,6 +291,7 @@ Holy See|va
 Hungary|hu
 Iceland|is
 India|in
+Indonesia|id
 Ireland|ie
 Italy|it
 Jordan|jo

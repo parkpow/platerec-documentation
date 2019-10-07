@@ -221,8 +221,10 @@ dscore | Score of the plate detection. Range [0, 1].
 plate | Text of the license plate.
 score | Score of the plate reader text. Range [0, 1].
 
+The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
+
 <aside class="notice">
-View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in C Sharp and Python.
+View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
 
 <!--

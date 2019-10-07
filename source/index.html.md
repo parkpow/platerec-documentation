@@ -217,9 +217,9 @@ The response is a list of all the license plates found in the image. Each licens
 Attribute | Description
 --------- | -----------
 box | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.
-dscore | Score of the plate detection. Range [0, 1].
+dscore | Score for plate detection. Range [0, 1].
 plate | Text of the license plate.
-score | Score of the plate reader text. Range [0, 1].
+score | Score for reading the license plate text. Range [0, 1].
 
 The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
 

@@ -170,164 +170,43 @@ HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 ```
 
 ```java
-import java.io.File;
-import java.io.FileWriter;
-import kong.unirest.Unirest;
-import kong.unirest.HttpResponse;
+// View the complete example here:
+// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
 
-public class recognize {
-    public static void main(String[] args){
-        String token = "MY_API_KEY";
-        String file = "C:\\assets\\demo.jpg";
+String token = "MY_API_KEY";
+String file = "C:\\assets\\demo.jpg";
         
-        try{
-            HttpResponse<String> response = Unirest.post("https://api.platerecognizer.com/v1/plate-reader/")
-            .header("Authorization", "Token "+token)
-            .field("upload", new File(file))
-            .asString();
-            System.out.println("Recognize:");
-            System.out.println(response.getBody().toString());
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-        
-        try{
-            HttpResponse<String> response = Unirest.get("https://api.platerecognizer.com/v1/statistics/")
-            .header("Authorization", "Token "+token)
-            .asString();
-            System.out.println("Usage:");
-            System.out.println(response.getBody().toString());
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
-    }
+try{
+  HttpResponse<String> response = Unirest.post("https://api.platerecognizer.com/v1/plate-reader/")
+  .header("Authorization", "Token "+token)
+  .field("upload", new File(file))
+  .asString();
+  System.out.println("Recognize:");
+  System.out.println(response.getBody().toString());
 }
+catch(Exception e){
+  System.out.println(e);
+}
+        
+        
+    
 ```
 
 ```cpp
-#define CURL_STATICLIB
-#include "curl/curl.h"
-#include <iostream>
-#include <string>
-#include "json/json/json.h"
-#include "json/jsoncpp.cpp"
-#include <fstream>
+// View the complete example here:
+// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
+CURL *hnd = curl_easy_init();
 
+//curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, "https://api.platerecognizer.com/v1/plate-reader/");
 
+form = curl_mime_init(hnd); //initialize form fields
 
-using namespace std;
-
-namespace
-{
-		size_t callback(
-		const char* in,
-		std::size_t size,
-		std::size_t num,
-		std::string* out)
-	{
-		const size_t totalBytes(size * num);
-		out->clear();
-		out->append(in, totalBytes);
-		return totalBytes;
-	}
-}
-
-Json::Value sendRequest(string auth_token, string fileName) {
-	
-	curl_global_init(CURL_GLOBAL_ALL);
-
-	
-	curl_off_t speed_upload, total_time;
-	curl_mime *form = NULL;
-	curl_mimepart *field = NULL;
-
-	CURL *hnd = curl_easy_init();
-
-	//curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
-	curl_easy_setopt(hnd, CURLOPT_URL, "https://api.platerecognizer.com/v1/plate-reader/");
-
-	form = curl_mime_init(hnd); //initialize form fields
-
-	/* Fill in the file upload field */
-	field = curl_mime_addpart(form);
-	curl_mime_name(field, "upload");
-	curl_mime_filedata(field, fileName.c_str());
-	curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
-
-	struct curl_slist *headers = NULL;
-	headers = curl_slist_append(headers, "cache-control: no-cache");
-	headers = curl_slist_append(headers, ("Authorization: Token "+ auth_token).c_str());
-	curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
-	unique_ptr<std::string> httpData(new std::string()); //initializing string pointer to  get data
-	// Hook up data handling function.
-	curl_easy_setopt(hnd, CURLOPT_WRITEFUNCTION, callback);
-
-	// Hook up data container (will be passed as the last parameter to the
-	// callback handling function).  Can be any pointer type, since it will
-	// internally be passed as a void pointer.
-	curl_easy_setopt(hnd, CURLOPT_WRITEDATA, httpData.get());
-
-	CURLcode ret = curl_easy_perform(hnd); //perform the request
-
-	if (ret != CURLE_OK) { //failed case
-		fprintf(stderr, "curl_easy_perform() failed: %s\n",
-			curl_easy_strerror(ret));
-	}
-	else {
-		/* now extract transfer info */
-		curl_easy_getinfo(hnd, CURLINFO_SPEED_UPLOAD_T, &speed_upload);
-		curl_easy_getinfo(hnd, CURLINFO_TOTAL_TIME_T, &total_time);
-
-		fprintf(stderr, "Speed: %" CURL_FORMAT_CURL_OFF_T " bytes/sec during %"
-			CURL_FORMAT_CURL_OFF_T ".%06ld seconds\n",
-			speed_upload,
-			(total_time / 1000000), (long)(total_time % 1000000));
-	}
-
-	curl_easy_cleanup(hnd); 
-	curl_mime_free(form);
-
-	Json::Value jsonData;
-	Json::Reader jsonReader;
-
-	if (jsonReader.parse(*httpData, jsonData))
-	{
-		cout << jsonData;
-	}
-	else
-	{
-		std::cout << "Could not parse HTTP data as JSON" << std::endl;
-		std::cout << "HTTP data was:\n" << *httpData.get() << std::endl;
-	}
-
-	return jsonData;
-}
-
-
-
-int main(int argc, char *argv[])
-{
-	string token = "66657e2170068c797227476c967b4137c18c1a8a";
-	Json::Value data;
-	if (argc == 2) {
-		data = sendRequest(token, argv[1]);
-	}
-	else {
-		cout << "Error:Invalid Arguments!\nUsage: program.exe <Image>";
-	}
-
-	ofstream file;
-	file.open("responce.txt", ios::app);
-	file << data;
-	file << "\n\n";
-	file.close();
-	cout << "\n\n";
-	system("PAUSE");
-	return 0;
-}
-
+/* Fill in the file upload field */
+field = curl_mime_addpart(form);
+curl_mime_name(field, "upload");
+curl_mime_filedata(field, fileName.c_str());
+curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
 ```
 
 

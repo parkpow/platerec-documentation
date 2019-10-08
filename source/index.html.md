@@ -8,6 +8,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
   - csharp
   - php
+  - java
+  - cpp
 
 toc_footers:
   - <a href='https://platerecognizer.com/accounts/signup/?from-doc'>Sign Up for a Developer Key</a>
@@ -166,6 +168,47 @@ using (Stream requestStream = request.GetRequestStream())
 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
 ```
+
+```java
+// View the complete example here:
+// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
+
+String token = "MY_API_KEY";
+String file = "C:\\assets\\demo.jpg";
+        
+try{
+  HttpResponse<String> response = Unirest.post("https://api.platerecognizer.com/v1/plate-reader/")
+  .header("Authorization", "Token "+token)
+  .field("upload", new File(file))
+  .asString();
+  System.out.println("Recognize:");
+  System.out.println(response.getBody().toString());
+}
+catch(Exception e){
+  System.out.println(e);
+}
+        
+        
+    
+```
+
+```cpp
+// View the complete example here:
+// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
+CURL *hnd = curl_easy_init();
+
+//curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, "https://api.platerecognizer.com/v1/plate-reader/");
+
+form = curl_mime_init(hnd); //initialize form fields
+
+/* Fill in the file upload field */
+field = curl_mime_addpart(form);
+curl_mime_name(field, "upload");
+curl_mime_filedata(field, fileName.c_str());
+curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
+```
+
 
 
 > Return value

@@ -368,6 +368,7 @@ Sweden|se
 Switzerland|ch
 Turkey|tr
 Ukraine|ua
+United Arab Emirates|ae
 United Kingdom of Great Britain and Northern Ireland|gb
 United States of America|us
 

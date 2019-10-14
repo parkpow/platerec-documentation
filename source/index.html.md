@@ -321,6 +321,7 @@ Belgium|be
 Bosnia and Herzegovina|ba
 Brazil|br
 Bulgaria|bg
+Chile|cl
 Croatia|hr
 Cyprus|cy
 Czechia|cz

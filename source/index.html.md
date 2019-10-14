@@ -322,6 +322,7 @@ Bosnia and Herzegovina|ba
 Brazil|br
 Bulgaria|bg
 Chile|cl
+Columbia|co
 Croatia|hr
 Cyprus|cy
 Czechia|cz

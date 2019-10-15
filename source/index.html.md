@@ -244,12 +244,12 @@ This endpoint reads all license plates from an image.
 
 ### POST Parameters
 
-Parameter | Required | Description
---------- | ----------- | -----------
-upload | Yes |The file to be uploaded
-regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used **multiple times** to specify more than one region. *
-camera_id | No | Unique camera identifier.
-timestamp | No | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.
+| Parameter | Required | Description                                                                                                                                                 |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded                                                                                                                                     |
+| regions   | No       | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used **multiple times** to specify more than one region. * |
+| camera_id | No       | Unique camera identifier.                                                                                                                                   |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                             |
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
@@ -257,12 +257,12 @@ timestamp | No | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. F
 
 The response is a list of all the license plates found in the image. Each license plate has the following elements:
 
-Attribute | Description
---------- | -----------
-box | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.
-dscore | Score for plate detection. Range [0, 1].
-plate | Text of the license plate.
-score | Score for reading the license plate text. Range [0, 1].
+| Attribute | Description                                                                                                     |
+| --------- | --------------------------------------------------------------------------------------------------------------- |
+| box       | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate. |
+| dscore    | Score for plate detection. Range [0, 1].                                                                        |
+| plate     | Text of the license plate.                                                                                      |
+| score     | Score for reading the license plate text. Range [0, 1].                                                         |
 
 The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
 
@@ -291,13 +291,13 @@ This endpoint supports additional camera and location parameters. <a href="https
 
 ### POST Parameters
 
-Parameter | Required | Description
---------- | ----------- | -----------
-upload | Yes |The file to be uploaded
-regions | No | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used multiple times.
-camera_id | Yes | unique ID for camera
-latitude | No | Latitude location of the camera
-longitude | No | Logitude location of the camera
+| Parameter | Required | Description                                                                                                           |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded                                                                                               |
+| regions   | No       | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used multiple times. |
+| camera_id | Yes      | unique ID for camera                                                                                                  |
+| latitude  | No       | Latitude location of the camera                                                                                       |
+| longitude | No       | Logitude location of the camera                                                                                       |
 
 <aside class="notice">
 Support for camera and location is currently in beta testing and is only available on invite-only basis.
@@ -308,140 +308,141 @@ Support for camera and location is currently in beta testing and is only availab
 
 The regions parameter can take one of the following codes. In addition to country, you can also provide a [states](#states) to select more specific license plate patterns. States are only supported for USA and Australia.
 
-Country | Region code
--- | --
-Albania|al
-Andorra|ad
-Armenia|am
-Australia|au
-Austria|at
-Azerbaijan|az
-Belarus|by
-Belgium|be
-Bosnia and Herzegovina|ba
-Brazil|br
-Bulgaria|bg
-Chile|cl
-Columbia|co
-Croatia|hr
-Cyprus|cy
-Czechia|cz
-Denmark|dk
-Estonia|ee
-Finland|fi
-France|fr
-Georgia|ge
-Germany|de
-Gibraltar|gi
-Greece|gr
-Holy See|va
-Hungary|hu
-Iceland|is
-India|in
-Indonesia|id
-Ireland|ie
-Italy|it
-Jordan|jo
-Kazakhstan|kz
-Korea, Republic of|kr
-Latvia|lv
-Liechtenstein|li
-Lithuania|lt
-Luxembourg|lu
-Malta|mt
-Mexico|mx
-Moldova, Republic of|md
-Monaco|mc
-Montenegro|me
-Netherlands|nl
-North Macedonia|mk
-Norway|no
-Poland|pl
-Portugal|pt
-Romania|ro
-Russian Federation|ru
-San Marino|sm
-Serbia|rs
-Singapore|sg
-Slovakia|sk
-Slovenia|si
-Spain|es
-Sweden|se
-Switzerland|ch
-Turkey|tr
-Ukraine|ua
-United Arab Emirates|ae
-United Kingdom of Great Britain and Northern Ireland|gb
-United States of America|us
+| Country                                              | Region code |
+| ---------------------------------------------------- | ----------- |
+| Albania                                              | al          |
+| Andorra                                              | ad          |
+| Argentina                                            | ar          |
+| Armenia                                              | am          |
+| Australia                                            | au          |
+| Austria                                              | at          |
+| Azerbaijan                                           | az          |
+| Belarus                                              | by          |
+| Belgium                                              | be          |
+| Bosnia and Herzegovina                               | ba          |
+| Brazil                                               | br          |
+| Bulgaria                                             | bg          |
+| Chile                                                | cl          |
+| Columbia                                             | co          |
+| Croatia                                              | hr          |
+| Cyprus                                               | cy          |
+| Czechia                                              | cz          |
+| Denmark                                              | dk          |
+| Estonia                                              | ee          |
+| Finland                                              | fi          |
+| France                                               | fr          |
+| Georgia                                              | ge          |
+| Germany                                              | de          |
+| Gibraltar                                            | gi          |
+| Greece                                               | gr          |
+| Holy See                                             | va          |
+| Hungary                                              | hu          |
+| Iceland                                              | is          |
+| India                                                | in          |
+| Indonesia                                            | id          |
+| Ireland                                              | ie          |
+| Italy                                                | it          |
+| Jordan                                               | jo          |
+| Kazakhstan                                           | kz          |
+| Korea, Republic of                                   | kr          |
+| Latvia                                               | lv          |
+| Liechtenstein                                        | li          |
+| Lithuania                                            | lt          |
+| Luxembourg                                           | lu          |
+| Malta                                                | mt          |
+| Mexico                                               | mx          |
+| Moldova, Republic of                                 | md          |
+| Monaco                                               | mc          |
+| Montenegro                                           | me          |
+| Netherlands                                          | nl          |
+| North Macedonia                                      | mk          |
+| Norway                                               | no          |
+| Poland                                               | pl          |
+| Portugal                                             | pt          |
+| Romania                                              | ro          |
+| Russian Federation                                   | ru          |
+| San Marino                                           | sm          |
+| Serbia                                               | rs          |
+| Singapore                                            | sg          |
+| Slovakia                                             | sk          |
+| Slovenia                                             | si          |
+| Spain                                                | es          |
+| Sweden                                               | se          |
+| Switzerland                                          | ch          |
+| Turkey                                               | tr          |
+| Ukraine                                              | ua          |
+| United Arab Emirates                                 | ae          |
+| United Kingdom of Great Britain and Northern Ireland | gb          |
+| United States of America                             | us          |
 
 ### States
 
 Australian states:
 
-State | Region code
--- | --
-New South Wales|au-nsw
-Queensland|au-qld
-South Australia|au-sa
-Tasmania|au-tas
-Victoria|au-vic
-Western Australia|au-wa
+| State             | Region code |
+| ----------------- | ----------- |
+| New South Wales   | au-nsw      |
+| Queensland        | au-qld      |
+| South Australia   | au-sa       |
+| Tasmania          | au-tas      |
+| Victoria          | au-vic      |
+| Western Australia | au-wa       |
 
 United States of America states:
 
-State | Region code
--- | --
-Alabama|us-al
-Alaska|us-ak
-Arizona|us-az
-Arkansas|us-ar
-California|us-ca
-Colorado|us-co
-Connecticut|us-ct
-Delaware|us-de
-District of Columbia|us-dc
-Florida|us-fl
-Georgia|us-ga
-Hawaii|us-hi
-Idaho|us-id
-Illinois|us-il
-Indiana|us-in
-Iowa|us-ia
-Kansas|us-ks
-Kentucky|us-ky
-Louisiana|us-la
-Maine|us-me
-Maryland|us-md
-Massachusetts|us-ma
-Michigan|us-mi
-Minnesota|us-mn
-Mississippi|us-ms
-Missouri|us-mo
-Montana|us-mt
-Nebraska|us-ne
-Nevada|us-nv
-New Hampshire|us-nh
-New Jersey|us-nj
-New Mexico|us-nm
-New York|us-ny
-North Carolina|us-nc
-North Dakota|us-nd
-Ohio|us-oh
-Oklahoma|us-ok
-Oregon|us-or
-Pennsylvania|us-pa
-Rhode Island|us-ri
-South Carolina|us-sc
-South Dakota|us-sd
-Tennessee|us-tn
-Texas|us-tx
-Utah|us-ut
-Vermont|us-vt
-Virginia|us-va
-Washington|us-wa
-West Virginia|us-wv
-Wisconsin|us-wi
-Wyoming|us-wy
+| State                | Region code |
+| -------------------- | ----------- |
+| Alabama              | us-al       |
+| Alaska               | us-ak       |
+| Arizona              | us-az       |
+| Arkansas             | us-ar       |
+| California           | us-ca       |
+| Colorado             | us-co       |
+| Connecticut          | us-ct       |
+| Delaware             | us-de       |
+| District of Columbia | us-dc       |
+| Florida              | us-fl       |
+| Georgia              | us-ga       |
+| Hawaii               | us-hi       |
+| Idaho                | us-id       |
+| Illinois             | us-il       |
+| Indiana              | us-in       |
+| Iowa                 | us-ia       |
+| Kansas               | us-ks       |
+| Kentucky             | us-ky       |
+| Louisiana            | us-la       |
+| Maine                | us-me       |
+| Maryland             | us-md       |
+| Massachusetts        | us-ma       |
+| Michigan             | us-mi       |
+| Minnesota            | us-mn       |
+| Mississippi          | us-ms       |
+| Missouri             | us-mo       |
+| Montana              | us-mt       |
+| Nebraska             | us-ne       |
+| Nevada               | us-nv       |
+| New Hampshire        | us-nh       |
+| New Jersey           | us-nj       |
+| New Mexico           | us-nm       |
+| New York             | us-ny       |
+| North Carolina       | us-nc       |
+| North Dakota         | us-nd       |
+| Ohio                 | us-oh       |
+| Oklahoma             | us-ok       |
+| Oregon               | us-or       |
+| Pennsylvania         | us-pa       |
+| Rhode Island         | us-ri       |
+| South Carolina       | us-sc       |
+| South Dakota         | us-sd       |
+| Tennessee            | us-tn       |
+| Texas                | us-tx       |
+| Utah                 | us-ut       |
+| Vermont              | us-vt       |
+| Virginia             | us-va       |
+| Washington           | us-wa       |
+| West Virginia        | us-wv       |
+| Wisconsin            | us-wi       |
+| Wyoming              | us-wy       |
 
 # SDK
 
@@ -566,9 +567,9 @@ curl -H 'Authorization: Token API_TOKEN' \
 
 ### JSON Response
 
-Attribute | Description
---------- | -----------
-calls | Number of API calls made during the current period.
-month | Month of the current period.
-year | Year of the current period.
-total_calls | Maximum number of API calls you can make during the period. Need more? [Upgrade](https://app.platerecognizer.com/subscribe/).
+| Attribute   | Description                                                                                                                   |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| calls       | Number of API calls made during the current period.                                                                           |
+| month       | Month of the current period.                                                                                                  |
+| year        | Year of the current period.                                                                                                   |
+| total_calls | Maximum number of API calls you can make during the period. Need more? [Upgrade](https://app.platerecognizer.com/subscribe/). |

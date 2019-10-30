@@ -215,24 +215,27 @@ curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
 
 ```json
 {
-  "processing_time":138.959,
-  "timestamp":"2019-09-03T08:14:25.963264Z",
-  "results":[
-    {
-      "box":{
-        "xmin":152,
-        "ymin":485,
-        "ymax":574,
-        "xmax":282
-      },
-      "plate":"nhk552",
-      "score":0.919,
-      "dscore":0.701
-    }
-  ],
-  "filename":"08_14_car_zZamHuC.jpg",
-  "version":1,
-  "camera_id":null
+   "processing_time":128.108,
+   "results":[
+      {
+         "box":{
+            "ymin":478,
+            "xmin":144,
+            "ymax":580,
+            "xmax":288
+         },
+         "plate":"nhk552",
+         "vehicle":{
+            "type":"Car"
+         },
+         "score":0.901,
+         "dscore":0.812
+      }
+   ],
+   "filename":"14_06_bcar_783bnmm.jpg",
+   "version":1,
+   "camera_id":null,
+   "timestamp":"2019-10-30T14:06:44.066164Z"
 }
 ```
 
@@ -257,12 +260,14 @@ This endpoint reads all license plates from an image.
 
 The response is a list of all the license plates found in the image. Each license plate has the following elements:
 
-| Attribute | Description                                                                                                     |
-| --------- | --------------------------------------------------------------------------------------------------------------- |
-| box       | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate. |
-| dscore    | Score for plate detection. Range [0, 1].                                                                        |
-| plate     | Text of the license plate.                                                                                      |
-| score     | Score for reading the license plate text. Range [0, 1].                                                         |
+| Attribute            | Description                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| results/plate        | Text of the license plate.                                                                                      |
+| results/box          | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate. |
+| results/dscore       | Score for plate detection. Range [0, 1].                                                                        |
+| results/score        | Score for reading the license plate text. Range [0, 1].                                                         |
+| results/vehicle/type | Vehicle type: Ambulance, Bus, Car, Limousine, Motorcycle, Taxi, Truck, Van, Unknown.                            |
+
 
 The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
 
@@ -455,17 +460,7 @@ United States of America states:
     "calls":44
   },
   "results":[
-    {
-      "box":{
-        "xmin":143,
-        "ymin":475,
-        "ymax":577,
-        "xmax":277
-      },
-      "plate":"nhk552",
-      "score":0.909,
-      "dscore":0.522
-    }
+    ...
   ],
   "filename":"car.jpg"
 }

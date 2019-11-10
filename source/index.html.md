@@ -317,6 +317,7 @@ The regions parameter can take one of the following codes. In addition to countr
 | ---------------------------------------------------- | ----------- |
 | Albania                                              | al          |
 | Andorra                                              | ad          |
+| Angola                                               | ao          | 
 | Argentina                                            | ar          |
 | Armenia                                              | am          |
 | Australia                                            | au          |
@@ -324,46 +325,71 @@ The regions parameter can take one of the following codes. In addition to countr
 | Azerbaijan                                           | az          |
 | Belarus                                              | by          |
 | Belgium                                              | be          |
+| Belize                                               | bz          |
+| Bolivia                                              | bo          |
 | Bosnia and Herzegovina                               | ba          |
 | Brazil                                               | br          |
+| Brunei                                               | bn          |
 | Bulgaria                                             | bg          |
+| Canada                                               | ca          |
 | Chile                                                | cl          |
 | Columbia                                             | co          |
+| Costa Rica                                           | cr          |
 | Croatia                                              | hr          |
 | Cyprus                                               | cy          |
 | Czechia                                              | cz          |
 | Denmark                                              | dk          |
+| Ecuador                                              | ec          |
+| El Salvador                                          | sv          |
 | Estonia                                              | ee          |
 | Finland                                              | fi          |
 | France                                               | fr          |
+| French Guiana                                        | gf          |
 | Georgia                                              | ge          |
 | Germany                                              | de          |
 | Gibraltar                                            | gi          |
 | Greece                                               | gr          |
+| Guatamala                                            | gp          |
+| Guyana                                               | gy          |
 | Holy See                                             | va          |
+| Honduras                                             | hn          |
 | Hungary                                              | hu          |
 | Iceland                                              | is          |
+| Israel                                               | il          |
 | India                                                | in          |
 | Indonesia                                            | id          |
 | Ireland                                              | ie          |
 | Italy                                                | it          |
 | Jordan                                               | jo          |
 | Kazakhstan                                           | kz          |
+| Kenya                                                | ke          |
+| Kosovo                                               |             |
 | Korea, Republic of                                   | kr          |
 | Latvia                                               | lv          |
+| Lebanon                                              | lb          |
 | Liechtenstein                                        | li          |
 | Lithuania                                            | lt          |
 | Luxembourg                                           | lu          |
+| Malaysia                                             | my          |
+| Maldives                                             | mv          |
 | Malta                                                | mt          |
 | Mexico                                               | mx          |
 | Moldova, Republic of                                 | md          |
 | Monaco                                               | mc          |
 | Montenegro                                           | me          |
+| Nepal                                                | np          |
 | Netherlands                                          | nl          |
+| Nicaragua                                            | ni          |
+| Nigeria                                              | ng          |
 | North Macedonia                                      | mk          |
 | Norway                                               | no          |
+| Panama                                               | pa          |
+| Paraguay                                             | py          |
+| Peru                                                 | pe          |
+| Philippines                                          | ph          |
 | Poland                                               | pl          |
 | Portugal                                             | pt          |
+| Qatar                                                | qa          |
 | Romania                                              | ro          |
 | Russian Federation                                   | ru          |
 | San Marino                                           | sm          |
@@ -371,14 +397,21 @@ The regions parameter can take one of the following codes. In addition to countr
 | Singapore                                            | sg          |
 | Slovakia                                             | sk          |
 | Slovenia                                             | si          |
+| South Africa                                         | za          |
 | Spain                                                | es          |
+| Suriname                                             | sr          |
 | Sweden                                               | se          |
 | Switzerland                                          | ch          |
+| Tanzania                                             | tz          |
 | Turkey                                               | tr          |
 | Ukraine                                              | ua          |
 | United Arab Emirates                                 | ae          |
 | United Kingdom of Great Britain and Northern Ireland | gb          |
 | United States of America                             | us          |
+| Uraguay                                              | uy          |
+| Venezuela                                            | ve          |
+| Vietnam                                              | vn          |
+| Zambia                                               | zm          | 
 
 ### States
 

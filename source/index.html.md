@@ -13,6 +13,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://platerecognizer.com/accounts/signup/?from-doc'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
 
 includes:
   - errors
@@ -215,27 +216,38 @@ curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
 
 ```json
 {
-   "processing_time":128.108,
+   "processing_time":78.569,
    "results":[
       {
          "box":{
             "ymin":478,
-            "xmin":144,
-            "ymax":580,
+            "xmin":148,
+            "ymax":579,
             "xmax":288
          },
          "plate":"nhk552",
+         "region":{
+            "score":0.948,
+            "code":"gb"
+         },
          "vehicle":{
+            "score":0.842,
             "type":"Car"
          },
-         "score":0.901,
-         "dscore":0.812
+         "score":0.896,
+         "candidates":[
+            {
+               "score":0.896,
+               "plate":"nhk552"
+            }
+         ],
+         "dscore":0.74
       }
    ],
-   "filename":"14_06_bcar_783bnmm.jpg",
+   "filename":"15_54_bcar_586jvjP.jpg",
    "version":1,
    "camera_id":null,
-   "timestamp":"2019-10-30T14:06:44.066164Z"
+   "timestamp":"2019-12-03T15:54:49.093210Z"
 }
 ```
 
@@ -267,6 +279,7 @@ The response is a list of all the license plates found in the image. Each licens
 | results/dscore       | Score for plate detection. Range [0, 1].                                                                        |
 | results/score        | Score for reading the license plate text. Range [0, 1].                                                         |
 | results/vehicle/type | Vehicle type: Ambulance, Bus, Car, Limousine, Motorcycle, Taxi, Truck, Van, Unknown.                            |
+| results/region/code  | Region of license plate. Returns a code from the [country list](#regions-supported).                            |
 
 
 The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
@@ -317,7 +330,7 @@ The regions parameter can take one of the following codes. In addition to countr
 | ---------------------------------------------------- | ----------- |
 | Albania                                              | al          |
 | Andorra                                              | ad          |
-| Angola                                               | ao          | 
+| Angola                                               | ao          |
 | Argentina                                            | ar          |
 | Armenia                                              | am          |
 | Australia                                            | au          |
@@ -410,7 +423,7 @@ The regions parameter can take one of the following codes. In addition to countr
 | Uraguay                                              | uy          |
 | Venezuela                                            | ve          |
 | Vietnam                                              | vn          |
-| Zambia                                               | zm          | 
+| Zambia                                               | zm          |
 
 ### States
 
@@ -483,35 +496,35 @@ United States of America states:
 
 Brazilian states:
 
-| State                | Region Code |
-| -------------------- | ----------- |
-| Acre                 | br-ac       |
-| Alagoas              | br-al       |
-| Amapá                | br-ap       |
-| Amazonas             | br-am       |
-| Bahia                | br-ba       |
-| Ceará                | br-ce       |
-| Distrito Federal     | br-df       |
-| Espírito Santo       | br-es       |
-| Goiás                | br-go       |
-| Manias Gerais        | br-mg       |
-| Maranhão             | br-ma       |
-| Mato Grosso do Sul   | br-ms       |
-| Mato Grosso          | br-mt       |
-| Pernambuco           | br-pe       |
-| Pará                 | br-pa       |
-| Paraíba              | br-pb       |
-| Paraná               | br-pr       |
-| Piauí                | br-pi       |
-| Rio de Janeiro       | br-rj       |
-| Rio Grande do Norte  | br-rn       |
-| Rio Grande do Sul    | br-rs       |
-| Rondônia             | br-ro       |
-| Roraima              | br-rr       |
-| São Paulo            | br-sp       |
-| Sergipe              | br-se       |
-| Santa Catarina       | br_sc       |
-| Tocantins            | br-to       |
+| State               | Region Code |
+| ------------------- | ----------- |
+| Acre                | br-ac       |
+| Alagoas             | br-al       |
+| Amapá               | br-ap       |
+| Amazonas            | br-am       |
+| Bahia               | br-ba       |
+| Ceará               | br-ce       |
+| Distrito Federal    | br-df       |
+| Espírito Santo      | br-es       |
+| Goiás               | br-go       |
+| Manias Gerais       | br-mg       |
+| Maranhão            | br-ma       |
+| Mato Grosso do Sul  | br-ms       |
+| Mato Grosso         | br-mt       |
+| Pernambuco          | br-pe       |
+| Pará                | br-pa       |
+| Paraíba             | br-pb       |
+| Paraná              | br-pr       |
+| Piauí               | br-pi       |
+| Rio de Janeiro      | br-rj       |
+| Rio Grande do Norte | br-rn       |
+| Rio Grande do Sul   | br-rs       |
+| Rondônia            | br-ro       |
+| Roraima             | br-rr       |
+| São Paulo           | br-sp       |
+| Sergipe             | br-se       |
+| Santa Catarina      | br_sc       |
+| Tocantins           | br-to       |
 
 
 

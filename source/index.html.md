@@ -12,7 +12,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - cpp
 
 toc_footers:
-  - <a href='https://platerecognizer.com/accounts/signup/?from-doc'>Sign Up for a Developer Key</a>
+  - <a href='https://app.platerecognizer.com/accounts/signup/?from-doc'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
 
 includes:

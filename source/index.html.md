@@ -326,104 +326,108 @@ Support for camera and location is currently in beta testing and is only availab
 
 The regions parameter can take one of the following codes. In addition to country, you can also provide a [states](#states) to select more specific license plate patterns. States are only supported for USA and Australia.
 
-| Country                                              | Region code |
-| ---------------------------------------------------- | ----------- |
-| Albania                                              | al          |
-| Andorra                                              | ad          |
-| Angola                                               | ao          |
-| Argentina                                            | ar          |
-| Armenia                                              | am          |
-| Australia                                            | au          |
-| Austria                                              | at          |
-| Azerbaijan                                           | az          |
-| Belarus                                              | by          |
-| Belgium                                              | be          |
-| Belize                                               | bz          |
-| Bolivia                                              | bo          |
-| Bosnia and Herzegovina                               | ba          |
-| Brazil                                               | br          |
-| Brunei                                               | bn          |
-| Bulgaria                                             | bg          |
-| Canada                                               | ca          |
-| Chile                                                | cl          |
-| Columbia                                             | co          |
-| Costa Rica                                           | cr          |
-| Croatia                                              | hr          |
-| Cyprus                                               | cy          |
-| Czechia                                              | cz          |
-| Denmark                                              | dk          |
-| Ecuador                                              | ec          |
-| El Salvador                                          | sv          |
-| Estonia                                              | ee          |
-| Finland                                              | fi          |
-| France                                               | fr          |
-| French Guiana                                        | gf          |
-| Georgia                                              | ge          |
-| Germany                                              | de          |
-| Gibraltar                                            | gi          |
-| Greece                                               | gr          |
-| Guatamala                                            | gp          |
-| Guyana                                               | gy          |
-| Holy See                                             | va          |
-| Honduras                                             | hn          |
-| Hungary                                              | hu          |
-| Iceland                                              | is          |
-| Israel                                               | il          |
-| India                                                | in          |
-| Indonesia                                            | id          |
-| Ireland                                              | ie          |
-| Italy                                                | it          |
-| Jordan                                               | jo          |
-| Kazakhstan                                           | kz          |
-| Kenya                                                | ke          |
-| Korea, Republic of                                   | kr          |
-| Latvia                                               | lv          |
-| Lebanon                                              | lb          |
-| Liechtenstein                                        | li          |
-| Lithuania                                            | lt          |
-| Luxembourg                                           | lu          |
-| Malaysia                                             | my          |
-| Maldives                                             | mv          |
-| Malta                                                | mt          |
-| Mexico                                               | mx          |
-| Moldova, Republic of                                 | md          |
-| Monaco                                               | mc          |
-| Montenegro                                           | me          |
-| Nepal                                                | np          |
-| Netherlands                                          | nl          |
-| Nicaragua                                            | ni          |
-| Nigeria                                              | ng          |
-| North Macedonia                                      | mk          |
-| Norway                                               | no          |
-| Panama                                               | pa          |
-| Paraguay                                             | py          |
-| Peru                                                 | pe          |
-| Philippines                                          | ph          |
-| Poland                                               | pl          |
-| Portugal                                             | pt          |
-| Qatar                                                | qa          |
-| Romania                                              | ro          |
-| Russian Federation                                   | ru          |
-| San Marino                                           | sm          |
-| Serbia                                               | rs          |
-| Singapore                                            | sg          |
-| Slovakia                                             | sk          |
-| Slovenia                                             | si          |
-| South Africa                                         | za          |
-| Spain                                                | es          |
-| Suriname                                             | sr          |
-| Sweden                                               | se          |
-| Switzerland                                          | ch          |
-| Tanzania                                             | tz          |
-| Turkey                                               | tr          |
-| Ukraine                                              | ua          |
-| United Arab Emirates                                 | ae          |
-| United Kingdom of Great Britain and Northern Ireland | gb          |
-| United States of America                             | us          |
-| Uraguay                                              | uy          |
-| Venezuela                                            | ve          |
-| Vietnam                                              | vn          |
-| Zambia                                               | zm          |
+The column **Prediction** indicates if the region is supported by our region classification predictor (field `results/region/code`).
+
+| Country                         | Region code | Prediction |
+| ------------------------------- | ----------- | ---------- |
+| Albania                         | al          |            |
+| Andorra                         | ad          |            |
+| Angola                          | ao          |            |
+| Argentina                       | ar          | Yes        |
+| Armenia                         | am          | Yes        |
+| Australia                       | au          | Yes        |
+| Austria                         | at          | Yes        |
+| Azerbaijan                      | az          | Yes        |
+| Belarus                         | by          | Yes        |
+| Belgium                         | be          | Yes        |
+| Belize                          | bz          |            |
+| Bolivia                         | bo          |            |
+| Bosnia and Herzegovina          | ba          |            |
+| Brazil                          | br          | Yes        |
+| Brunei                          | bn          |            |
+| Bulgaria                        | bg          | Yes        |
+| Canada                          | ca          | Yes        |
+| Chile                           | cl          | Yes        |
+| Columbia                        | co          | Yes        |
+| Costa Rica                      | cr          | Yes        |
+| Croatia                         | hr          | Yes        |
+| Cyprus                          | cy          |            |
+| Czechia                         | cz          | Yes        |
+| Denmark                         | dk          |            |
+| Ecuador                         | ec          |            |
+| El Salvador                     | sv          |            |
+| Estonia                         | ee          | Yes        |
+| Finland                         | fi          | Yes        |
+| France                          | fr          | Yes        |
+| French Guiana                   | gf          |            |
+| Georgia                         | ge          | Yes        |
+| Germany                         | de          | Yes        |
+| Gibraltar                       | gi          |            |
+| Greece                          | gr          | Yes        |
+| Guatamala                       | gp          |            |
+| Guyana                          | gy          |            |
+| Holy See                        | va          |            |
+| Honduras                        | hn          |            |
+| Hungary                         | hu          | Yes        |
+| Iceland                         | is          |            |
+| Israel                          | il          | Yes        |
+| India                           | in          | Yes        |
+| Indonesia                       | id          | Yes        |
+| Ireland                         | ie          |            |
+| Italy                           | it          | Yes        |
+| Jordan                          | jo          |            |
+| Kazakhstan                      | kz          | Yes        |
+| Kenya                           | ke          |            |
+| Korea, Republic of              | kr          |            |
+| Latvia                          | lv          | Yes        |
+| Lebanon                         | lb          |            |
+| Liechtenstein                   | li          |            |
+| Lithuania                       | lt          | Yes        |
+| Luxembourg                      | lu          | Yes        |
+| Malaysia                        | my          |            |
+| Maldives                        | mv          |            |
+| Malta                           | mt          |            |
+| Mexico                          | mx          |            |
+| Moldova, Republic of            | md          | Yes        |
+| Monaco                          | mc          | Yes        |
+| Montenegro                      | me          | Yes        |
+| Nepal                           | np          |            |
+| Netherlands                     | nl          | Yes        |
+| New Zealand                     | nz          | Yes        |
+| Nicaragua                       | ni          |            |
+| Nigeria                         | ng          |            |
+| North Macedonia                 | mk          |            |
+| Norway                          | no          | Yes        |
+| Panama                          | pa          |            |
+| Paraguay                        | py          |            |
+| Peru                            | pe          |            |
+| Philippines                     | ph          |            |
+| Poland                          | pl          | Yes        |
+| Portugal                        | pt          | Yes        |
+| Qatar                           | qa          |            |
+| Romania                         | ro          | Yes        |
+| Russian Federation              | ru          |            |
+| San Marino                      | sm          |            |
+| Serbia                          | rs          | Yes        |
+| Singapore                       | sg          |            |
+| Slovakia                        | sk          | Yes        |
+| Slovenia                        | si          |            |
+| South Africa                    | za          | Yes        |
+| Spain                           | es          | Yes        |
+| Suriname                        | sr          |            |
+| Sweden                          | se          | Yes        |
+| Switzerland                     | ch          | Yes        |
+| Tanzania                        | tz          |            |
+| Turkey                          | tr          | Yes        |
+| Ukraine                         | ua          | Yes        |
+| United Arab Emirates            | ae          | Yes        |
+| United Kingdom of Great Britain | gb          | Yes        |
+| United States of America        | us          | Yes        |
+| Uraguay                         | uy          |            |
+| Uzbekistan                      | uz          | Yes        |
+| Venezuela                       | ve          |            |
+| Vietnam                         | vn          | Yes        |
+| Zambia                          | zm          |            |
 
 ### States
 

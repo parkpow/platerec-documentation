@@ -261,7 +261,7 @@ This endpoint reads all license plates from an image.
 
 | Parameter | Required | Description                                                                                                                                                 |
 | --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded                                                                                                                                     |
+| upload    | Yes      | The file to be uploaded.The parameter can either be the file content (using Content-Type multipart/form-data) or a base64 encoded image.|
 | regions   | No       | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used **multiple times** to specify more than one region. * |
 | camera_id | No       | Unique camera identifier.                                                                                                                                   |
 | timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                             |

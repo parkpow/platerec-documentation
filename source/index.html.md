@@ -545,6 +545,8 @@ Brazilian states:
   "results":[
     ...
   ],
+  "camera_id": "null",
+  "timestamp": "2020-01-16 17:00:00",
   "filename":"car.jpg"
 }
 ```
@@ -557,9 +559,9 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 
 Accepts the same parameters as the [recognition API](#read-number-plates-from-an-image).
 
-<aside class="notice">
+<!-- <aside class="notice">
 SDK API does not support fields <code>camera_id</code> and <code>timestamp</code>.
-</aside>
+</aside> -->
 
 ### JSON Response
 

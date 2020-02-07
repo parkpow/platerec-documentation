@@ -99,7 +99,7 @@ curl_close($ch);
 # pip install requests
 import requests
 from pprint import pprint
-regions = ['fr', 'it']
+regions = ['gb', 'it']
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
@@ -112,12 +112,7 @@ pprint(response.json())
 
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
-  -H 'Authorization: Token API_TOKEN' \
-  https://api.platerecognizer.com/v1/plate-reader/
-
-# You may also include regions
-curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr -F regions=us-ca \
+  -F regions=fr -F regions=gb \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 
@@ -131,7 +126,8 @@ const fs = require('fs');
 let image_path = '/path/to/car.jpg'
 let body = new FormData();
 body.append('upload', fs.createReadStream(image_path));
-
+// Or body.append('upload', base64Image);
+body.append('regions', 'gb');
 fetch("https://api.platerecognizer.com/v1/plate-reader/", {
         method: 'POST',
         headers: {
@@ -146,68 +142,35 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 ```
 
 ```csharp
-// View the complete example here:
+// Complete Example:
+
 // https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/csharp/PlateRecognizer
 
-HttpWebRequest request = WebRequest.Create(postUrl) as HttpWebRequest;
+// Function calling the API:
 
-// Set up the request properties.
-request.Method = "POST";
-request.ContentType = contentType;
-request.UserAgent = ".NET Framework CSharp Client";
-request.CookieContainer = new CookieContainer();
-request.ContentLength = formData.Length;
-request.Headers.Add("Authorization", "Token " + token);
-
-// Send the form data to the request.
-using (Stream requestStream = request.GetRequestStream())
-{
-    requestStream.Write(formData, 0, formData.Length);
-    requestStream.Close();
-}
-
-HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/csharp/PlateRecognizer/PlateReader.cs#L23
 
 ```
 
 ```java
-// View the complete example here:
+// Complete Example:
+
 // https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
 
-String token = "MY_API_KEY";
-String file = "C:\\assets\\demo.jpg";
-        
-try{
-  HttpResponse<String> response = Unirest.post("https://api.platerecognizer.com/v1/plate-reader/")
-  .header("Authorization", "Token "+token)
-  .field("upload", new File(file))
-  .asString();
-  System.out.println("Recognize:");
-  System.out.println(response.getBody().toString());
-}
-catch(Exception e){
-  System.out.println(e);
-}
-        
-        
-    
+// Function calling the API:
+
+// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/java/PlateRecognizer/src/main/java/com/mycompany/numberplate/recognize.java#L17    
 ```
 
 ```cpp
-// View the complete example here:
+// Complete Example (Windows or Linux):
+
 // https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer
-CURL *hnd = curl_easy_init();
 
-//curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
-curl_easy_setopt(hnd, CURLOPT_URL, "https://api.platerecognizer.com/v1/plate-reader/");
+// Function calling the API:
 
-form = curl_mime_init(hnd); //initialize form fields
-
-/* Fill in the file upload field */
-field = curl_mime_addpart(form);
-curl_mime_name(field, "upload");
-curl_mime_filedata(field, fileName.c_str());
-curl_easy_setopt(hnd, CURLOPT_MIMEPOST, form);
+// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/cpp/linux/numberPlate.cpp#L25
+// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/cpp/windows/ConsoleApplication2/ConsoleApplication2.cpp#L29
 ```
 
 
@@ -259,12 +222,13 @@ This endpoint reads all license plates from an image.
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                 |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) or a **base64** encoded image.             |
+| Parameter | Required | Description                                                                                                                                                             |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) or a **base64** encoded image.                         |
 | regions   | No       | Match the license plate pattern of a specific region or [regions](#regions-supported). This parameter can be used **multiple times** to specify more than one region. * |
-| camera_id | No       | Unique camera identifier.                                                                                                                                   |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                             |
+| camera_id | No       | Unique camera identifier.                                                                                                                                               |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                                         |
+| mmc       | No       | Predict vehicle make and model. This feature is only available upon [request](https://platerecognizer.com/contact/). Possible values are "true" or "false".             |
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
@@ -287,40 +251,6 @@ The value **dscore** is dependent on the type of image we are processing. For ex
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
-
-<!--
-## Camera and Location Support
-```shell
-curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr -F regions=us-ca \
-  -F camera_id=123 \
-  -F latitude=1.23366 \
-  -F longitude=-12.44556 \
-  -H 'Authorization: Token API_TOKEN' \
-  https://api.platerecognizer.com/v1/plate-reader-dashboard/
-
-```
-
-This endpoint supports additional camera and location parameters. <a href="https://platerecognizer.com/contact/">Contact</a> us is you are interested in using this feature.
-
-### HTTP Request
-
-`POST https://api.platerecognizer.com/v1/plate-reader-dashboard/`
-
-### POST Parameters
-
-| Parameter | Required | Description                                                                                                           |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded                                                                                               |
-| regions   | No       | Match the license plate pattern of specific [regions](#regions-supported). This parameter can be used multiple times. |
-| camera_id | Yes      | unique ID for camera                                                                                                  |
-| latitude  | No       | Latitude location of the camera                                                                                       |
-| longitude | No       | Logitude location of the camera                                                                                       |
-
-<aside class="notice">
-Support for camera and location is currently in beta testing and is only available on invite-only basis.
-</aside>
- -->
 
 ## Regions supported
 
@@ -534,6 +464,8 @@ Brazilian states:
 
 # SDK
 
+## Recognition API
+
 > Return value
 
 ```json
@@ -567,7 +499,29 @@ SDK API does not support fields <code>camera_id</code> and <code>timestamp</code
 
 Returns the same parameters as the [recognition API](#read-number-plates-from-an-image). In addition to that, it returns the **number of calls** used.
 
-#WebHooks
+
+## SDK version
+
+> Return value
+
+```json
+{
+    "version": "1.3.8",
+    "license_key": "XXX",
+    "webhooks": []
+}
+```
+
+### HTTP Request
+
+`GET http://localhost:8080/info/`
+
+### JSON Response
+
+Returns the SDK version, license key and webhooks.
+
+
+# WebHooks
 
 > Example of POST payload
 

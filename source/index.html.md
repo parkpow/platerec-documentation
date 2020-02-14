@@ -236,17 +236,20 @@ This endpoint reads all license plates from an image.
 
 The response is a list of all the license plates found in the image. Each license plate has the following elements:
 
-| Attribute            | Description                                                                                                     |
-| -------------------- | --------------------------------------------------------------------------------------------------------------- |
-| results/plate        | Text of the license plate.                                                                                      |
-| results/box          | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate. |
-| results/dscore       | Score for plate detection. Range [0, 1].                                                                        |
-| results/score        | Score for reading the license plate text. Range [0, 1].                                                         |
-| results/vehicle/type | Vehicle type: Ambulance, Bus, Car, Limousine, Motorcycle, Taxi, Truck, Van, Unknown.                            |
-| results/region/code  | Region of license plate. Returns a code from the [country list](#regions-supported).                            |
+| Attribute             | Description                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| results/plate         | Text of the license plate.                                                                                          |
+| results/box           | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.     |
+| results/dscore        | Confidence level for plate **detection**.                                                                           |
+| results/score         | Confidence level for **reading** the license plate text.                                                            |
+| results/vehicle/type  | Vehicle type: Ambulance, Bus, Car, Limousine, Motorcycle, Taxi, Truck, Van, Unknown.                                |
+| results/vehicle/score | Confidence level for vehicle prediction.                                                                            |
+| results/region/code   | Region of license plate. Returns a code from the [country list](#regions-supported).                                |
+| results/region/score  | Confidence level for license plate region.                                                                          |
+| results/candidates    | List of predictions for the license plate value. The first element is the top prediction (same as `results/plate`). |
 
-
-The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
+- Scores vary between 0 and 1. A prediction with a **score close to 1** indicates high confidence.
+- The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
 
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.

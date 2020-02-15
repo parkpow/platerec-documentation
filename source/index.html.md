@@ -160,6 +160,10 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 // Function calling the API:
 
 // https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/java/PlateRecognizer/src/main/java/com/mycompany/numberplate/recognize.java#L17    
+
+// Complete Android App Example:
+
+// https://github.com/parkpow/alpr-anpr-android/
 ```
 
 ```cpp

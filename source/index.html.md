@@ -575,7 +575,7 @@ Returns the SDK version, license key and webhooks.
 
 Our service also have a webhook service that allows you to receive a HTTP **POST** request to a target URL of your choosing. To configure webhooks, go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
 
-To quickly test out this feature, you can use the URL from a [http://webhook.site](http://webhook.site).
+To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
 
 
 

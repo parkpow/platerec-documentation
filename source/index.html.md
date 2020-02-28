@@ -119,7 +119,7 @@ curl -F 'upload=@/path/to/car.jpg' \
 ```
 
 ```javascript
-// Using Node-RED ? Check https://github.com/parkpow/node-red-contrib-plate-recognizer
+// Using Node-RED ? Check https://github.com/parkpow/node-red-contrib-plate-recognizer and https://www.npmjs.com/package/node-red-contrib-plate-recognizer
 
 const fetch = require('node-fetch');
 const FormData = require('form-data');

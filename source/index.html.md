@@ -576,10 +576,17 @@ Returns the SDK version, license key and webhooks.
 }
 ```
 
-Our service also have a webhook service that allows you to receive a HTTP **POST** request to a target URL of your choosing. To configure webhooks, go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
+Our service also supports webhooks. It allows you to receive a HTTP **POST** request to a target URL of your choosing. Go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target.
 
 To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
 
+### HTTP Request
+
+`POST target_url`
+
+`target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
+
+The request body contains the same data as the standard recognition API.
 
 
 

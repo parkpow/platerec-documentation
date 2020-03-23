@@ -99,7 +99,7 @@ curl_close($ch);
 # pip install requests
 import requests
 from pprint import pprint
-regions = ['gb', 'it']
+regions = ['gb', 'it'] # Change to your country
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
@@ -112,7 +112,8 @@ pprint(response.json())
 
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr -F regions=gb \
+  -F regions=fr \
+  -F regions=gb \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 
@@ -130,7 +131,7 @@ let image_path = '/path/to/car.jpg'
 let body = new FormData();
 body.append('upload', fs.createReadStream(image_path));
 // Or body.append('upload', base64Image);
-body.append('regions', 'gb');
+body.append('regions', 'gb'); // Change to your country
 fetch("https://api.platerecognizer.com/v1/plate-reader/", {
         method: 'POST',
         headers: {

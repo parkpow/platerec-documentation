@@ -494,17 +494,24 @@ Brazilian states:
 }
 ```
 
-Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has the **same interface** as the [recognition API](#read-number-plates-from-an-image). Note that it is hosted locally.
+Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has the **same interface** as the [recognition API](#read-number-plates-from-an-image) and it is hosted locally.
 
 ### HTTP Request
 
 `POST http://localhost:8080/alpr`
 
-Accepts the same parameters as the [recognition API](#read-number-plates-from-an-image).
+### POST Parameters
 
-<!-- <aside class="notice">
-SDK API does not support fields <code>camera_id</code> and <code>timestamp</code>.
-</aside> -->
+| Parameter | Required | Description                                                                       |
+| --------- | -------- | --------------------------------------------------------------------------------- |
+| -         | -        | **All** the parameters from [recognition API](#read-number-plates-from-an-image). |
+| config    | No       | Additional engine configuration. See below.                                       |
+
+**config** is a JSON value to change the engine configuration. It can take the following values:
+
+- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
+- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
+
 
 ### JSON Response
 

@@ -498,7 +498,7 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 
 ### HTTP Request
 
-`POST http://localhost:8080/alpr`
+`POST http://localhost:8080/v1/plate-reader/`
 
 ### POST Parameters
 

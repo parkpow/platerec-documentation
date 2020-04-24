@@ -230,13 +230,13 @@ This endpoint reads all license plates from an image.
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                                 |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                             |
-| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *             |
-| camera_id | No       | Unique camera identifier.                                                                                                                                                   |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                                             |
-| mmc       | No       | Predict vehicle make and model. This feature is only available upon [request](https://platerecognizer.com/contact/) and is SDK only. Possible values are "true" or "false". |
+| Parameter | Required | Description                                                                                                                                                     |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                 |
+| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. * |
+| camera_id | No       | Unique camera identifier.                                                                                                                                       |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, 2019-08-19T13:11:25. The timestamp has to be in UTC.                                 |
+
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
@@ -475,6 +475,18 @@ The column **Prediction** indicates if the region is supported by our region cla
 
 ## Recognition API
 
+```shell
+# Parameters config and mmc are optional
+curl -F 'upload=@/path/to/car.jpg' \
+  -F regions=fr \
+  -F regions=it \
+  -F mmc=true \
+  -F config='{"mode":"fast"}' \
+  http://localhost:8080/v1/plate-reader/
+
+```
+
+
 > Return value
 
 ```json
@@ -492,7 +504,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 }
 ```
 
-Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has the **same interface** as the [recognition API](#read-number-plates-from-an-image) and it is hosted locally.
+Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has a **similar interface** as the [recognition API](#read-number-plates-from-an-image) and it is hosted locally. See differences below.
 
 ### HTTP Request
 
@@ -500,10 +512,11 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                       |
-| --------- | -------- | --------------------------------------------------------------------------------- |
-| -         | -        | **All** the parameters from [recognition API](#read-number-plates-from-an-image). |
-| config    | No       | Additional engine configuration. See below.                                       |
+| Parameter | Required | Description                                                                                                                                                                 |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -         | -        | **All** the parameters from [recognition API](#read-number-plates-from-an-image).                                                                                           |
+| mmc       | No       | Predict vehicle make and model. This feature is only available upon [request](https://platerecognizer.com/contact/) and is SDK only. Possible values are "true" or "false". |
+| config    | No       | Additional engine configuration. See below.                                                                                                                                 |
 
 **config** is a JSON value to change the engine configuration. It can take the following values:
 

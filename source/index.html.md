@@ -236,7 +236,7 @@ This endpoint reads all license plates from an image.
 | regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. * |
 | camera_id | No       | Unique camera identifier.                                                                                                                                       |
 | timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                               |
-| mmc       | No       | Predict vehicle make and model. This feature is only available **[upon request]**(https://platerecognizer.com/contact/). Possible values are `true` or `false`. |
+| mmc       | No       | Predict vehicle make and model. This feature is only available **[upon request](https://platerecognizer.com/contact/)**. Possible values are `true` or `false`. |
 
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.

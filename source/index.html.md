@@ -629,7 +629,8 @@ curl -H 'Authorization: Token API_TOKEN' \
   "usage": {
     "month": 1,
     "calls": 128,
-    "year": 2019
+    "year": 2019,
+    "resets_on": "2019-01-14T00:00:00Z"
   },
   "total_calls": 2500
 }
@@ -642,4 +643,5 @@ curl -H 'Authorization: Token API_TOKEN' \
 | calls       | Number of API calls made during the current period.                                                                           |
 | month       | Month of the current period.                                                                                                  |
 | year        | Year of the current period.                                                                                                   |
+| resets_on   | Date when the counter will reset.                                                                                             |
 | total_calls | Maximum number of API calls you can make during the period. Need more? [Upgrade](https://app.platerecognizer.com/subscribe/). |

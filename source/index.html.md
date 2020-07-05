@@ -12,7 +12,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - cpp
 
 toc_footers:
-  - <a href='https://app.platerecognizer.com/accounts/signup/?from-doc'>Sign Up for a Developer Key</a>
+  - <a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
 
 includes:
@@ -23,15 +23,14 @@ search: true
 
 # Introduction
 
-Welcome to the Plate Recognizer API! You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions
-on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/).
+Welcome to the Plate Recognizer Snapshot API!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/?utm_source=docs&utm_medium=website).
 
 We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 
 # Authentication
 
-Plate Recognizer API is only available to registered users. You first have to register and **[get an API key](https://platerecognizer.com/)**. It has to be included in all API calls. The HTTP **headers** must contain:
+Plate Recognizer Snapshot API is only available to registered users.  [Sign up](https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website) for a Free Trial and get an **API key**. It has to be included in all API calls. The HTTP **headers** must contain:
 
 `Authorization: Token API_TOKEN`
 
@@ -222,7 +221,11 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 }
 ```
 
-This endpoint reads all license plates from an image.
+This Snapshot API endpoint reads all license plates from an image.
+
+If you need to detect vehicles and decode license plates from a live camera or video feed, consider using [Plate Recognizer Stream](https://platerecognizer.com/stream/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) to request a Free Trial of Stream.
+
+If you need to blur license plates, consider using [Plate Recognizer Blur](https://platerecognizer.com/blur/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.
 
 ### HTTP Request
 
@@ -230,13 +233,13 @@ This endpoint reads all license plates from an image.
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                     |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                 |
-| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. * |
-| camera_id | No       | Unique camera identifier.                                                                                                                                       |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                               |
-| mmc       | No       | Predict vehicle make and model. This feature is only available **[upon request](https://platerecognizer.com/contact/)**. Possible values are `true` or `false`. |
+| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                                                                                                                                             |
+| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                                                                                                                                                             |
+| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                                                                                                                                           |
+| mmc       | No       | Predict vehicle make, model and color. This feature is only available upon request and requires an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website).  [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.  Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
 
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
@@ -267,6 +270,8 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 ## Countries
 
 Codes for the `regions` parameter. You can also provide a state to select more specific license plate patterns. States are only supported for some countries.
+
+Don't see your country listed?   [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.
 
 The column **Prediction** indicates if the region is supported by our region classification predictor (field `results/region/code`).
 

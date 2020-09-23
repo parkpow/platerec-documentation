@@ -437,7 +437,8 @@ The column **Prediction** indicates if the region is supported by our region cla
 ### Thailand
 
 <aside class="warn">
-This country is only available in Snapshot SDK. Thai characters are not supported on our Cloud API.
+This country is only available in Snapshot SDK. Thai characters are not supported on our Cloud API. You will need a custom Docker image.
+Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [installation instructions](https://app.platerecognizer.com/sdk/).
 </aside>
 
 | State               | Region code |

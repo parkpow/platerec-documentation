@@ -187,38 +187,58 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 
 ```json
 {
-   "processing_time":78.569,
-   "results":[
-      {
-         "box":{
-            "ymin":478,
-            "xmin":148,
-            "ymax":579,
-            "xmax":288
-         },
-         "plate":"nhk552",
-         "region":{
-            "score":0.948,
-            "code":"gb"
-         },
-         "vehicle":{
-            "score":0.842,
-            "type":"Car"
-         },
-         "score":0.896,
-         "candidates":[
-            {
-               "score":0.896,
-               "plate":"nhk552"
-            }
-         ],
-         "dscore":0.74
-      }
-   ],
-   "filename":"15_54_bcar_586jvjP.jpg",
-   "version":1,
-   "camera_id":null,
-   "timestamp":"2019-12-03T15:54:49.093210Z"
+    "processing_time": 288.758,
+    "results": [
+        {
+            "box": {
+                "xmin": 143,
+                "ymin": 481,
+                "xmax": 282,
+                "ymax": 575
+            },
+            "plate": "nhk552",
+            "region": {
+                "code": "gb",
+                "score": 0.747
+            },
+            "vehicle": {
+                "score": 0.798,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 67,
+                    "ymin": 113,
+                    "xmax": 908,
+                    "ymax": 653
+                }
+            },
+            "score": 0.904,
+            "candidates": [
+                {
+                    "score": 0.904,
+                    "plate": "nhk552"
+                }
+            ],
+            "dscore": 0.99,
+            // Make Model and Color are only available if you set mmc=true
+            "model_make": [
+                {
+                    "make": "Riley",
+                    "model": "RMF",
+                    "score": 0.3062511384487152
+                }
+            ],
+            "color": [
+                {
+                    "color": "black",
+                    "score": 0.9377450942993164
+                }
+            ]
+        }
+    ],
+    "filename": "1617_7M83K_car.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2020-10-12T16:17:27.574008Z"
 }
 ```
 
@@ -234,13 +254,13 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                                                                                                                                             |
-| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                                                                                                                                                             |
-| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                                                                                                                                           |
-| mmc       | No       | Predict vehicle make, model and color. This feature is only available upon request and requires an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website).  [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.  Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
+| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                |
+| --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                            |
+| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                            |
+| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                  |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                          |
+| mmc       | No       | Predict vehicle make, model and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
 
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.

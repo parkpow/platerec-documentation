@@ -8,4 +8,4 @@
 
 # FAQ
 
-Can't make it work? We may have answers on our [FAQ](https://platerecognizer.com/questions-about-plate-recognition/).
+Can't make it work? We may have answers on our [FAQ](https://platerecognizer.com/help/).

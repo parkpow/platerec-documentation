@@ -723,15 +723,34 @@ Our service also supports webhooks. It allows you to receive a HTTP **POST** req
 
 To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
 
+The `target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
+
+<aside class="notice">
+We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/webhooks/">set up a webhook</a> on your own machine on our Github.
+</aside>
+
+## Data Only Webhook
+
 ### HTTP Request
 
 `POST target_url`
 
-`target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
+The request body contains the payload above in JSON format.
 
-The request body contains the same data as the standard recognition API.
+## Webhook With Image
 
+### HTTP Request
 
+`POST target_url`
+
+The request body contains a `multipart/form-data` content. With two fields:
+
+- `upload` contains the image binary content
+- `json` is the JSON encoded data. See the example of the payload above.
+
+<aside class="notice">
+The bounding box of the license plate are calculated based on the image sent by webhook.
+</aside>
 
 
 # Statistics

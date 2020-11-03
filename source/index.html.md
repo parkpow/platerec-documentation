@@ -726,7 +726,7 @@ To quickly test out this feature, you can use [http://webhook.site](http://webho
 The `target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
 
 <aside class="notice">
-We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/webhooks/">set up a webhook</a> on your own machine on our Github.
+We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine on our Github.
 </aside>
 
 ## Data Only Webhook

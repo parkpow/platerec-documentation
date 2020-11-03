@@ -726,7 +726,7 @@ To quickly test out this feature, you can use [http://webhook.site](http://webho
 The `target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
 
 <aside class="notice">
-We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine on our Github.
+We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.
 </aside>
 
 ## Data Only Webhook
@@ -743,7 +743,7 @@ The request body contains the payload above in JSON format.
 
 `POST target_url`
 
-The request body contains a `multipart/form-data` content. With two fields:
+The request body contains a `multipart/form-data` content. Receiving this data is like receiving the content of a form with an `input` of type file. It has two fields:
 
 - `upload` contains the image binary content
 - `json` is the JSON encoded data. See the example of the payload above.

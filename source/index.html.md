@@ -731,15 +731,21 @@ We have sample code for how to <a href="https://github.com/marcbelmont/deep-lice
 
 ## Data Only Webhook
 
-### HTTP Request
+### Snapshot: HTTP Request
 
 `POST target_url`
 
 The request body contains the payload above in JSON format.
 
+### Stream: HTTP Request
+
+`POST target_url`
+
+The request body contains a `json` field with JSON encoded data. See the example above for the content of that field.
+
 ## Webhook With Image
 
-### HTTP Request
+### Snapshot & Stream: HTTP Request
 
 `POST target_url`
 

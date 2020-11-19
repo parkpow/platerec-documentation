@@ -224,13 +224,19 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
                 {
                     "make": "Riley",
                     "model": "RMF",
-                    "score": 0.3062511384487152
+                    "score": 0.306
                 }
             ],
             "color": [
                 {
                     "color": "black",
-                    "score": 0.9377450942993164
+                    "score": 0.937
+                }
+            ],
+            "orientation": [
+                {
+                    "orientation": "Front",
+                    "score": 0.937
                 }
             ]
         }
@@ -269,23 +275,25 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 The response is a list of all the license plates found in the image. Each license plate has the following elements:
 
-| Attribute                | Description                                                                                                         |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| results/plate            | Text of the license plate.                                                                                          |
-| results/box              | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.     |
-| results/dscore           | Confidence level for plate **detection**.                                                                           |
-| results/score            | Confidence level for **reading** the license plate text.                                                            |
-| results/vehicle/type     | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
-| results/vehicle/score    | Confidence level for vehicle prediction.                                                                            |
-| results/vehicle/box      | Vehicle bounding box.                                                                                               |
-| results/region/code      | Region of license plate. Returns a code from the [country list](#countries).                                        |
-| results/region/score     | Confidence level for license plate region.                                                                          |
-| results/candidates       | List of predictions for the license plate value. The first element is the top prediction (same as `results/plate`). |
-| results/model_make/make  | Prediction of vehicle make.                                                                                         |
-| results/model_make/model | Prediction of vehicle model.                                                                                        |
-| results/model_make/score | Confidence level for vehicle make and model prediction.                                                             |
-| results/color/color      | Vehicle color.                                                                                                      |
-| results/color/score      | Confidence level for vehicle color prediction.                                                                      |
+| Attribute                       | Description                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| results/plate                   | Text of the license plate.                                                                                          |
+| results/box                     | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.     |
+| results/dscore                  | Confidence level for plate **detection**.                                                                           |
+| results/score                   | Confidence level for **reading** the license plate text.                                                            |
+| results/vehicle/type            | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
+| results/vehicle/score           | Confidence level for vehicle prediction.                                                                            |
+| results/vehicle/box             | Vehicle bounding box.                                                                                               |
+| results/region/code             | Region of license plate. Returns a code from the [country list](#countries).                                        |
+| results/region/score            | Confidence level for license plate region.                                                                          |
+| results/candidates              | List of predictions for the license plate value. The first element is the top prediction (same as `results/plate`). |
+| results/model_make/make         | Prediction of vehicle make.                                                                                         |
+| results/model_make/model        | Prediction of vehicle model.                                                                                        |
+| results/model_make/score        | Confidence level for vehicle make and model prediction.                                                             |
+| results/color/color             | Vehicle color.                                                                                                      |
+| results/color/score             | Confidence level for vehicle color prediction.                                                                      |
+| results/orientation/orientation | Vehicle orientation. It can be `Front`, `Rear` or `Unknown`.                                                        |
+| results/orientation/score       | Confidence level for vehicle orientation prediction.                                                                |
 
 - Scores vary between 0 and 1. A prediction with a **score close to 1** indicates high confidence.
 - The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.

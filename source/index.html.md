@@ -290,9 +290,9 @@ The response is a list of all the license plates found in the image. Each licens
 | results/model_make/make         | Prediction of vehicle make.                                                                                         |
 | results/model_make/model        | Prediction of vehicle model.                                                                                        |
 | results/model_make/score        | Confidence level for vehicle make and model prediction.                                                             |
-| results/color/color             | Vehicle color.                                                                                                      |
+| results/color/color             | Vehicle color. One of `black`, `blue`, `brown`, `green`, `red`, `silver`, `white`, `yellow`, `unknown`.             |
 | results/color/score             | Confidence level for vehicle color prediction.                                                                      |
-| results/orientation/orientation | Vehicle orientation. It can be `Front`, `Rear` or `Unknown`.                                                        |
+| results/orientation/orientation | Vehicle orientation. One of `Front`, `Rear`, `Unknown`.                                                             |
 | results/orientation/score       | Confidence level for vehicle orientation prediction.                                                                |
 
 - Scores vary between 0 and 1. A prediction with a **score close to 1** indicates high confidence.

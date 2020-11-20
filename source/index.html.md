@@ -219,7 +219,7 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
                 }
             ],
             "dscore": 0.99,
-            // Make Model and Color are only available if you set mmc=true
+            // Make Model, Orientation and Color are only available if you set mmc=true
             "model_make": [
                 {
                     "make": "Riley",
@@ -260,13 +260,13 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                |
-| --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                            |
-| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                            |
-| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                  |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                          |
-| mmc       | No       | Predict vehicle make, model and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
+| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                             |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                         |
+| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                                         |
+| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
+| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
+| mmc       | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
 
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
@@ -330,7 +330,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Bulgaria                                              | bg          | Yes        |
 | Canada                                                | ca          | Yes        |
 | Chile                                                 | cl          | Yes        |
-| Columbia                                              | co          | Yes        |
+| Colombia                                              | co          | Yes        |
 | Costa Rica                                            | cr          | Yes        |
 | Croatia                                               | hr          | Yes        |
 | Cyprus                                                | cy          |            |

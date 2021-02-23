@@ -14,8 +14,11 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
-  - © 2021 ParkPow, Inc.  All Rights Reserved.
-  - Documentation is governed by our [Terms](https://platerecognizer.com/terms-of-use-privacy-policy/).
+  - <hr>
+  - © 2021 ParkPow, Inc.
+  - All Rights Reserved.
+  - Documentation is governed by our
+  - <a href="https://platerecognizer.com/terms-of-use-privacy-policy/">Terms</a>.
 
 includes:
   - errors

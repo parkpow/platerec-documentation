@@ -1,0 +1,2073 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ALPR API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen-740b805d.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-c427a123.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-291257-28"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-291257-28');
+     gtag('config', 'AW-784794398');
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;,&quot;csharp&quot;,&quot;php&quot;,&quot;java&quot;,&quot;cpp&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-3e4dd2d8.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="csharp">csharp</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="cpp">cpp</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#license-plate-recognition" class="toc-h1 toc-link" data-title="License Plate Recognition">License Plate Recognition</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#read-number-plates-from-an-image" class="toc-h2 toc-link" data-title="Read Number Plates from an Image">Read Number Plates from an Image</a>
+                  </li>
+                  <li>
+                    <a href="#countries" class="toc-h2 toc-link" data-title="Countries">Countries</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sdk" class="toc-h1 toc-link" data-title="SDK">SDK</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#recognition-api" class="toc-h2 toc-link" data-title="Recognition API">Recognition API</a>
+                  </li>
+                  <li>
+                    <a href="#sdk-version" class="toc-h2 toc-link" data-title="SDK version">SDK version</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="WebHooks">WebHooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#data-only-webhook" class="toc-h2 toc-link" data-title="Data Only Webhook">Data Only Webhook</a>
+                  </li>
+                  <li>
+                    <a href="#webhook-with-image" class="toc-h2 toc-link" data-title="Webhook With Image">Webhook With Image</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#statistics" class="toc-h1 toc-link" data-title="Statistics">Statistics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#json-response-4" class="toc-h2 toc-link" data-title="JSON Response">JSON Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a></li>
+            <li><hr></li>
+            <li>© 2021 ParkPow, Inc.</li>
+            <li>All Rights Reserved.</li>
+            <li>Documentation is governed by our</li>
+            <li><a href="https://platerecognizer.com/terms-of-use-privacy-policy/">Terms</a>.</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Plate Recognizer Snapshot API!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go <a href="https://app.platerecognizer.com/sdk/?utm_source=docs&amp;utm_medium=website">here</a>.</p>
+
+<p>We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>Plate Recognizer Snapshot API is only available to registered users.  <a href="https://app.platerecognizer.com/accounts/signup/?utm_source=docs&amp;utm_medium=website">Sign up</a> for a Free Trial and get an <strong>API key</strong>. It has to be included in all API calls. The HTTP <strong>headers</strong> must contain:</p>
+
+<p><code>Authorization: Token API_TOKEN</code></p>
+
+<aside class="notice">
+You must replace <code>API_TOKEN</code> with your personal API key.
+</aside>
+<h1 id='license-plate-recognition'>License Plate Recognition</h1><h2 id='read-number-plates-from-an-image'>Read Number Plates from an Image</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1"># gem install multipart-post</span>
+<span class="nb">require</span> <span class="s1">'net/http/post/multipart'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">'/path/to/car.jpg'</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">jpg</span><span class="o">|</span>
+  <span class="n">req</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">::</span><span class="no">Multipart</span><span class="p">.</span><span class="nf">new</span> <span class="n">url</span><span class="p">.</span><span class="nf">path</span><span class="p">,</span>
+    <span class="s2">"upload"</span> <span class="o">=&gt;</span> <span class="no">UploadIO</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">jpg</span><span class="p">,</span> <span class="s2">"image/jpeg"</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+  <span class="n">req</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Token API_TOKEN'</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">use_ssl: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+    <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// CREATE FILE READY TO UPLOAD WITH CURL</span>
+<span class="nv">$file</span> <span class="o">=</span> <span class="nb">realpath</span><span class="p">(</span><span class="s1">'example.jpg'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">'curl_file_create'</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// php 5.5+</span>
+  <span class="nv">$cFile</span> <span class="o">=</span> <span class="nb">curl_file_create</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$cFile</span> <span class="o">=</span> <span class="s1">'@'</span> <span class="mf">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//ADD PARAMETER IN REQUEST LIKE regions</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'upload'</span> <span class="o">=&gt;</span> <span class="nv">$cFile</span><span class="p">,</span>
+    <span class="s1">'regions'</span> <span class="o">=&gt;</span> <span class="s1">'fr'</span> <span class="c1">// Optional</span>
+<span class="p">);</span>
+
+<span class="c1">// Prepare new cURL resource</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLINFO_HEADER_OUT</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_POST</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTP_VERSION</span><span class="p">,</span> <span class="no">CURL_HTTP_VERSION_2TLS</span><span class="p">);</span>
+
+<span class="c1">// Set HTTP Header for POST request</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"Authorization: Token API_TOKEN"</span>  <span class="c1">//API KEY</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// Submit the POST request and close cURL session handle</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span><span class="k">exit</span><span class="p">;</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># pip install requests
+</span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="n">regions</span> <span class="o">=</span> <span class="p">[</span><span class="s">'gb'</span><span class="p">,</span> <span class="s">'it'</span><span class="p">]</span> <span class="c1"># Change to your country
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/path/to/car.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="n">regions</span><span class="p">),</span>  <span class="c1"># Optional
+</span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>gb <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  https://api.platerecognizer.com/v1/plate-reader/
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Using Node-RED?</span>
+<span class="c1">// Check https://github.com/parkpow/node-red-contrib-plate-recognizer</span>
+
+<span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">FormData</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">form-data</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">image_path</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">/path/to/car.jpg</span><span class="dl">'</span>
+<span class="kd">let</span> <span class="nx">body</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+<span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">upload</span><span class="dl">'</span><span class="p">,</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">image_path</span><span class="p">));</span>
+<span class="c1">// Or body.append('upload', base64Image);</span>
+<span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">regions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">gb</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Change to your country</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://api.platerecognizer.com/v1/plate-reader/</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Token API_TOKEN</span><span class="dl">"</span>
+        <span class="p">},</span>
+        <span class="na">body</span><span class="p">:</span> <span class="nx">body</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="c1">// Complete Example:</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/csharp/PlateRecognizer</span>
+
+<span class="c1">// Function calling the API:</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/csharp/PlateRecognizer/PlateReader.cs#L23</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="c1">// Complete Example:</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer</span>
+
+<span class="c1">// Function calling the API:</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/java/PlateRecognizer/src/main/java/com/mycompany/numberplate/recognize.java#L17    </span>
+
+<span class="c1">// Complete Android App Example:</span>
+
+<span class="c1">// https://github.com/parkpow/alpr-anpr-android/</span>
+</code></pre></div><div class="highlight"><pre class="highlight cpp tab-cpp"><code><span class="c1">// Complete Example (Windows or Linux):</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/java/PlateRecognizer</span>
+
+<span class="c1">// Function calling the API:</span>
+
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/cpp/linux/numberPlate.cpp#L25</span>
+<span class="c1">// https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/cpp/windows/ConsoleApplication2/ConsoleApplication2.cpp#L29</span>
+</code></pre></div>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">288.758</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">143</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">481</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">282</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">575</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nhk552"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"region"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gb"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.747</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"vehicle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.798</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sedan"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">908</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">653</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.904</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"candidates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.904</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nhk552"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w">
+            </span><span class="err">//</span><span class="w"> </span><span class="err">Make</span><span class="w"> </span><span class="err">Model</span><span class="p">,</span><span class="w"> </span><span class="err">Orientation</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">Color</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">mmc=</span><span class="kc">true</span><span class="w">
+            </span><span class="nl">"model_make"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"make"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Riley"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RMF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.306</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.937</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"orientation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"orientation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Front"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.937</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1617_7M83K_car.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-12T16:17:27.574008Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This Snapshot API endpoint reads all license plates from an image.</p>
+
+<p>If you need to detect vehicles and decode license plates from a live camera or video feed, consider using <a href="https://platerecognizer.com/stream/?utm_source=docs&amp;utm_medium=website">Plate Recognizer Stream</a>. <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> to request a Free Trial of Stream.</p>
+
+<p>If you need to blur license plates, consider using <a href="https://platerecognizer.com/blur/?utm_source=docs&amp;utm_medium=website">Plate Recognizer Blur</a>. <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> for more info.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.platerecognizer.com/v1/plate-reader/</code></p>
+<h3 id='post-parameters'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>upload</td>
+<td>Yes</td>
+<td>The file to be uploaded. The parameter can either be the <strong>file bytes</strong> (using Content-Type multipart/form-data) OR a <strong>base64</strong> encoded image.</td>
+</tr>
+<tr>
+<td>regions</td>
+<td>No</td>
+<td>Match the license plate pattern of a specific region or <a href="#countries">regions</a>. This parameter can be used <strong>multiple times</strong> to specify more than one region. *</td>
+</tr>
+<tr>
+<td>camera_id</td>
+<td>No</td>
+<td>Unique camera identifier.</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>No</td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> timestamp. For example, <code>2019-08-19T13:11:25</code>. The timestamp has to be in UTC.</td>
+</tr>
+<tr>
+<td>mmc</td>
+<td>No</td>
+<td>Predict vehicle make, model, orientation and color. This feature is available for an <a href="https://platerecognizer.com/pricing?utm_source=docs&amp;utm_medium=website">additional fee</a>. Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are <code>true</code> or <code>false</code>.</td>
+</tr>
+</tbody></table>
+
+<p>* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.</p>
+<h3 id='json-response'>JSON Response</h3>
+<p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>results/plate</td>
+<td>Text of the license plate.</td>
+</tr>
+<tr>
+<td>results/box</td>
+<td>Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.</td>
+</tr>
+<tr>
+<td>results/dscore</td>
+<td>Confidence level for plate <strong>detection</strong>.</td>
+</tr>
+<tr>
+<td>results/score</td>
+<td>Confidence level for <strong>reading</strong> the license plate text.</td>
+</tr>
+<tr>
+<td>results/vehicle/type</td>
+<td>Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.</td>
+</tr>
+<tr>
+<td>results/vehicle/score</td>
+<td>Confidence level for vehicle prediction.</td>
+</tr>
+<tr>
+<td>results/vehicle/box</td>
+<td>Vehicle bounding box.</td>
+</tr>
+<tr>
+<td>results/region/code</td>
+<td>Region of license plate. Returns a code from the <a href="#countries">country list</a>.</td>
+</tr>
+<tr>
+<td>results/region/score</td>
+<td>Confidence level for license plate region.</td>
+</tr>
+<tr>
+<td>results/candidates</td>
+<td>List of predictions for the license plate value. The first element is the top prediction (same as <code>results/plate</code>).</td>
+</tr>
+<tr>
+<td>results/model_make/make</td>
+<td>Prediction of vehicle make.</td>
+</tr>
+<tr>
+<td>results/model_make/model</td>
+<td>Prediction of vehicle model.</td>
+</tr>
+<tr>
+<td>results/model_make/score</td>
+<td>Confidence level for vehicle make and model prediction.</td>
+</tr>
+<tr>
+<td>results/color/color</td>
+<td>Vehicle color. One of <code>black</code>, <code>blue</code>, <code>brown</code>, <code>green</code>, <code>red</code>, <code>silver</code>, <code>white</code>, <code>yellow</code>, <code>unknown</code>.</td>
+</tr>
+<tr>
+<td>results/color/score</td>
+<td>Confidence level for vehicle color prediction.</td>
+</tr>
+<tr>
+<td>results/orientation/orientation</td>
+<td>Vehicle orientation. One of <code>Front</code>, <code>Rear</code>, <code>Unknown</code>.</td>
+</tr>
+<tr>
+<td>results/orientation/score</td>
+<td>Confidence level for vehicle orientation prediction.</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Scores vary between 0 and 1. A prediction with a <strong>score close to 1</strong> indicates high confidence.</li>
+<li>The value <strong>dscore</strong> is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.</li>
+</ul>
+
+<aside class="notice">
+View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
+</aside>
+<h2 id='countries'>Countries</h2>
+<p>Codes for the <code>regions</code> parameter. You can also provide a state to select more specific license plate patterns. States are only supported for some countries.</p>
+
+<p>Don&#39;t see your country listed?   <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> for more info.</p>
+
+<p>The column <strong>Prediction</strong> indicates if the region is supported by our region classification predictor (field <code>results/region/code</code>).</p>
+
+<table><thead>
+<tr>
+<th>Country</th>
+<th>Region code</th>
+<th>Prediction</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Albania</td>
+<td>al</td>
+<td></td>
+</tr>
+<tr>
+<td>Andorra</td>
+<td>ad</td>
+<td></td>
+</tr>
+<tr>
+<td>Angola</td>
+<td>ao</td>
+<td></td>
+</tr>
+<tr>
+<td>Argentina</td>
+<td>ar</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Armenia</td>
+<td>am</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="#australia">Australia</a></td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Austria</td>
+<td>at</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Azerbaijan</td>
+<td>az</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Belarus</td>
+<td>by</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Belgium</td>
+<td>be</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Belize</td>
+<td>bz</td>
+<td></td>
+</tr>
+<tr>
+<td>Bolivia</td>
+<td>bo</td>
+<td></td>
+</tr>
+<tr>
+<td>Bosnia and Herzegovina</td>
+<td>ba</td>
+<td></td>
+</tr>
+<tr>
+<td>Brazil</td>
+<td>br</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Brunei</td>
+<td>bn</td>
+<td></td>
+</tr>
+<tr>
+<td>Bulgaria</td>
+<td>bg</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>ca</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Chile</td>
+<td>cl</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Colombia</td>
+<td>co</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Costa Rica</td>
+<td>cr</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Croatia</td>
+<td>hr</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cyprus</td>
+<td>cy</td>
+<td></td>
+</tr>
+<tr>
+<td>Czechia</td>
+<td>cz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Denmark</td>
+<td>dk</td>
+<td></td>
+</tr>
+<tr>
+<td>Ecuador</td>
+<td>ec</td>
+<td></td>
+</tr>
+<tr>
+<td>El Salvador</td>
+<td>sv</td>
+<td></td>
+</tr>
+<tr>
+<td>Estonia</td>
+<td>ee</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Finland</td>
+<td>fi</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>France</td>
+<td>fr</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>French Guiana</td>
+<td>gf</td>
+<td></td>
+</tr>
+<tr>
+<td>Georgia</td>
+<td>ge</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Germany</td>
+<td>de</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Gibraltar</td>
+<td>gi</td>
+<td></td>
+</tr>
+<tr>
+<td>Greece</td>
+<td>gr</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Guatamala</td>
+<td>gp</td>
+<td></td>
+</tr>
+<tr>
+<td>Guyana</td>
+<td>gy</td>
+<td></td>
+</tr>
+<tr>
+<td>Holy See</td>
+<td>va</td>
+<td></td>
+</tr>
+<tr>
+<td>Honduras</td>
+<td>hn</td>
+<td></td>
+</tr>
+<tr>
+<td>Hungary</td>
+<td>hu</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Iceland</td>
+<td>is</td>
+<td></td>
+</tr>
+<tr>
+<td>Israel</td>
+<td>il</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>India</td>
+<td>in</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Indonesia</td>
+<td>id</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Ireland</td>
+<td>ie</td>
+<td></td>
+</tr>
+<tr>
+<td>Italy</td>
+<td>it</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>jo</td>
+<td></td>
+</tr>
+<tr>
+<td>Kazakhstan</td>
+<td>kz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Kenya</td>
+<td>ke</td>
+<td></td>
+</tr>
+<tr>
+<td>Korea, Republic of</td>
+<td>kr</td>
+<td></td>
+</tr>
+<tr>
+<td>Latvia</td>
+<td>lv</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Lebanon</td>
+<td>lb</td>
+<td></td>
+</tr>
+<tr>
+<td>Liechtenstein</td>
+<td>li</td>
+<td></td>
+</tr>
+<tr>
+<td>Lithuania</td>
+<td>lt</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Luxembourg</td>
+<td>lu</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Malaysia</td>
+<td>my</td>
+<td></td>
+</tr>
+<tr>
+<td>Maldives</td>
+<td>mv</td>
+<td></td>
+</tr>
+<tr>
+<td>Malta</td>
+<td>mt</td>
+<td></td>
+</tr>
+<tr>
+<td>Mexico</td>
+<td>mx</td>
+<td></td>
+</tr>
+<tr>
+<td>Moldova, Republic of</td>
+<td>md</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Monaco</td>
+<td>mc</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Montenegro</td>
+<td>me</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Nepal</td>
+<td>np</td>
+<td></td>
+</tr>
+<tr>
+<td>Netherlands</td>
+<td>nl</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>New Zealand</td>
+<td>nz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Nicaragua</td>
+<td>ni</td>
+<td></td>
+</tr>
+<tr>
+<td>Nigeria</td>
+<td>ng</td>
+<td></td>
+</tr>
+<tr>
+<td>North Macedonia</td>
+<td>mk</td>
+<td></td>
+</tr>
+<tr>
+<td>Norway</td>
+<td>no</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Panama</td>
+<td>pa</td>
+<td></td>
+</tr>
+<tr>
+<td>Paraguay</td>
+<td>py</td>
+<td></td>
+</tr>
+<tr>
+<td>Peru</td>
+<td>pe</td>
+<td></td>
+</tr>
+<tr>
+<td>Philippines</td>
+<td>ph</td>
+<td></td>
+</tr>
+<tr>
+<td>Poland</td>
+<td>pl</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Portugal</td>
+<td>pt</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Qatar</td>
+<td>qa</td>
+<td></td>
+</tr>
+<tr>
+<td>Romania</td>
+<td>ro</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Russian Federation</td>
+<td>ru</td>
+<td></td>
+</tr>
+<tr>
+<td>San Marino</td>
+<td>sm</td>
+<td></td>
+</tr>
+<tr>
+<td>Serbia</td>
+<td>rs</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Singapore</td>
+<td>sg</td>
+<td></td>
+</tr>
+<tr>
+<td>Slovakia</td>
+<td>sk</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Slovenia</td>
+<td>si</td>
+<td></td>
+</tr>
+<tr>
+<td>South Africa</td>
+<td>za</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Spain</td>
+<td>es</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Suriname</td>
+<td>sr</td>
+<td></td>
+</tr>
+<tr>
+<td>Sweden</td>
+<td>se</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Switzerland</td>
+<td>ch</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Tanzania</td>
+<td>tz</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#thailand">Thailand</a></td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Turkey</td>
+<td>tr</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Ukraine</td>
+<td>ua</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>United Arab Emirates</td>
+<td>ae</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>United Kingdom of Great Britain</td>
+<td>gb</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="#united-states-of-america">United States of America</a></td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Uraguay</td>
+<td>uy</td>
+<td></td>
+</tr>
+<tr>
+<td>Uzbekistan</td>
+<td>uz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Venezuela</td>
+<td>ve</td>
+<td></td>
+</tr>
+<tr>
+<td>Vietnam</td>
+<td>vn</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Zambia</td>
+<td>zm</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='united-states-of-america'>United States of America</h3>
+<table><thead>
+<tr>
+<th>State</th>
+<th>Region code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Alabama</td>
+<td>us-al</td>
+</tr>
+<tr>
+<td>Alaska</td>
+<td>us-ak</td>
+</tr>
+<tr>
+<td>Arizona</td>
+<td>us-az</td>
+</tr>
+<tr>
+<td>Arkansas</td>
+<td>us-ar</td>
+</tr>
+<tr>
+<td>California</td>
+<td>us-ca</td>
+</tr>
+<tr>
+<td>Colorado</td>
+<td>us-co</td>
+</tr>
+<tr>
+<td>Connecticut</td>
+<td>us-ct</td>
+</tr>
+<tr>
+<td>Delaware</td>
+<td>us-de</td>
+</tr>
+<tr>
+<td>District of Columbia</td>
+<td>us-dc</td>
+</tr>
+<tr>
+<td>Florida</td>
+<td>us-fl</td>
+</tr>
+<tr>
+<td>Georgia</td>
+<td>us-ga</td>
+</tr>
+<tr>
+<td>Hawaii</td>
+<td>us-hi</td>
+</tr>
+<tr>
+<td>Idaho</td>
+<td>us-id</td>
+</tr>
+<tr>
+<td>Illinois</td>
+<td>us-il</td>
+</tr>
+<tr>
+<td>Indiana</td>
+<td>us-in</td>
+</tr>
+<tr>
+<td>Iowa</td>
+<td>us-ia</td>
+</tr>
+<tr>
+<td>Kansas</td>
+<td>us-ks</td>
+</tr>
+<tr>
+<td>Kentucky</td>
+<td>us-ky</td>
+</tr>
+<tr>
+<td>Louisiana</td>
+<td>us-la</td>
+</tr>
+<tr>
+<td>Maine</td>
+<td>us-me</td>
+</tr>
+<tr>
+<td>Maryland</td>
+<td>us-md</td>
+</tr>
+<tr>
+<td>Massachusetts</td>
+<td>us-ma</td>
+</tr>
+<tr>
+<td>Michigan</td>
+<td>us-mi</td>
+</tr>
+<tr>
+<td>Minnesota</td>
+<td>us-mn</td>
+</tr>
+<tr>
+<td>Mississippi</td>
+<td>us-ms</td>
+</tr>
+<tr>
+<td>Missouri</td>
+<td>us-mo</td>
+</tr>
+<tr>
+<td>Montana</td>
+<td>us-mt</td>
+</tr>
+<tr>
+<td>Nebraska</td>
+<td>us-ne</td>
+</tr>
+<tr>
+<td>Nevada</td>
+<td>us-nv</td>
+</tr>
+<tr>
+<td>New Hampshire</td>
+<td>us-nh</td>
+</tr>
+<tr>
+<td>New Jersey</td>
+<td>us-nj</td>
+</tr>
+<tr>
+<td>New Mexico</td>
+<td>us-nm</td>
+</tr>
+<tr>
+<td>New York</td>
+<td>us-ny</td>
+</tr>
+<tr>
+<td>North Carolina</td>
+<td>us-nc</td>
+</tr>
+<tr>
+<td>North Dakota</td>
+<td>us-nd</td>
+</tr>
+<tr>
+<td>Ohio</td>
+<td>us-oh</td>
+</tr>
+<tr>
+<td>Oklahoma</td>
+<td>us-ok</td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td>us-or</td>
+</tr>
+<tr>
+<td>Pennsylvania</td>
+<td>us-pa</td>
+</tr>
+<tr>
+<td>Rhode Island</td>
+<td>us-ri</td>
+</tr>
+<tr>
+<td>South Carolina</td>
+<td>us-sc</td>
+</tr>
+<tr>
+<td>South Dakota</td>
+<td>us-sd</td>
+</tr>
+<tr>
+<td>Tennessee</td>
+<td>us-tn</td>
+</tr>
+<tr>
+<td>Texas</td>
+<td>us-tx</td>
+</tr>
+<tr>
+<td>Utah</td>
+<td>us-ut</td>
+</tr>
+<tr>
+<td>Vermont</td>
+<td>us-vt</td>
+</tr>
+<tr>
+<td>Virginia</td>
+<td>us-va</td>
+</tr>
+<tr>
+<td>Washington</td>
+<td>us-wa</td>
+</tr>
+<tr>
+<td>West Virginia</td>
+<td>us-wv</td>
+</tr>
+<tr>
+<td>Wisconsin</td>
+<td>us-wi</td>
+</tr>
+<tr>
+<td>Wyoming</td>
+<td>us-wy</td>
+</tr>
+</tbody></table>
+<h3 id='thailand'>Thailand</h3>
+<aside class="warn">
+This country is only available in Snapshot SDK.
+</aside>
+
+<p>Thai characters are not supported on our Cloud API. You will need a custom Docker image.
+Replace <code>platerecognizer/alpr</code> by <code>platerecognizer/alpr:thailand</code> in the <a href="https://app.platerecognizer.com/sdk/">installation instructions</a>.</p>
+
+<table><thead>
+<tr>
+<th>State</th>
+<th>Region code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Amnat Charoen</td>
+<td>th-37</td>
+</tr>
+<tr>
+<td>Ang Thong</td>
+<td>th-15</td>
+</tr>
+<tr>
+<td>Ayutthaya</td>
+<td>th-14</td>
+</tr>
+<tr>
+<td>Bangkok</td>
+<td>th-10</td>
+</tr>
+<tr>
+<td>Bangkok</td>
+<td>th-10b</td>
+</tr>
+<tr>
+<td>Bangkok</td>
+<td>th-10c</td>
+</tr>
+<tr>
+<td>Batong</td>
+<td>th-99</td>
+</tr>
+<tr>
+<td>Bueng Kan</td>
+<td>th-38</td>
+</tr>
+<tr>
+<td>Buri Ram</td>
+<td>th-31</td>
+</tr>
+<tr>
+<td>Chachoengsao</td>
+<td>th-24</td>
+</tr>
+<tr>
+<td>Chai Nat</td>
+<td>th-18</td>
+</tr>
+<tr>
+<td>Chaiyaphum</td>
+<td>th-36</td>
+</tr>
+<tr>
+<td>Chanthaburi</td>
+<td>th-22</td>
+</tr>
+<tr>
+<td>Chiang Mai</td>
+<td>th-50</td>
+</tr>
+<tr>
+<td>Chiang Rai</td>
+<td>th-57</td>
+</tr>
+<tr>
+<td>Chon Buri</td>
+<td>th-20</td>
+</tr>
+<tr>
+<td>Chumphon</td>
+<td>th-86</td>
+</tr>
+<tr>
+<td>Kalasin</td>
+<td>th-46</td>
+</tr>
+<tr>
+<td>Kamphaeng Phet</td>
+<td>th-62</td>
+</tr>
+<tr>
+<td>Kanchanaburi</td>
+<td>th-71</td>
+</tr>
+<tr>
+<td>Khon Kaen</td>
+<td>th-40</td>
+</tr>
+<tr>
+<td>Krabi</td>
+<td>th-81</td>
+</tr>
+<tr>
+<td>Lampang</td>
+<td>th-52</td>
+</tr>
+<tr>
+<td>Lamphun</td>
+<td>th-51</td>
+</tr>
+<tr>
+<td>Loei</td>
+<td>th-42</td>
+</tr>
+<tr>
+<td>Lop Buri</td>
+<td>th-16</td>
+</tr>
+<tr>
+<td>Mae Hong Son</td>
+<td>th-58</td>
+</tr>
+<tr>
+<td>Maha Sarakham</td>
+<td>th-44</td>
+</tr>
+<tr>
+<td>Mukdahan</td>
+<td>th-49</td>
+</tr>
+<tr>
+<td>Nakhon Nayok</td>
+<td>th-26</td>
+</tr>
+<tr>
+<td>Nakhon Pathom</td>
+<td>th-73</td>
+</tr>
+<tr>
+<td>Nakhon Phanom</td>
+<td>th-48</td>
+</tr>
+<tr>
+<td>Nakhon Ratchasima</td>
+<td>th-30</td>
+</tr>
+<tr>
+<td>Nakhon Sawan</td>
+<td>th-60</td>
+</tr>
+<tr>
+<td>Nakhon Si Thammarat</td>
+<td>th-80</td>
+</tr>
+<tr>
+<td>Nan</td>
+<td>th-55</td>
+</tr>
+<tr>
+<td>Narathiwat</td>
+<td>th-96</td>
+</tr>
+<tr>
+<td>Nong Bua Lam Phu</td>
+<td>th-39</td>
+</tr>
+<tr>
+<td>Nong Khai</td>
+<td>th-43</td>
+</tr>
+<tr>
+<td>Nonthaburi</td>
+<td>th-12</td>
+</tr>
+<tr>
+<td>Pathum Thani</td>
+<td>th-13</td>
+</tr>
+<tr>
+<td>Pattani</td>
+<td>th-94</td>
+</tr>
+<tr>
+<td>Phangnga</td>
+<td>th-82</td>
+</tr>
+<tr>
+<td>Phatthalung</td>
+<td>th-93</td>
+</tr>
+<tr>
+<td>Phayao</td>
+<td>th-56</td>
+</tr>
+<tr>
+<td>Phetchabun</td>
+<td>th-67</td>
+</tr>
+<tr>
+<td>Phetchaburi</td>
+<td>th-76</td>
+</tr>
+<tr>
+<td>Phichit</td>
+<td>th-66</td>
+</tr>
+<tr>
+<td>Phitsanulok</td>
+<td>th-65</td>
+</tr>
+<tr>
+<td>Phrae</td>
+<td>th-54</td>
+</tr>
+<tr>
+<td>Phuket</td>
+<td>th-83</td>
+</tr>
+<tr>
+<td>Prachin Buri</td>
+<td>th-25</td>
+</tr>
+<tr>
+<td>Prachuap Khiri Khan</td>
+<td>th-77</td>
+</tr>
+<tr>
+<td>Ranong</td>
+<td>th-85</td>
+</tr>
+<tr>
+<td>Ratchaburi</td>
+<td>th-70</td>
+</tr>
+<tr>
+<td>Rayong</td>
+<td>th-21</td>
+</tr>
+<tr>
+<td>Roi Et</td>
+<td>th-45</td>
+</tr>
+<tr>
+<td>Sa Kaeo</td>
+<td>th-27</td>
+</tr>
+<tr>
+<td>Sakon Nakhon</td>
+<td>th-47</td>
+</tr>
+<tr>
+<td>Samut Prakan</td>
+<td>th-11</td>
+</tr>
+<tr>
+<td>Samut Sakhon</td>
+<td>th-74</td>
+</tr>
+<tr>
+<td>Samut Songkhram</td>
+<td>th-75</td>
+</tr>
+<tr>
+<td>Saraburi</td>
+<td>th-19</td>
+</tr>
+<tr>
+<td>Satun</td>
+<td>th-91</td>
+</tr>
+<tr>
+<td>Sing Buri</td>
+<td>th-17</td>
+</tr>
+<tr>
+<td>Sisaket</td>
+<td>th-33</td>
+</tr>
+<tr>
+<td>Songkhla</td>
+<td>th-90</td>
+</tr>
+<tr>
+<td>Sukhothai</td>
+<td>th-64</td>
+</tr>
+<tr>
+<td>Suphan Buri</td>
+<td>th-72</td>
+</tr>
+<tr>
+<td>Surat Thani</td>
+<td>th-84</td>
+</tr>
+<tr>
+<td>Surin</td>
+<td>th-32</td>
+</tr>
+<tr>
+<td>Tak</td>
+<td>th-63</td>
+</tr>
+<tr>
+<td>Trang</td>
+<td>th-92</td>
+</tr>
+<tr>
+<td>Trat</td>
+<td>th-23</td>
+</tr>
+<tr>
+<td>Ubon Ratchathani</td>
+<td>th-34</td>
+</tr>
+<tr>
+<td>Udon Thani</td>
+<td>th-41</td>
+</tr>
+<tr>
+<td>Uthai Thani</td>
+<td>th-61</td>
+</tr>
+<tr>
+<td>Uttaradit</td>
+<td>th-53</td>
+</tr>
+<tr>
+<td>Yala</td>
+<td>th-95</td>
+</tr>
+<tr>
+<td>Yasothon</td>
+<td>th-35</td>
+</tr>
+</tbody></table>
+<h3 id='australia'>Australia</h3>
+<table><thead>
+<tr>
+<th>State</th>
+<th>Region code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>New South Wales</td>
+<td>au-nsw</td>
+</tr>
+<tr>
+<td>Queensland</td>
+<td>au-qld</td>
+</tr>
+<tr>
+<td>South Australia</td>
+<td>au-sa</td>
+</tr>
+<tr>
+<td>Tasmania</td>
+<td>au-tas</td>
+</tr>
+<tr>
+<td>Victoria</td>
+<td>au-vic</td>
+</tr>
+<tr>
+<td>Western Australia</td>
+<td>au-wa</td>
+</tr>
+</tbody></table>
+<h3 id='brazil'>Brazil</h3>
+<table><thead>
+<tr>
+<th>State</th>
+<th>Region Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Acre</td>
+<td>br-ac</td>
+</tr>
+<tr>
+<td>Alagoas</td>
+<td>br-al</td>
+</tr>
+<tr>
+<td>Amapá</td>
+<td>br-ap</td>
+</tr>
+<tr>
+<td>Amazonas</td>
+<td>br-am</td>
+</tr>
+<tr>
+<td>Bahia</td>
+<td>br-ba</td>
+</tr>
+<tr>
+<td>Ceará</td>
+<td>br-ce</td>
+</tr>
+<tr>
+<td>Distrito Federal</td>
+<td>br-df</td>
+</tr>
+<tr>
+<td>Espírito Santo</td>
+<td>br-es</td>
+</tr>
+<tr>
+<td>Goiás</td>
+<td>br-go</td>
+</tr>
+<tr>
+<td>Manias Gerais</td>
+<td>br-mg</td>
+</tr>
+<tr>
+<td>Maranhão</td>
+<td>br-ma</td>
+</tr>
+<tr>
+<td>Mato Grosso do Sul</td>
+<td>br-ms</td>
+</tr>
+<tr>
+<td>Mato Grosso</td>
+<td>br-mt</td>
+</tr>
+<tr>
+<td>Pernambuco</td>
+<td>br-pe</td>
+</tr>
+<tr>
+<td>Pará</td>
+<td>br-pa</td>
+</tr>
+<tr>
+<td>Paraíba</td>
+<td>br-pb</td>
+</tr>
+<tr>
+<td>Paraná</td>
+<td>br-pr</td>
+</tr>
+<tr>
+<td>Piauí</td>
+<td>br-pi</td>
+</tr>
+<tr>
+<td>Rio de Janeiro</td>
+<td>br-rj</td>
+</tr>
+<tr>
+<td>Rio Grande do Norte</td>
+<td>br-rn</td>
+</tr>
+<tr>
+<td>Rio Grande do Sul</td>
+<td>br-rs</td>
+</tr>
+<tr>
+<td>Rondônia</td>
+<td>br-ro</td>
+</tr>
+<tr>
+<td>Roraima</td>
+<td>br-rr</td>
+</tr>
+<tr>
+<td>São Paulo</td>
+<td>br-sp</td>
+</tr>
+<tr>
+<td>Sergipe</td>
+<td>br-se</td>
+</tr>
+<tr>
+<td>Santa Catarina</td>
+<td>br_sc</td>
+</tr>
+<tr>
+<td>Tocantins</td>
+<td>br-to</td>
+</tr>
+</tbody></table>
+<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Parameters config and mmc are optional</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>it <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">mmc</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"mode":"fast"}'</span> <span class="se">\</span>
+  http://localhost:8080/v1/plate-reader/
+
+</code></pre></div>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"usage"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"max_calls"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"calls"</span><span class="p">:</span><span class="mi">44</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"results"</span><span class="p">:[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Same</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">cloud</span><span class="w"> </span><span class="err">API</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">above.</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-16 17:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="s2">"car.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://localhost:8080/v1/plate-reader/</code></p>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><strong>All</strong> the parameters from <a href="#read-number-plates-from-an-image">recognition API</a>.</td>
+</tr>
+<tr>
+<td>config</td>
+<td>No</td>
+<td>Additional engine configuration. See below.</td>
+</tr>
+</tbody></table>
+
+<p><strong>config</strong> is a JSON value to change the engine configuration. It can take the following values:</p>
+
+<ul>
+<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
+<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
+</ul>
+<h3 id='json-response-2'>JSON Response</h3>
+<p>Returns the same parameters as the <a href="#read-number-plates-from-an-image">recognition API</a>. In addition to that, it returns the <strong>number of calls</strong> used.</p>
+<h2 id='sdk-version'>SDK version</h2>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"license_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/info/</code></p>
+<h3 id='json-response-3'>JSON Response</h3>
+<p>Returns the SDK version, license key and webhooks.</p>
+<h1 id='webhooks'>WebHooks</h1>
+<blockquote>
+<p>Example of POST payload</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"hook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8081/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image.done"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.186</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-31T14:22:06.983Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765410"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9131534678711563</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4084282568529709</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"830265"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7700640306685624</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8493143507578083</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14_22_test.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://docs.google.com/document/d/1vLwyx4gQvv3gF_kQUvB5sLHoY0IlxV5b3gYUqR2wN1U/edit#heading=h.564g7uuo44vp">instructions</a>.</p>
+
+<p>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</p>
+
+<p>The <code>target_url</code> should return a <strong>valid HTTP status code</strong> (200). If the <code>target_url</code> consistently returns an error code, the hook will be removed and an email will be sent to the account owner.</p>
+
+<aside class="notice">
+We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.
+</aside>
+<h2 id='data-only-webhook'>Data Only Webhook</h2><h3 id='snapshot-http-request'>Snapshot: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains the payload above in JSON format.</p>
+<h3 id='stream-http-request'>Stream: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains a <code>json</code> field with JSON encoded data. See the example above for the content of that field.</p>
+<h2 id='webhook-with-image'>Webhook With Image</h2><h3 id='snapshot-amp-stream-http-request'>Snapshot &amp; Stream: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains a <code>multipart/form-data</code> content. Receiving this data is like receiving the content of a form with an <code>input</code> of type file. It has two fields:</p>
+
+<ul>
+<li><code>upload</code> contains the image binary content</li>
+<li><code>json</code> is the JSON encoded data. See the example of the payload above.</li>
+</ul>
+
+<aside class="notice">
+The bounding box of the license plate are calculated based on the image sent by webhook.
+</aside>
+<h1 id='statistics'>Statistics</h1>
+<p>Get number of recognition calls done during the current month.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.platerecognizer.com/v1/statistics/</code></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  https://api.platerecognizer.com/v1/statistics/
+</code></pre></div>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"resets_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T00:00:00Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"total_calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='json-response-4'>JSON Response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>calls</td>
+<td>Number of API calls made during the current period.</td>
+</tr>
+<tr>
+<td>month</td>
+<td>Month of the current period.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>Year of the current period.</td>
+</tr>
+<tr>
+<td>resets_on</td>
+<td>Date when the counter will reset.</td>
+</tr>
+<tr>
+<td>total_calls</td>
+<td>Maximum number of API calls you can make during the period. Need more? <a href="https://app.platerecognizer.com/subscribe/">Upgrade</a>.</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>403</td>
+<td>Forbidden -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Payload Too Large response status code indicates that the request entity is larger than limits defined by our server. See <a href="https://app.platerecognizer.com/upload-limit/">upload limits</a>.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Indicates the user has sent too many requests in a given amount of time. The Free Trial Snapshot API Cloud Plan has a limit of 1 lookup per second.  A Snapshot API Cloud Subscription has a limit of 8 lookups per second.  The Snapshot SDK does not have any lookup limits per second.  <a href="https://app.platerecognizer.com/accounts/plan?utm_source=docs&amp;utm_medium=website">Subscribe</a> for a higher number of calls per second for your API Cloud plan.</td>
+</tr>
+</tbody></table>
+<h1 id='faq'>FAQ</h1>
+<p>Can&#39;t make it work? We may have answers on our <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="csharp">csharp</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="cpp">cpp</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

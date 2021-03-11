@@ -387,12 +387,18 @@ You must replace <code>API_TOKEN</code> with your personal API key.
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>gb <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 
+<span class="c"># Calling the API with a custom engine configuration</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  https://api.platerecognizer.com/v1/plate-reader/
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Using Node-RED?</span>
 <span class="c1">// Check https://github.com/parkpow/node-red-contrib-plate-recognizer</span>
 
@@ -548,9 +554,23 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 <td>No</td>
 <td>Predict vehicle make, model, orientation and color. This feature is available for an <a href="https://platerecognizer.com/pricing?utm_source=docs&amp;utm_medium=website">additional fee</a>. Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are <code>true</code> or <code>false</code>.</td>
 </tr>
+<tr>
+<td>config</td>
+<td>No</td>
+<td>Additional engine configuration. See below.</td>
+</tr>
 </tbody></table>
 
 <p>* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.</p>
+
+<p><strong>config</strong> is a JSON value to change the engine configuration. It can include the following values:</p>
+
+<ul>
+<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded.</li>
+<li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
+<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
+<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
+</ul>
 <h3 id='json-response'>JSON Response</h3>
 <p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>
 
@@ -1843,7 +1863,11 @@ Replace <code>platerecognizer/alpr</code> by <code>platerecognizer/alpr:thailand
 <td>br-to</td>
 </tr>
 </tbody></table>
-<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Parameters config and mmc are optional</span>
+<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  http://localhost:8080/v1/plate-reader/
+
+<span class="c"># Calling with API with optional parameters config and mmc</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>it <span class="se">\</span>
@@ -1884,19 +1908,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <td>-</td>
 <td><strong>All</strong> the parameters from <a href="#read-number-plates-from-an-image">recognition API</a>.</td>
 </tr>
-<tr>
-<td>config</td>
-<td>No</td>
-<td>Additional engine configuration. See below.</td>
-</tr>
 </tbody></table>
-
-<p><strong>config</strong> is a JSON value to change the engine configuration. It can take the following values:</p>
-
-<ul>
-<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
-<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
-</ul>
 <h3 id='json-response-2'>JSON Response</h3>
 <p>Returns the same parameters as the <a href="#read-number-plates-from-an-image">recognition API</a>. In addition to that, it returns the <strong>number of calls</strong> used.</p>
 <h2 id='sdk-version'>SDK version</h2>

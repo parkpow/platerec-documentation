@@ -116,12 +116,18 @@ pprint(response.json())
 ```
 
 ```shell
+# Calling the API with 2 regions
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=fr \
   -F regions=gb \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 
+# Calling the API with a custom engine configuration
+curl -F 'upload=@/path/to/car.jpg' \
+  -F config='{"region":"strict"}' \
+  -H 'Authorization: Token API_TOKEN' \
+  https://api.platerecognizer.com/v1/plate-reader/
 ```
 
 ```javascript
@@ -272,9 +278,17 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 | camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
 | timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
 | mmc       | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
-
+| config    | No       | Additional engine configuration. See below.                                                                                                                                                                                                                                                                                             |
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
+
+**config** is a JSON value to change the engine configuration. It can include the following values:
+
+- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded.
+- `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
+- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
+- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
+
 
 ### JSON Response
 
@@ -615,7 +629,11 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 ## Recognition API
 
 ```shell
-# Parameters config and mmc are optional
+# Calling the API with just the image
+curl -F 'upload=@/path/to/car.jpg' \
+  http://localhost:8080/v1/plate-reader/
+
+# Calling with API with optional parameters config and mmc
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=fr \
   -F regions=it \
@@ -654,12 +672,6 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 | Parameter | Required | Description                                                                       |
 | --------- | -------- | --------------------------------------------------------------------------------- |
 | -         | -        | **All** the parameters from [recognition API](#read-number-plates-from-an-image). |
-| config    | No       | Additional engine configuration. See below.                                       |
-
-**config** is a JSON value to change the engine configuration. It can take the following values:
-
-- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
-- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
 
 
 ### JSON Response

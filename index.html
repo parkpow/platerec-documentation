@@ -392,7 +392,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/path/to/car.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
         <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
+        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="s">'au'</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
 </span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions</span>
@@ -404,7 +404,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 
 <span class="c"># Calling the API with a custom engine configuration</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Using Node-RED?</span>

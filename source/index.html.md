@@ -118,7 +118,7 @@ import json
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
-        data=dict(config=json.dumps(dict(region="strict"))),  # Optional
+        data=dict(regions=['au'], config=json.dumps(dict(region="strict"))),  # Optional
         files=dict(upload=fp),
         headers={'Authorization': 'Token API_TOKEN'})
 ```
@@ -133,7 +133,7 @@ curl -F 'upload=@/path/to/car.jpg' \
 
 # Calling the API with a custom engine configuration
 curl -F 'upload=@/path/to/car.jpg' \
-  -F config='{"region":"strict"}' \
+  -F regions=fr -F config='{"region":"strict"}' \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 ```

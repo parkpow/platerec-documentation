@@ -113,6 +113,14 @@ with open('/path/to/car.jpg', 'rb') as fp:
         headers={'Authorization': 'Token API_TOKEN'})
 pprint(response.json())
 
+# Calling with a custom engine configuration
+import json
+with open('/path/to/car.jpg', 'rb') as fp:
+    response = requests.post(
+        'https://api.platerecognizer.com/v1/plate-reader/',
+        data=dict(config=json.dumps(dict(region="strict"))),  # Optional
+        files=dict(upload=fp),
+        headers={'Authorization': 'Token API_TOKEN'})
 ```
 
 ```shell
@@ -284,7 +292,7 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 **config** is a JSON value to change the engine configuration. It can include the following values:
 
-- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded.
+- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
 - `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
 - `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
 - `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).

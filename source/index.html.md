@@ -430,7 +430,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | [Thailand](#thailand)                                 |             | Yes        |
 | Turkey                                                | tr          | Yes        |
 | Ukraine                                               | ua          | Yes        |
-| United Arab Emirates                                  | ae          | Yes        |
+| [United Arab Emirates](#united-arab-emirates)         |             | Yes        |
 | United Kingdom of Great Britain                       | gb          | Yes        |
 | [United States of America](#united-states-of-america) |             | Yes        |
 | Uraguay                                               | uy          |            |
@@ -645,6 +645,18 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 | Saskatchewan              | ca-sk       |
 | Alberta                   | ca-ab       |
 | Newfoundland and Labrador | ca-nl       |
+
+### United Arab Emirates
+
+| State                     | Region Code |
+| ------------------------- | ----------- |
+| Abu Dhabi                 | ae-az       |
+| Ajman                     | ae-aj       |
+| Dubai                     | ae-du       |
+| Fujairah                  | ae-fu       |
+| Ras Al Khaimah            | ae-rk       |
+| Sharjah                   | ae-sh       |
+| Umm Al Quwain             | ae-uq       |
 
 
 # SDK

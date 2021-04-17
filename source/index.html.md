@@ -355,7 +355,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Brazil                                                | br          | Yes        |
 | Brunei                                                | bn          |            |
 | Bulgaria                                              | bg          | Yes        |
-| Canada                                                | ca          | Yes        |
+| [Canada](#canada)                                     |             | Yes        |
 | Chile                                                 | cl          | Yes        |
 | Colombia                                              | co          | Yes        |
 | Costa Rica                                            | cr          | Yes        |
@@ -630,6 +630,21 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 | Santa Catarina      | br_sc       |
 | Tocantins           | br-to       |
 
+
+### Canada
+
+| State                     | Region Code |
+| ------------------------- | ----------- |
+| Ontario                   | ca-on       |
+| Quebec                    | ca-qc       |
+| Nova Scotia               | ca-ns       |
+| New Brunswick             | ca-nb       |
+| Manitoba                  | ca-mb       |
+| British Columbia          | ca-bc       |
+| Prince Edward Islands     | ca-pe       |
+| Saskatchewan              | ca-sk       |
+| Alberta                   | ca-ab       |
+| Newfoundland and Labrador | ca-nl       |
 
 
 # SDK

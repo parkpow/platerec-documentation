@@ -645,6 +645,10 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 | Saskatchewan              | ca-sk       |
 | Alberta                   | ca-ab       |
 | Newfoundland and Labrador | ca-nl       |
+| Northwest Territories     | ca-nt       |
+| Yukon                     | ca-yt       |
+| Nunavut                   | ca-nu       |
+
 
 ### United Arab Emirates
 

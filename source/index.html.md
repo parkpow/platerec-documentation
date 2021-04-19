@@ -355,7 +355,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Brazil                                                | br          | Yes        |
 | Brunei                                                | bn          |            |
 | Bulgaria                                              | bg          | Yes        |
-| Canada                                                | ca          | Yes        |
+| [Canada](#canada)                                     |             | Yes        |
 | Chile                                                 | cl          | Yes        |
 | Colombia                                              | co          | Yes        |
 | Costa Rica                                            | cr          | Yes        |
@@ -409,7 +409,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Norway                                                | no          | Yes        |
 | Panama                                                | pa          |            |
 | Paraguay                                              | py          |            |
-| Peru                                                  | pe          |            |
+| [Peru](#peru)                                         |             |            |
 | Philippines                                           | ph          |            |
 | Poland                                                | pl          | Yes        |
 | Portugal                                              | pt          | Yes        |
@@ -430,7 +430,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | [Thailand](#thailand)                                 |             | Yes        |
 | Turkey                                                | tr          | Yes        |
 | Ukraine                                               | ua          | Yes        |
-| United Arab Emirates                                  | ae          | Yes        |
+| [United Arab Emirates](#united-arab-emirates)         |             | Yes        |
 | United Kingdom of Great Britain                       | gb          | Yes        |
 | [United States of America](#united-states-of-america) |             | Yes        |
 | Uraguay                                               | uy          |            |
@@ -630,6 +630,66 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 | Santa Catarina      | br_sc       |
 | Tocantins           | br-to       |
 
+
+### Canada
+
+| State                     | Region Code |
+| ------------------------- | ----------- |
+| Alberta                   | ca-ab       |
+| British Columbia          | ca-bc       |
+| Manitoba                  | ca-mb       |
+| New Brunswick             | ca-nb       |
+| Newfoundland and Labrador | ca-nl       |
+| Northwest Territories     | ca-nt       |
+| Nova Scotia               | ca-ns       |
+| Nunavut                   | ca-nu       |
+| Ontario                   | ca-on       |
+| Prince Edward Islands     | ca-pe       |
+| Quebec                    | ca-qc       |
+| Saskatchewan              | ca-sk       |
+| Yukon                     | ca-yt       |
+
+
+### United Arab Emirates
+
+| State                     | Region Code |
+| ------------------------- | ----------- |
+| Abu Dhabi                 | ae-az       |
+| Ajman                     | ae-aj       |
+| Dubai                     | ae-du       |
+| Fujairah                  | ae-fu       |
+| Ras Al Khaimah            | ae-rk       |
+| Sharjah                   | ae-sh       |
+| Umm Al Quwain             | ae-uq       |
+
+### Peru
+
+| State                     | Region Code |
+| ------------------------- | ----------- |
+| Amazonas                  | pe-ama      |
+| Ancash                    | pe-anc      |
+| Apurímac                  | pe-apu      |
+| Arequipa                  | pe-are      |
+| Ayacucho                  | pe-aya      |
+| Cajamarca                 | pe-caj      |
+| Cusco                     | pe-cus      |
+| Huancavelica              | pe-huv      |
+| Huánuco                   | pe-huc      |
+| Ica                       | pe-ica      |
+| Junín                     | pe-jun      |
+| La Libertad               | pe-lal      |
+| Lambayeque                | pe-lam      |
+| Lima                      | pe-lim      |
+| Loreto                    | pe-lor      |
+| Madre de Dios             | pe-mdd      |
+| Moquegua                  | pe-moq      |
+| Pasco                     | pe-pas      |
+| Piura                     | pe-piu      |
+| Puno                      | pe-pun      |
+| San Martín                | pe-sam      |
+| Tacna                     | pe-tac      |
+| Tumbes                    | pe-tum      |
+| Ucayali                   | pe-uca      |
 
 
 # SDK

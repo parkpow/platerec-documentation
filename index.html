@@ -578,6 +578,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
 <li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
 <li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
+<li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>
 </ul>
 <h3 id='json-response'>JSON Response</h3>
 <p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>

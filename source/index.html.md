@@ -363,7 +363,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Croatia                                               | hr          | Yes        |
 | Cyprus                                                | cy          |            |
 | Czechia                                               | cz          | Yes        |
-| Denmark                                               | dk          |            |
+| Denmark                                               | dk          | Yes        |
 | Ecuador                                               | ec          |            |
 | El Salvador                                           | sv          |            |
 | Estonia                                               | ee          | Yes        |

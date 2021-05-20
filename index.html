@@ -258,9 +258,6 @@
                   <li>
                     <a href="#read-number-plates-from-an-image" class="toc-h2 toc-link" data-title="Read Number Plates from an Image">Read Number Plates from an Image</a>
                   </li>
-                  <li>
-                    <a href="#countries" class="toc-h2 toc-link" data-title="Countries">Countries</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -297,10 +294,24 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#4264a8c1c6" class="toc-h1 toc-link" data-title="─">─</a>
           </li>
           <li>
             <a href="#faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+          </li>
+          <li>
+            <a href="#countries" class="toc-h1 toc-link" data-title="Countries">Countries</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#country-codes" class="toc-h2 toc-link" data-title="Country Codes">Country Codes</a>
+                  </li>
+                  <li>
+                    <a href="#countries-with-province-codes" class="toc-h2 toc-link" data-title="Countries with Province Codes">Countries with Province Codes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -667,13 +678,196 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
-<h2 id='countries'>Countries</h2>
+<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  http://localhost:8080/v1/plate-reader/
+
+<span class="c"># Calling with API with optional parameters config and mmc</span>
+curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>it <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">mmc</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"mode":"fast"}'</span> <span class="se">\</span>
+  http://localhost:8080/v1/plate-reader/
+
+</code></pre></div>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"usage"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"max_calls"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"calls"</span><span class="p">:</span><span class="mi">44</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"results"</span><span class="p">:[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Same</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">cloud</span><span class="w"> </span><span class="err">API</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">above.</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-16 17:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="s2">"car.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://localhost:8080/v1/plate-reader/</code></p>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><strong>All</strong> the parameters from <a href="#read-number-plates-from-an-image">recognition API</a>.</td>
+</tr>
+</tbody></table>
+<h3 id='json-response-2'>JSON Response</h3>
+<p>Returns the same parameters as the <a href="#read-number-plates-from-an-image">recognition API</a>. In addition to that, it returns the <strong>number of calls</strong> used.</p>
+<h2 id='sdk-version'>SDK version</h2>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"license_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/info/</code></p>
+<h3 id='json-response-3'>JSON Response</h3>
+<p>Returns the SDK version, license key and webhooks.</p>
+<h1 id='webhooks'>WebHooks</h1>
+<blockquote>
+<p>Example of POST payload</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"hook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8081/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image.done"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.186</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-31T14:22:06.983Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765410"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9131534678711563</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4084282568529709</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"830265"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7700640306685624</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8493143507578083</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14_22_test.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://docs.google.com/document/d/1vLwyx4gQvv3gF_kQUvB5sLHoY0IlxV5b3gYUqR2wN1U/edit#heading=h.564g7uuo44vp">instructions</a>.</p>
+
+<p>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</p>
+
+<p>The <code>target_url</code> should return a <strong>valid HTTP status code</strong> (200). If the <code>target_url</code> consistently returns an error code, the hook will be removed and an email will be sent to the account owner.</p>
+
+<aside class="notice">
+We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.
+</aside>
+<h2 id='data-only-webhook'>Data Only Webhook</h2><h3 id='snapshot-http-request'>Snapshot: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains the payload above in JSON format.</p>
+<h3 id='stream-http-request'>Stream: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains a <code>json</code> field with JSON encoded data. See the example above for the content of that field.</p>
+<h2 id='webhook-with-image'>Webhook With Image</h2><h3 id='snapshot-amp-stream-http-request'>Snapshot &amp; Stream: HTTP Request</h3>
+<p><code>POST target_url</code></p>
+
+<p>The request body contains a <code>multipart/form-data</code> content. Receiving this data is like receiving the content of a form with an <code>input</code> of type file. It has two fields:</p>
+
+<ul>
+<li><code>upload</code> contains the image binary content</li>
+<li><code>json</code> is the JSON encoded data. See the example of the payload above.</li>
+</ul>
+
+<aside class="notice">
+The bounding box of the license plate are calculated based on the image sent by webhook.
+</aside>
+<h1 id='statistics'>Statistics</h1>
+<p>Get number of recognition calls done during the current month.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.platerecognizer.com/v1/statistics/</code></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  https://api.platerecognizer.com/v1/statistics/
+</code></pre></div>
+<blockquote>
+<p>Return value</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"resets_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T00:00:00Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"total_calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='json-response-4'>JSON Response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>calls</td>
+<td>Number of API calls made during the current period.</td>
+</tr>
+<tr>
+<td>month</td>
+<td>Month of the current period.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>Year of the current period.</td>
+</tr>
+<tr>
+<td>resets_on</td>
+<td>Date when the counter will reset.</td>
+</tr>
+<tr>
+<td>total_calls</td>
+<td>Maximum number of API calls you can make during the period. Need more? <a href="https://app.platerecognizer.com/subscribe/">Upgrade</a>.</td>
+</tr>
+</tbody></table>
+<h1 id='4264a8c1c6'>─</h1><h1 id='faq'>FAQ</h1>
+<p>Can&#39;t make it work? We may have answers on our <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
+<h1 id='countries'>Countries</h1>
 <p>Codes for the <code>regions</code> parameter. You can also provide a state to select more specific license plate patterns. States are only supported for some countries.</p>
 
 <p>Don&#39;t see your country listed?   <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> for more info.</p>
 
 <p>The column <strong>Prediction</strong> indicates if the region is supported by our region classification predictor (field <code>results/region/code</code>).</p>
-
+<h2 id='country-codes'>Country Codes</h2>
 <table><thead>
 <tr>
 <th>Country</th>
@@ -1722,7 +1916,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='united-states-of-america'>United States of America</h3>
+<h2 id='countries-with-province-codes'>Countries with Province Codes</h2><h3 id='united-states-of-america'>United States of America</h3>
 <table><thead>
 <tr>
 <th>State</th>
@@ -2617,187 +2811,8 @@ Replace <code>platerecognizer/alpr</code> by <code>platerecognizer/alpr:thailand
 <td>pe-uca</td>
 </tr>
 </tbody></table>
-<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
-curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  http://localhost:8080/v1/plate-reader/
 
-<span class="c"># Calling with API with optional parameters config and mmc</span>
-curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>it <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">mmc</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"mode":"fast"}'</span> <span class="se">\</span>
-  http://localhost:8080/v1/plate-reader/
-
-</code></pre></div>
-<blockquote>
-<p>Return value</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"usage"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"max_calls"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"calls"</span><span class="p">:</span><span class="mi">44</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"results"</span><span class="p">:[</span><span class="w">
-    </span><span class="err">//</span><span class="w"> </span><span class="err">Same</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">cloud</span><span class="w"> </span><span class="err">API</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">above.</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-16 17:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"filename"</span><span class="p">:</span><span class="s2">"car.jpg"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://localhost:8080/v1/plate-reader/</code></p>
-<h3 id='post-parameters-2'>POST Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>-</td>
-<td>-</td>
-<td><strong>All</strong> the parameters from <a href="#read-number-plates-from-an-image">recognition API</a>.</td>
-</tr>
-</tbody></table>
-<h3 id='json-response-2'>JSON Response</h3>
-<p>Returns the same parameters as the <a href="#read-number-plates-from-an-image">recognition API</a>. In addition to that, it returns the <strong>number of calls</strong> used.</p>
-<h2 id='sdk-version'>SDK version</h2>
-<blockquote>
-<p>Return value</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.8"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"license_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXX"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET http://localhost:8080/info/</code></p>
-<h3 id='json-response-3'>JSON Response</h3>
-<p>Returns the SDK version, license key and webhooks.</p>
-<h1 id='webhooks'>WebHooks</h1>
-<blockquote>
-<p>Example of POST payload</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"hook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8081/"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image.done"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.186</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-31T14:22:06.983Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765410"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9131534678711563</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4084282568529709</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"xmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">563</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"ymin"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"ymax"</span><span class="p">:</span><span class="w"> </span><span class="mi">579</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"xmax"</span><span class="p">:</span><span class="w"> </span><span class="mi">702</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"830265"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7700640306685624</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"dscore"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8493143507578083</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14_22_test.jpeg"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"camera_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://docs.google.com/document/d/1vLwyx4gQvv3gF_kQUvB5sLHoY0IlxV5b3gYUqR2wN1U/edit#heading=h.564g7uuo44vp">instructions</a>.</p>
-
-<p>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</p>
-
-<p>The <code>target_url</code> should return a <strong>valid HTTP status code</strong> (200). If the <code>target_url</code> consistently returns an error code, the hook will be removed and an email will be sent to the account owner.</p>
-
-<aside class="notice">
-We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.
-</aside>
-<h2 id='data-only-webhook'>Data Only Webhook</h2><h3 id='snapshot-http-request'>Snapshot: HTTP Request</h3>
-<p><code>POST target_url</code></p>
-
-<p>The request body contains the payload above in JSON format.</p>
-<h3 id='stream-http-request'>Stream: HTTP Request</h3>
-<p><code>POST target_url</code></p>
-
-<p>The request body contains a <code>json</code> field with JSON encoded data. See the example above for the content of that field.</p>
-<h2 id='webhook-with-image'>Webhook With Image</h2><h3 id='snapshot-amp-stream-http-request'>Snapshot &amp; Stream: HTTP Request</h3>
-<p><code>POST target_url</code></p>
-
-<p>The request body contains a <code>multipart/form-data</code> content. Receiving this data is like receiving the content of a form with an <code>input</code> of type file. It has two fields:</p>
-
-<ul>
-<li><code>upload</code> contains the image binary content</li>
-<li><code>json</code> is the JSON encoded data. See the example of the payload above.</li>
-</ul>
-
-<aside class="notice">
-The bounding box of the license plate are calculated based on the image sent by webhook.
-</aside>
-<h1 id='statistics'>Statistics</h1>
-<p>Get number of recognition calls done during the current month.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.platerecognizer.com/v1/statistics/</code></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
-  https://api.platerecognizer.com/v1/statistics/
-</code></pre></div>
-<blockquote>
-<p>Return value</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"resets_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T00:00:00Z"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"total_calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='json-response-4'>JSON Response</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>calls</td>
-<td>Number of API calls made during the current period.</td>
-</tr>
-<tr>
-<td>month</td>
-<td>Month of the current period.</td>
-</tr>
-<tr>
-<td>year</td>
-<td>Year of the current period.</td>
-</tr>
-<tr>
-<td>resets_on</td>
-<td>Date when the counter will reset.</td>
-</tr>
-<tr>
-<td>total_calls</td>
-<td>Maximum number of API calls you can make during the period. Need more? <a href="https://app.platerecognizer.com/subscribe/">Upgrade</a>.</td>
-</tr>
-</tbody></table>
+<p>_countries</p>
 <h1 id='errors'>Errors</h1>
 <table><thead>
 <tr>
@@ -2818,8 +2833,6 @@ The bounding box of the license plate are calculated based on the image sent by 
 <td>Indicates the user has sent too many requests in a given amount of time. The Free Trial Snapshot API Cloud Plan has a limit of 1 lookup per second.  A Snapshot API Cloud Subscription has a limit of 8 lookups per second.  The Snapshot SDK does not have any lookup limits per second.  <a href="https://app.platerecognizer.com/accounts/plan?utm_source=docs&amp;utm_medium=website">Subscribe</a> for a higher number of calls per second for your API Cloud plan.</td>
 </tr>
 </tbody></table>
-<h1 id='faq'>FAQ</h1>
-<p>Can&#39;t make it work? We may have answers on our <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
 
       </div>
       <div class="dark-box">

@@ -574,7 +574,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <p><strong>config</strong> is a JSON value to change the engine configuration. It can include the following values:</p>
 
 <ul>
-<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>
+<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>
 <li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
 <li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
 <li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
@@ -708,7 +708,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 </tr>
 <tr>
 <td><a href="#australia">Australia</a></td>
-<td></td>
+<td><a href="#australia">au</a></td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -763,7 +763,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 </tr>
 <tr>
 <td><a href="#canada">Canada</a></td>
-<td></td>
+<td><a href="#canada">ca</a></td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -1033,7 +1033,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 </tr>
 <tr>
 <td><a href="#peru">Peru</a></td>
-<td></td>
+<td>pe</td>
 <td></td>
 </tr>
 <tr>
@@ -1123,7 +1123,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 </tr>
 <tr>
 <td><a href="#thailand">Thailand</a></td>
-<td></td>
+<td><a href="#thailand">th</a></td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -1138,7 +1138,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 </tr>
 <tr>
 <td><a href="#united-arab-emirates">United Arab Emirates</a></td>
-<td></td>
+<td><a href="#united-arab-emirates">ae</a></td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -1147,8 +1147,8 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 <td>Yes</td>
 </tr>
 <tr>
-<td><a href="#united-states-of-america">United States of America</a></td>
-<td></td>
+<td><a href="#united-states-of-america">USA</a></td>
+<td><a href="#united-states-of-america">us</a></td>
 <td>Yes</td>
 </tr>
 <tr>

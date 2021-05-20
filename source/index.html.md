@@ -292,7 +292,7 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 **config** is a JSON value to change the engine configuration. It can include the following values:
 
-- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
+- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
 - `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
 - `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
 - `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
@@ -338,107 +338,107 @@ Don't see your country listed?   [Contact us](https://platerecognizer.com/contac
 
 The column **Prediction** indicates if the region is supported by our region classification predictor (field `results/region/code`).
 
-| Country                                               | Region code | Prediction |
-| ----------------------------------------------------- | ----------- | ---------- |
-| Albania                                               | al          |            |
-| Andorra                                               | ad          |            |
-| Angola                                                | ao          |            |
-| Argentina                                             | ar          | Yes        |
-| Armenia                                               | am          | Yes        |
-| [Australia](#australia)                               |             | Yes        |
-| Austria                                               | at          | Yes        |
-| Azerbaijan                                            | az          | Yes        |
-| Belarus                                               | by          | Yes        |
-| Belgium                                               | be          | Yes        |
-| Belize                                                | bz          |            |
-| Bolivia                                               | bo          |            |
-| Bosnia and Herzegovina                                | ba          |            |
-| Brazil                                                | br          | Yes        |
-| Brunei                                                | bn          |            |
-| Bulgaria                                              | bg          | Yes        |
-| [Canada](#canada)                                     |             | Yes        |
-| Chile                                                 | cl          | Yes        |
-| Colombia                                              | co          | Yes        |
-| Costa Rica                                            | cr          | Yes        |
-| Croatia                                               | hr          | Yes        |
-| Cyprus                                                | cy          |            |
-| Czechia                                               | cz          | Yes        |
-| Denmark                                               | dk          | Yes        |
-| Ecuador                                               | ec          |            |
-| El Salvador                                           | sv          |            |
-| Estonia                                               | ee          | Yes        |
-| Finland                                               | fi          | Yes        |
-| France                                                | fr          | Yes        |
-| French Guiana                                         | gf          |            |
-| Georgia                                               | ge          | Yes        |
-| Germany                                               | de          | Yes        |
-| Gibraltar                                             | gi          |            |
-| Greece                                                | gr          | Yes        |
-| Guatamala                                             | gp          |            |
-| Guyana                                                | gy          |            |
-| Holy See                                              | va          |            |
-| Honduras                                              | hn          |            |
-| Hungary                                               | hu          | Yes        |
-| Iceland                                               | is          |            |
-| Israel                                                | il          | Yes        |
-| India                                                 | in          | Yes        |
-| Indonesia                                             | id          | Yes        |
-| Ireland                                               | ie          |            |
-| Italy                                                 | it          | Yes        |
-| Jordan                                                | jo          |            |
-| Kazakhstan                                            | kz          | Yes        |
-| Kenya                                                 | ke          |            |
-| Korea, Republic of                                    | kr          |            |
-| Latvia                                                | lv          | Yes        |
-| Lebanon                                               | lb          |            |
-| Liechtenstein                                         | li          |            |
-| Lithuania                                             | lt          | Yes        |
-| Luxembourg                                            | lu          | Yes        |
-| Malaysia                                              | my          |            |
-| Maldives                                              | mv          |            |
-| Malta                                                 | mt          |            |
-| Mexico                                                | mx          |            |
-| Moldova, Republic of                                  | md          | Yes        |
-| Monaco                                                | mc          | Yes        |
-| Montenegro                                            | me          | Yes        |
-| Nepal                                                 | np          |            |
-| Netherlands                                           | nl          | Yes        |
-| New Zealand                                           | nz          | Yes        |
-| Nicaragua                                             | ni          |            |
-| Nigeria                                               | ng          |            |
-| North Macedonia                                       | mk          |            |
-| Norway                                                | no          | Yes        |
-| Panama                                                | pa          |            |
-| Paraguay                                              | py          |            |
-| [Peru](#peru)                                         |             |            |
-| Philippines                                           | ph          |            |
-| Poland                                                | pl          | Yes        |
-| Portugal                                              | pt          | Yes        |
-| Qatar                                                 | qa          |            |
-| Romania                                               | ro          | Yes        |
-| Russian Federation                                    | ru          |            |
-| San Marino                                            | sm          |            |
-| Serbia                                                | rs          | Yes        |
-| Singapore                                             | sg          |            |
-| Slovakia                                              | sk          | Yes        |
-| Slovenia                                              | si          |            |
-| South Africa                                          | za          | Yes        |
-| Spain                                                 | es          | Yes        |
-| Suriname                                              | sr          |            |
-| Sweden                                                | se          | Yes        |
-| Switzerland                                           | ch          | Yes        |
-| Tanzania                                              | tz          |            |
-| [Thailand](#thailand)                                 |             | Yes        |
-| Turkey                                                | tr          | Yes        |
-| Ukraine                                               | ua          | Yes        |
-| [United Arab Emirates](#united-arab-emirates)         |             | Yes        |
-| United Kingdom of Great Britain                       | gb          | Yes        |
-| [United States of America](#united-states-of-america) |             | Yes        |
-| Uraguay                                               | uy          |            |
-| Uzbekistan                                            | uz          | Yes        |
-| Venezuela                                             | ve          |            |
-| Vietnam                                               | vn          | Yes        |
-| Zambia                                                | zm          |            |
+| Country                                       | Region code                     | Prediction |
+| --------------------------------------------- | ------------------------------- | ---------- |
+| Albania                                       | al                              |            |
+| Andorra                                       | ad                              |            |
+| Angola                                        | ao                              |            |
+| Argentina                                     | ar                              | Yes        |
+| Armenia                                       | am                              | Yes        |
+| [Australia](#australia)                       | [au](#australia)                | Yes        |
+| Austria                                       | at                              | Yes        |
+| Azerbaijan                                    | az                              | Yes        |
+| Belarus                                       | by                              | Yes        |
+| Belgium                                       | be                              | Yes        |
+| Belize                                        | bz                              |            |
+| Bolivia                                       | bo                              |            |
+| Bosnia and Herzegovina                        | ba                              |            |
+| Brazil                                        | br                              | Yes        |
+| Brunei                                        | bn                              |            |
+| Bulgaria                                      | bg                              | Yes        |
+| [Canada](#canada)                             | [ca](#canada)                   | Yes        |
+| Chile                                         | cl                              | Yes        |
+| Colombia                                      | co                              | Yes        |
+| Costa Rica                                    | cr                              | Yes        |
+| Croatia                                       | hr                              | Yes        |
+| Cyprus                                        | cy                              |            |
+| Czechia                                       | cz                              | Yes        |
+| Denmark                                       | dk                              | Yes        |
+| Ecuador                                       | ec                              |            |
+| El Salvador                                   | sv                              |            |
+| Estonia                                       | ee                              | Yes        |
+| Finland                                       | fi                              | Yes        |
+| France                                        | fr                              | Yes        |
+| French Guiana                                 | gf                              |            |
+| Georgia                                       | ge                              | Yes        |
+| Germany                                       | de                              | Yes        |
+| Gibraltar                                     | gi                              |            |
+| Greece                                        | gr                              | Yes        |
+| Guatamala                                     | gp                              |            |
+| Guyana                                        | gy                              |            |
+| Holy See                                      | va                              |            |
+| Honduras                                      | hn                              |            |
+| Hungary                                       | hu                              | Yes        |
+| Iceland                                       | is                              |            |
+| Israel                                        | il                              | Yes        |
+| India                                         | in                              | Yes        |
+| Indonesia                                     | id                              | Yes        |
+| Ireland                                       | ie                              |            |
+| Italy                                         | it                              | Yes        |
+| Jordan                                        | jo                              |            |
+| Kazakhstan                                    | kz                              | Yes        |
+| Kenya                                         | ke                              |            |
+| Korea, Republic of                            | kr                              |            |
+| Latvia                                        | lv                              | Yes        |
+| Lebanon                                       | lb                              |            |
+| Liechtenstein                                 | li                              |            |
+| Lithuania                                     | lt                              | Yes        |
+| Luxembourg                                    | lu                              | Yes        |
+| Malaysia                                      | my                              |            |
+| Maldives                                      | mv                              |            |
+| Malta                                         | mt                              |            |
+| Mexico                                        | mx                              |            |
+| Moldova, Republic of                          | md                              | Yes        |
+| Monaco                                        | mc                              | Yes        |
+| Montenegro                                    | me                              | Yes        |
+| Nepal                                         | np                              |            |
+| Netherlands                                   | nl                              | Yes        |
+| New Zealand                                   | nz                              | Yes        |
+| Nicaragua                                     | ni                              |            |
+| Nigeria                                       | ng                              |            |
+| North Macedonia                               | mk                              |            |
+| Norway                                        | no                              | Yes        |
+| Panama                                        | pa                              |            |
+| Paraguay                                      | py                              |            |
+| [Peru](#peru)                                 | pe                              |            |
+| Philippines                                   | ph                              |            |
+| Poland                                        | pl                              | Yes        |
+| Portugal                                      | pt                              | Yes        |
+| Qatar                                         | qa                              |            |
+| Romania                                       | ro                              | Yes        |
+| Russian Federation                            | ru                              |            |
+| San Marino                                    | sm                              |            |
+| Serbia                                        | rs                              | Yes        |
+| Singapore                                     | sg                              |            |
+| Slovakia                                      | sk                              | Yes        |
+| Slovenia                                      | si                              |            |
+| South Africa                                  | za                              | Yes        |
+| Spain                                         | es                              | Yes        |
+| Suriname                                      | sr                              |            |
+| Sweden                                        | se                              | Yes        |
+| Switzerland                                   | ch                              | Yes        |
+| Tanzania                                      | tz                              |            |
+| [Thailand](#thailand)                         | [th](#thailand)                 | Yes        |
+| Turkey                                        | tr                              | Yes        |
+| Ukraine                                       | ua                              | Yes        |
+| [United Arab Emirates](#united-arab-emirates) | [ae](#united-arab-emirates)     | Yes        |
+| United Kingdom of Great Britain               | gb                              | Yes        |
+| [USA](#united-states-of-america)              | [us](#united-states-of-america) | Yes        |
+| Uraguay                                       | uy                              |            |
+| Uzbekistan                                    | uz                              | Yes        |
+| Venezuela                                     | ve                              |            |
+| Vietnam                                       | vn                              | Yes        |
+| Zambia                                        | zm                              |            |
 
 ### United States of America
 
@@ -653,44 +653,44 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 
 ### United Arab Emirates
 
-| State                     | Region Code |
-| ------------------------- | ----------- |
-| Abu Dhabi                 | ae-az       |
-| Ajman                     | ae-aj       |
-| Dubai                     | ae-du       |
-| Fujairah                  | ae-fu       |
-| Ras Al Khaimah            | ae-rk       |
-| Sharjah                   | ae-sh       |
-| Umm Al Quwain             | ae-uq       |
+| State          | Region Code |
+| -------------- | ----------- |
+| Abu Dhabi      | ae-az       |
+| Ajman          | ae-aj       |
+| Dubai          | ae-du       |
+| Fujairah       | ae-fu       |
+| Ras Al Khaimah | ae-rk       |
+| Sharjah        | ae-sh       |
+| Umm Al Quwain  | ae-uq       |
 
 ### Peru
 
-| State                     | Region Code |
-| ------------------------- | ----------- |
-| Amazonas                  | pe-ama      |
-| Ancash                    | pe-anc      |
-| Apurímac                  | pe-apu      |
-| Arequipa                  | pe-are      |
-| Ayacucho                  | pe-aya      |
-| Cajamarca                 | pe-caj      |
-| Cusco                     | pe-cus      |
-| Huancavelica              | pe-huv      |
-| Huánuco                   | pe-huc      |
-| Ica                       | pe-ica      |
-| Junín                     | pe-jun      |
-| La Libertad               | pe-lal      |
-| Lambayeque                | pe-lam      |
-| Lima                      | pe-lim      |
-| Loreto                    | pe-lor      |
-| Madre de Dios             | pe-mdd      |
-| Moquegua                  | pe-moq      |
-| Pasco                     | pe-pas      |
-| Piura                     | pe-piu      |
-| Puno                      | pe-pun      |
-| San Martín                | pe-sam      |
-| Tacna                     | pe-tac      |
-| Tumbes                    | pe-tum      |
-| Ucayali                   | pe-uca      |
+| State         | Region Code |
+| ------------- | ----------- |
+| Amazonas      | pe-ama      |
+| Ancash        | pe-anc      |
+| Apurímac      | pe-apu      |
+| Arequipa      | pe-are      |
+| Ayacucho      | pe-aya      |
+| Cajamarca     | pe-caj      |
+| Cusco         | pe-cus      |
+| Huancavelica  | pe-huv      |
+| Huánuco       | pe-huc      |
+| Ica           | pe-ica      |
+| Junín         | pe-jun      |
+| La Libertad   | pe-lal      |
+| Lambayeque    | pe-lam      |
+| Lima          | pe-lim      |
+| Loreto        | pe-lor      |
+| Madre de Dios | pe-mdd      |
+| Moquegua      | pe-moq      |
+| Pasco         | pe-pas      |
+| Piura         | pe-piu      |
+| Puno          | pe-pun      |
+| San Martín    | pe-sam      |
+| Tacna         | pe-tac      |
+| Tumbes        | pe-tum      |
+| Ucayali       | pe-uca      |
 
 
 # SDK

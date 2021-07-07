@@ -261,7 +261,7 @@
               </ul>
           </li>
           <li>
-            <a href="#sdk" class="toc-h1 toc-link" data-title="SDK">SDK</a>
+            <a href="#on-premise-sdk" class="toc-h1 toc-link" data-title="On-Premise SDK">On-Premise SDK</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#recognition-api" class="toc-h2 toc-link" data-title="Recognition API">Recognition API</a>
@@ -292,6 +292,9 @@
                     <a href="#json-response-4" class="toc-h2 toc-link" data-title="JSON Response">JSON Response</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#stream" class="toc-h1 toc-link" data-title="Stream">Stream</a>
           </li>
           <li>
             <a href="#4264a8c1c6" class="toc-h1 toc-link" data-title="─">─</a>
@@ -678,7 +681,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
-<h1 id='sdk'>SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
+<h1 id='on-premise-sdk'>On-Premise SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   http://localhost:8080/v1/plate-reader/
 
@@ -859,6 +862,8 @@ The bounding box of the license plate are calculated based on the image sent by 
 <td>Maximum number of API calls you can make during the period. Need more? <a href="https://app.platerecognizer.com/subscribe/">Upgrade</a>.</td>
 </tr>
 </tbody></table>
+<h1 id='stream'>Stream</h1>
+<p>Highly-accurate ALPR software that processes live camera or video feeds quickly &amp; efficiently. See <a href="https://app.platerecognizer.com/stream-docs">documentation</a>.</p>
 <h1 id='4264a8c1c6'>─</h1><h1 id='faq'>FAQ</h1>
 <p>Can&#39;t make it work? We may have answers on our <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
 <h1 id='countries'>Countries</h1>

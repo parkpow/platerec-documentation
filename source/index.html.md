@@ -333,7 +333,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 
 
 
-# SDK
+# On-Premise SDK
 
 ## Recognition API
 
@@ -529,6 +529,10 @@ curl -H 'Authorization: Token API_TOKEN' \
 | year        | Year of the current period.                                                                                                   |
 | resets_on   | Date when the counter will reset.                                                                                             |
 | total_calls | Maximum number of API calls you can make during the period. Need more? [Upgrade](https://app.platerecognizer.com/subscribe/). |
+
+# Stream
+
+Highly-accurate ALPR software that processes live camera or video feeds quickly & efficiently. See [documentation](https://app.platerecognizer.com/stream-docs).
 
 # ─
 

@@ -367,7 +367,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 <span class="c1">//ADD PARAMETER IN REQUEST LIKE regions</span>
 <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'upload'</span> <span class="o">=&gt;</span> <span class="nv">$cFile</span><span class="p">,</span>
-    <span class="s1">'regions'</span> <span class="o">=&gt;</span> <span class="s1">'fr'</span> <span class="c1">// Optional</span>
+    <span class="s1">'regions'</span> <span class="o">=&gt;</span> <span class="s1">'us-ca'</span> <span class="c1">// Optional</span>
 <span class="p">);</span>
 
 <span class="c1">// Prepare new cURL resource</span>
@@ -392,7 +392,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># pip install requests
 </span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="n">regions</span> <span class="o">=</span> <span class="p">[</span><span class="s">'gb'</span><span class="p">,</span> <span class="s">'it'</span><span class="p">]</span> <span class="c1"># Change to your country
+<span class="n">regions</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mx'</span><span class="p">,</span> <span class="s">'us-ca'</span><span class="p">]</span> <span class="c1"># Change to your country
 </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/path/to/car.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
         <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
@@ -406,19 +406,19 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/path/to/car.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
         <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="s">'au'</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
+        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="s">'us-ca'</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
 </span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions (Mexico and California).</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>gb <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 
-<span class="c"># Calling the API with a custom engine configuration</span>
+<span class="c"># Calling the API with a custom engine configuration and region California.</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Using Node-RED?</span>
@@ -432,7 +432,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <span class="kd">let</span> <span class="nx">body</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
 <span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">upload</span><span class="dl">'</span><span class="p">,</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">image_path</span><span class="p">));</span>
 <span class="c1">// Or body.append('upload', base64Image);</span>
-<span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">regions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">gb</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Change to your country</span>
+<span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">regions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">us-ca</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Change to your country</span>
 <span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://api.platerecognizer.com/v1/plate-reader/</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
         <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
@@ -686,9 +686,10 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
   http://localhost:8080/v1/plate-reader/
 
 <span class="c"># Calling with API with optional parameters config and mmc</span>
+<span class="c"># The region is set to Mexico and California</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>fr <span class="se">\</span>
-  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>it <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx <span class="se">\</span>
+  <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">mmc</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"mode":"fast"}'</span> <span class="se">\</span>
   http://localhost:8080/v1/plate-reader/

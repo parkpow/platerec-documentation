@@ -77,7 +77,7 @@ if (function_exists('curl_file_create')) { // php 5.5+
 //ADD PARAMETER IN REQUEST LIKE regions
 $data = array(
     'upload' => $cFile,
-    'regions' => 'fr' // Optional
+    'regions' => 'us-ca' // Optional
 );
 
 // Prepare new cURL resource
@@ -105,7 +105,7 @@ curl_close($ch);
 # pip install requests
 import requests
 from pprint import pprint
-regions = ['gb', 'it'] # Change to your country
+regions = ['mx', 'us-ca'] # Change to your country
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
@@ -119,22 +119,22 @@ import json
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
-        data=dict(regions=['au'], config=json.dumps(dict(region="strict"))),  # Optional
+        data=dict(regions=['us-ca'], config=json.dumps(dict(region="strict"))),  # Optional
         files=dict(upload=fp),
         headers={'Authorization': 'Token API_TOKEN'})
 ```
 
 ```shell
-# Calling the API with 2 regions
+# Calling the API with 2 regions (Mexico and California).
 curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr \
-  -F regions=gb \
+  -F regions=mx \
+  -F regions=us-ca \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 
-# Calling the API with a custom engine configuration
+# Calling the API with a custom engine configuration and region California.
 curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr -F config='{"region":"strict"}' \
+  -F regions=us-ca -F config='{"region":"strict"}' \
   -H 'Authorization: Token API_TOKEN' \
   https://api.platerecognizer.com/v1/plate-reader/
 ```
@@ -151,7 +151,7 @@ let image_path = '/path/to/car.jpg'
 let body = new FormData();
 body.append('upload', fs.createReadStream(image_path));
 // Or body.append('upload', base64Image);
-body.append('regions', 'gb'); // Change to your country
+body.append('regions', 'us-ca'); // Change to your country
 fetch("https://api.platerecognizer.com/v1/plate-reader/", {
         method: 'POST',
         headers: {
@@ -343,9 +343,10 @@ curl -F 'upload=@/path/to/car.jpg' \
   http://localhost:8080/v1/plate-reader/
 
 # Calling with API with optional parameters config and mmc
+# The region is set to Mexico and California
 curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=fr \
-  -F regions=it \
+  -F regions=mx \
+  -F regions=us-ca \
   -F mmc=true \
   -F config='{"mode":"fast"}' \
   http://localhost:8080/v1/plate-reader/

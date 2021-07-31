@@ -494,6 +494,115 @@ The request body contains a `multipart/form-data` content. Receiving this data i
 The bounding box of the license plate are calculated based on the image sent by webhook.
 </aside>
 
+## Vehicle Without Plates
+
+> Version 2 of the JSON Output 
+
+```json
+[
+    {
+        "camera_id": "camera-1",
+        "filename": "09-53-36.169692.jpg",
+        "timestamp": "2021-07-31T13:53:36.169692Z",
+        "timestamp_local": "2021-07-31 09:53:36.169692-04:00",
+        "results": [
+            {
+                "plate": {
+                    "type": "Plate",
+                    "score": 0.888,
+                    "box": {
+                        "xmin": 49,
+                        "ymin": 455,
+                        "xmax": 116,
+                        "ymax": 491
+                    },
+                    "props": {
+                        "plate": [
+                            {
+                                "value": "hdb167a",
+                                "score": 0.908
+                            }
+                        ],
+                        "region": [
+                            {
+                                "value": "us-pa",
+                                "score": 0.079
+                            }
+                        ]
+                    }
+                },
+                "vehicle": {
+                    "type": "Sedan",
+                    "score": 0.688,
+                    "box": {
+                        "xmin": 1,
+                        "ymin": 171,
+                        "xmax": 290,
+                        "ymax": 548
+                    },
+                    "props": {
+                        "make_model": [
+                            {
+                                "make": "Chrysler",
+                                "model": "200",
+                                "score": 0.037
+                            },
+                            {
+                                "make": "Chrysler",
+                                "model": "Pacifica (minivan)",
+                                "score": 0.024
+                            },
+                            {
+                                "make": "Chrysler",
+                                "model": "Pacifica",
+                                "score": 0.021
+                            }
+                        ],
+                        "orientation": [
+                            {
+                                "value": "Front",
+                                "score": 0.925
+                            },
+                            {
+                                "value": "Rear",
+                                "score": 0.041
+                            },
+                            {
+                                "value": "Unknown",
+                                "score": 0.034
+                            }
+                        ],
+                        "color": [
+                            {
+                                "value": "white",
+                                "score": 0.887
+                            },
+                            {
+                                "value": "silver",
+                                "score": 0.027
+                            },
+                            {
+                                "value": "black",
+                                "score": 0.014
+                            }
+                        ]
+                    }
+                },
+                "direction": 345,
+                "source_url": "/user-data/video.mp4",
+                "position_sec": 11.14
+            }
+        ]
+    }
+]
+```
+
+Stream can be configured to output vehicles without a license plate. When enabled, the output has a different structure. See the example on the right. Notable differences are:
+
+- Each result is now a dictionary with two optional elements: `plate` and `vehicle`.
+- The license plate text is stored in `plate.props.plate` as a list. The first element is the top prediction.
+- The license plate region is in `plate.props.region`.
+- The vehicle properties (orientation, make model and color) are in `vehicle.props`.  Each include the top 3 predictions.
 
 # Statistics
 

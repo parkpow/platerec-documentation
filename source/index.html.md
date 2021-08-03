@@ -38,10 +38,10 @@ We have multiple language bindings. You can view code examples in the dark area 
 
 Plate Recognizer Snapshot API is only available to registered users.  [Sign up](https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website) for a Free Trial and get an **API key**. It has to be included in all API calls. The HTTP **headers** must contain:
 
-`Authorization: Token API_TOKEN`
+`Authorization: Token my-token******`
 
 <aside class="notice">
-You must replace <code>API_TOKEN</code> with your personal API key.
+You must replace <code>my-token******</code> with your personal API key. For example, <code>Token 3a0effff73919f898b69ac65a32dc12347769564</code>
 </aside>
 
 # License Plate Recognition
@@ -57,7 +57,7 @@ path = '/path/to/car.jpg'
 File.open(path) do |jpg|
   req = Net::HTTP::Post::Multipart.new url.path,
     "upload" => UploadIO.new(jpg, "image/jpeg", path)
-  req['Authorization'] = 'Token API_TOKEN'
+  req['Authorization'] = 'Token my-token******'
   res = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
     http.request(req)
   end
@@ -90,7 +90,7 @@ curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2TLS);
 
 // Set HTTP Header for POST request
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Authorization: Token API_TOKEN"  //API KEY
+    "Authorization: Token my-token******"  //API KEY
 	)
 );
 
@@ -111,7 +111,7 @@ with open('/path/to/car.jpg', 'rb') as fp:
         'https://api.platerecognizer.com/v1/plate-reader/',
         data=dict(regions=regions),  # Optional
         files=dict(upload=fp),
-        headers={'Authorization': 'Token API_TOKEN'})
+        headers={'Authorization': 'Token my-token******'})
 pprint(response.json())
 
 # Calling with a custom engine configuration
@@ -121,7 +121,7 @@ with open('/path/to/car.jpg', 'rb') as fp:
         'https://api.platerecognizer.com/v1/plate-reader/',
         data=dict(regions=['us-ca'], config=json.dumps(dict(region="strict"))),  # Optional
         files=dict(upload=fp),
-        headers={'Authorization': 'Token API_TOKEN'})
+        headers={'Authorization': 'Token my-token******'})
 ```
 
 ```shell
@@ -129,13 +129,13 @@ with open('/path/to/car.jpg', 'rb') as fp:
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=mx \
   -F regions=us-ca \
-  -H 'Authorization: Token API_TOKEN' \
+  -H 'Authorization: Token my-token******' \
   https://api.platerecognizer.com/v1/plate-reader/
 
 # Calling the API with a custom engine configuration and region California.
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=us-ca -F config='{"region":"strict"}' \
-  -H 'Authorization: Token API_TOKEN' \
+  -H 'Authorization: Token my-token******' \
   https://api.platerecognizer.com/v1/plate-reader/
 ```
 
@@ -155,7 +155,7 @@ body.append('regions', 'us-ca'); // Change to your country
 fetch("https://api.platerecognizer.com/v1/plate-reader/", {
         method: 'POST',
         headers: {
-            "Authorization": "Token API_TOKEN"
+            "Authorization": "Token my-token******"
         },
         body: body
     }).then(res => res.json())
@@ -612,7 +612,7 @@ Get number of recognition calls done during the current month.
 `GET https://api.platerecognizer.com/v1/statistics/`
 
 ```shell
-curl -H 'Authorization: Token API_TOKEN' \
+curl -H 'Authorization: Token my-token******' \
   https://api.platerecognizer.com/v1/statistics/
 ```
 

@@ -340,10 +340,10 @@
 <h1 id='authentication'>Authentication</h1>
 <p>Plate Recognizer Snapshot API is only available to registered users.  <a href="https://app.platerecognizer.com/accounts/signup/?utm_source=docs&amp;utm_medium=website">Sign up</a> for a Free Trial and get an <strong>API key</strong>. It has to be included in all API calls. The HTTP <strong>headers</strong> must contain:</p>
 
-<p><code>Authorization: Token API_TOKEN</code></p>
+<p><code>Authorization: Token my-token******</code></p>
 
 <aside class="notice">
-You must replace <code>API_TOKEN</code> with your personal API key.
+You must replace <code>my-token******</code> with your personal API key. For example, <code>Token 3a0effff73919f898b69ac65a32dc12347769564</code>
 </aside>
 <h1 id='license-plate-recognition'>License Plate Recognition</h1><h2 id='read-number-plates-from-an-image'>Read Number Plates from an Image</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1"># gem install multipart-post</span>
 <span class="nb">require</span> <span class="s1">'net/http/post/multipart'</span>
@@ -353,7 +353,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">jpg</span><span class="o">|</span>
   <span class="n">req</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">::</span><span class="no">Multipart</span><span class="p">.</span><span class="nf">new</span> <span class="n">url</span><span class="p">.</span><span class="nf">path</span><span class="p">,</span>
     <span class="s2">"upload"</span> <span class="o">=&gt;</span> <span class="no">UploadIO</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">jpg</span><span class="p">,</span> <span class="s2">"image/jpeg"</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
-  <span class="n">req</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Token API_TOKEN'</span>
+  <span class="n">req</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Token my-token******'</span>
   <span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span> <span class="ss">use_ssl: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
     <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
   <span class="k">end</span>
@@ -383,7 +383,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
 
 <span class="c1">// Set HTTP Header for POST request</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"Authorization: Token API_TOKEN"</span>  <span class="c1">//API KEY</span>
+    <span class="s2">"Authorization: Token my-token******"</span>  <span class="c1">//API KEY</span>
     <span class="p">)</span>
 <span class="p">);</span>
 
@@ -401,7 +401,7 @@ You must replace <code>API_TOKEN</code> with your personal API key.
         <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
         <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="n">regions</span><span class="p">),</span>  <span class="c1"># Optional
 </span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
-        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token my-token******'</span><span class="p">})</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
 <span class="c1"># Calling with a custom engine configuration
@@ -411,18 +411,18 @@ You must replace <code>API_TOKEN</code> with your personal API key.
         <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
         <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="s">'us-ca'</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
 </span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
-        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token API_TOKEN'</span><span class="p">})</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token my-token******'</span><span class="p">})</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions (Mexico and California).</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 
 <span class="c"># Calling the API with a custom engine configuration and region California.</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Using Node-RED?</span>
 <span class="c1">// Check https://github.com/parkpow/node-red-contrib-plate-recognizer</span>
@@ -439,7 +439,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://api.platerecognizer.com/v1/plate-reader/</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
         <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Token API_TOKEN</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Token my-token******</span><span class="dl">"</span>
         <span class="p">},</span>
         <span class="na">body</span><span class="p">:</span> <span class="nx">body</span>
     <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
@@ -932,7 +932,7 @@ The bounding box of the license plate are calculated based on the image sent by 
 <p>Get number of recognition calls done during the current month.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.platerecognizer.com/v1/statistics/</code></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Token API_TOKEN'</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/statistics/
 </code></pre></div>
 <blockquote>

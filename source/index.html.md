@@ -299,6 +299,12 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 - `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
 - `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
 
+Here are a couple of examples of the `config` parameter using `curl`:
+- Custom threshold: `curl -F 'upload=@/path/to/car.jpg' -F config='{"threshold_d":0.2, "threshold_o":0.6}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+- Strict region matching: `curl -F 'upload=@/path/to/car.jpg' -F config='{"region":"strict"}' -F region=us-ca -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+- Prediction must include a vehicle: `curl -F 'upload=@/path/to/car.jpg' -F config='{"detection_rule":"strict"}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+
+
 
 ### JSON Response
 

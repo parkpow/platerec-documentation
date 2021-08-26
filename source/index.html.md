@@ -311,7 +311,7 @@ The response is a list of all the license plates found in the image. Each licens
 | results/dscore                  | Confidence level for plate **detection**.                                                                           |
 | results/score                   | Confidence level for **reading** the license plate text.                                                            |
 | results/vehicle/type            | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
-| results/vehicle/score           | Confidence level for vehicle prediction.                                                                            |
+| results/vehicle/score           | Confidence level for vehicle type prediction.                                                                            |
 | results/vehicle/box             | Vehicle bounding box.                                                                                               |
 | results/region/code             | Region of license plate. Returns a code from the [country list](#countries).                                        |
 | results/region/score            | Confidence level for license plate region.                                                                          |

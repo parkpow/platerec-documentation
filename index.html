@@ -598,10 +598,13 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>
 </ul>
 
-<p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:
-- Custom threshold: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code>
-- Strict region matching: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; -F region=us-ca -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code>
-- Prediction must include a vehicle: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></p>
+<p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:</p>
+
+<ul>
+<li>Custom threshold and fast mode: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+<li>Strict region matching: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; -F region=us-ca -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+<li>Prediction must include a vehicle: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+</ul>
 <h3 id='json-response'>JSON Response</h3>
 <p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>
 

@@ -291,7 +291,9 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
-**config** is a JSON value to change the engine configuration. It can include the following values:
+### Engine Configuration
+
+The **config** parameter is a JSON value to change the engine configuration. It can include the following values:
 
 - `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
 - `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.

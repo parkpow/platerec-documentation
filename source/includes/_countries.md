@@ -2,6 +2,8 @@
 
 Codes for the `regions` parameter. You can also provide a state to select more specific license plate patterns. States are only supported for some countries.
 
+Please note that we have a special Docker Image for Thailand (detects Thai characters) and Germany/Austria (identifies umlauts, space gaps).  See details for [Snapshot SDK](https://guides.platerecognizer.com/docs/snapshot/manual-install/#list-of-docker-images) and [Stream](https://guides.platerecognizer.com/docs/stream/manual-install/#list-of-docker-images).
+
 Don't see your country listed?   [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.
 
 The column **Prediction** indicates if the region is supported by our region classification predictor (field `results/region/code`).

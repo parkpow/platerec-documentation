@@ -99,6 +99,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Haiti                                         | ht                              |            |
 | Holy See                                      | va                              |            |
 | Honduras                                      | hn                              |            |
+| Hong Kong                                     | hk                              |            |
 | Hungary                                       | hu                              | Yes        |
 | Iceland                                       | is                              |            |
 | India                                         | in                              | Yes        |

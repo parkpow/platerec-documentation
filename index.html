@@ -412,14 +412,14 @@ You must replace <code>my-token******</code> with your personal API key. For exa
         <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="s">'us-ca'</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
 </span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token my-token******'</span><span class="p">})</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions (Mexico and California).</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with 2 regions (Mexico and California). On Windows, use curl -F "upload=@C:\images\car.jpg".</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
 
-<span class="c"># Calling the API with a custom engine configuration and region California.</span>
+<span class="c"># Calling the API with a custom engine configuration and region California. On Windows, use curl -F "upload=@C:\images\car.jpg".</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>

@@ -125,14 +125,14 @@ with open('/path/to/car.jpg', 'rb') as fp:
 ```
 
 ```shell
-# Calling the API with 2 regions (Mexico and California).
+# Calling the API with 2 regions (Mexico and California). On Windows, use curl -F "upload=@C:\images\car.jpg".
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=mx \
   -F regions=us-ca \
   -H 'Authorization: Token my-token******' \
   https://api.platerecognizer.com/v1/plate-reader/
 
-# Calling the API with a custom engine configuration and region California.
+# Calling the API with a custom engine configuration and region California. On Windows, use curl -F "upload=@C:\images\car.jpg".
 curl -F 'upload=@/path/to/car.jpg' \
   -F regions=us-ca -F config='{"region":"strict"}' \
   -H 'Authorization: Token my-token******' \

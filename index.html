@@ -636,11 +636,11 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 </tr>
 <tr>
 <td>results/vehicle/score</td>
-<td>Confidence level for vehicle type prediction.</td>
+<td>Confidence level for vehicle type prediction. If we <strong>cannot find a vehicle</strong>, the score is set to 0.</td>
 </tr>
 <tr>
 <td>results/vehicle/box</td>
-<td>Vehicle bounding box.</td>
+<td>Vehicle bounding box. If we <strong>cannot find a vehicle</strong>, the coordinates are all 0.</td>
 </tr>
 <tr>
 <td>results/region/code</td>

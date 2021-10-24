@@ -1,5 +1,5 @@
 ---
-title: ALPR API Documentation
+title: ALPR Snapshot API Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -14,7 +14,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
+  - 
   - <hr>
+  - 
   - © 2021 ParkPow, Inc.
   - All Rights Reserved.
   - Documentation is governed by our
@@ -29,9 +31,13 @@ search: true
 
 # Introduction
 
-Welcome to the Plate Recognizer Snapshot API!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/?utm_source=docs&utm_medium=website).
+Welcome to the Plate Recognizer **Snapshot API**!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/?utm_source=docs&utm_medium=website).
 
 We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+
+<aside class="notice">
+If you are looking for the documentation for Stream, Parkpow or another product, check our <a href="https://guides.platerecognizer.com/">guides</a> instead.
+</aside>
 
 
 # Authentication
@@ -464,7 +470,7 @@ Returns the SDK version, license key and webhooks.
 }
 ```
 
-Our service also supports webhooks. It allows you to receive a HTTP **POST** request to a target URL of your choosing. Go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target. If you are using Stream, see those [instructions](https://docs.google.com/document/d/1vLwyx4gQvv3gF_kQUvB5sLHoY0IlxV5b3gYUqR2wN1U/edit#heading=h.564g7uuo44vp).
+Our service also supports webhooks. It allows you to receive a HTTP **POST** request to a target URL of your choosing. Go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target. If you are using Stream, see those [instructions](https://guides.platerecognizer.com/docs/stream/configuration#webhook-parameters).
 
 To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
 
@@ -657,4 +663,5 @@ Highly-accurate ALPR software that processes live camera or video feeds quickly 
 
 # FAQ
 
-Can't make it work? We may have answers on our [FAQ](https://platerecognizer.com/help/).
+Can't make it work? 
+Check our [step by step guides](https://guides.platerecognizer.com/) or [FAQ](https://platerecognizer.com/help/).

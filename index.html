@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>ALPR API Documentation</title>
+    <title>ALPR Snapshot API Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -323,7 +323,9 @@
         <ul class="toc-footer">
             <li><a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a></li>
+            <li></li>
             <li><hr></li>
+            <li></li>
             <li>© 2021 ParkPow, Inc.</li>
             <li>All Rights Reserved.</li>
             <li>Documentation is governed by our</li>
@@ -334,9 +336,13 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Plate Recognizer Snapshot API!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go <a href="https://app.platerecognizer.com/sdk/?utm_source=docs&amp;utm_medium=website">here</a>.</p>
+<p>Welcome to the Plate Recognizer <strong>Snapshot API</strong>!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go <a href="https://app.platerecognizer.com/sdk/?utm_source=docs&amp;utm_medium=website">here</a>.</p>
 
 <p>We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<aside class="notice">
+If you are looking for the documentation for Stream, Parkpow or another product, check our <a href="https://guides.platerecognizer.com/">guides</a> instead.
+</aside>
 <h1 id='authentication'>Authentication</h1>
 <p>Plate Recognizer Snapshot API is only available to registered users.  <a href="https://app.platerecognizer.com/accounts/signup/?utm_source=docs&amp;utm_medium=website">Sign up</a> for a Free Trial and get an <strong>API key</strong>. It has to be included in all API calls. The HTTP <strong>headers</strong> must contain:</p>
 
@@ -797,7 +803,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://docs.google.com/document/d/1vLwyx4gQvv3gF_kQUvB5sLHoY0IlxV5b3gYUqR2wN1U/edit#heading=h.564g7uuo44vp">instructions</a>.</p>
+<p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://guides.platerecognizer.com/docs/stream/configuration#webhook-parameters">instructions</a>.</p>
 
 <p>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</p>
 
@@ -986,7 +992,8 @@ The bounding box of the license plate are calculated based on the image sent by 
 <h1 id='stream'>Stream</h1>
 <p>Highly-accurate ALPR software that processes live camera or video feeds quickly &amp; efficiently. See <a href="https://app.platerecognizer.com/stream-docs">documentation</a>.</p>
 <h1 id='4264a8c1c6'>─</h1><h1 id='faq'>FAQ</h1>
-<p>Can&#39;t make it work? We may have answers on our <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
+<p>Can&#39;t make it work? 
+Check our <a href="https://guides.platerecognizer.com/">step by step guides</a> or <a href="https://platerecognizer.com/help/">FAQ</a>.</p>
 <h1 id='countries'>Countries</h1>
 <p>Codes for the <code>regions</code> parameter. You can also provide a state to select more specific license plate patterns. States are only supported for some countries.</p>
 

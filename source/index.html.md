@@ -331,7 +331,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 
 ## Engine Configuration
 
-The **config** parameter is a JSON value to change the engine configuration. It can include the following values:
+A lookup request can accept the parameter **config**. It is a JSON value to change the engine configuration. It can include the following values:
 
 - `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
 - `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.

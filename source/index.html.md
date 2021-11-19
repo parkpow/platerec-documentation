@@ -293,26 +293,9 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 | camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
 | timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
 | mmc       | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
-| config    | No       | Additional engine configuration. See below.                                                                                                                                                                                                                                                                                             |
+| [config](#engine-configuration)    | No       | Additional engine configuration. See [details](#engine-configuration).                                                                                                                                                                                                                                                                                             |
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
-
-### Engine Configuration
-
-The **config** parameter is a JSON value to change the engine configuration. It can include the following values:
-
-- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
-- `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
-- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
-- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
-- `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
-
-Here are a couple of examples of the `config` parameter using `curl`:
-
-- Custom threshold and fast mode: `curl -F 'upload=@/path/to/car.jpg' -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
-- Strict region matching: `curl -F 'upload=@/path/to/car.jpg' -F config='{"region":"strict"}' -F region=us-ca -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
-- Prediction must include a vehicle: `curl -F 'upload=@/path/to/car.jpg' -F config='{"detection_rule":"strict"}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
-
 
 
 ### JSON Response
@@ -345,6 +328,24 @@ The response is a list of all the license plates found in the image. Each licens
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
+
+## Engine Configuration
+
+The **config** parameter is a JSON value to change the engine configuration. It can include the following values:
+
+- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
+- `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
+- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
+- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
+- `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
+- `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**.
+
+Here are a couple of examples of the `config` parameter using `curl`:
+
+- Custom threshold and fast mode: `curl -F 'upload=@/path/to/car.jpg' -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+- Strict region matching: `curl -F 'upload=@/path/to/car.jpg' -F config='{"region":"strict"}' -F region=us-ca -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+- Prediction must include a vehicle: `curl -F 'upload=@/path/to/car.jpg' -F config='{"detection_rule":"strict"}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+
 
 
 

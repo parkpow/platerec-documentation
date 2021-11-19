@@ -684,7 +684,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
 <h2 id='engine-configuration'>Engine Configuration</h2>
-<p>The <strong>config</strong> parameter is a JSON value to change the engine configuration. It can include the following values:</p>
+<p>A lookup request can accept the parameter <strong>config</strong>. It is a JSON value to change the engine configuration. It can include the following values:</p>
 
 <ul>
 <li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>

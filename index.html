@@ -698,9 +698,28 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 <p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:</p>
 
 <ul>
-<li>Custom threshold and fast mode: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
-<li>Strict region matching: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; -F region=us-ca -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
-<li>Prediction must include a vehicle: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+<li><p>Custom threshold and fast mode: 
+<code>shell
+curl -F &#39;upload=@/path/to/car.jpg&#39; \
+-F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; \
+-H &#39;Authorization: Token my-token******&#39; \
+https://api.platerecognizer.com/v1/plate-reader/
+</code></p></li>
+<li><p>Strict region matching: 
+<code>shell
+curl -F &#39;upload=@/path/to/car.jpg&#39; \
+-F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; \
+-F region=us-ca \
+-H &#39;Authorization: Token my-token******&#39; \
+https://api.platerecognizer.com/v1/plate-reader/
+</code></p></li>
+<li><p>Prediction must include a vehicle: 
+<code>shell
+curl -F &#39;upload=@/path/to/car.jpg&#39; \
+-F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; \
+-H &#39;Authorization: Token my-token******&#39; \
+https://api.platerecognizer.com/v1/plate-reader/
+</code></p></li>
 </ul>
 <h1 id='on-premise-sdk'>On-Premise SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>

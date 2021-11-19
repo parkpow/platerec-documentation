@@ -340,6 +340,8 @@ The **config** parameter is a JSON value to change the engine configuration. It 
 - `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
 - `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**.
 
+### Examples
+
 Here are a couple of examples of the `config` parameter using `curl`:
 
 - Custom threshold and fast mode: `curl -F 'upload=@/path/to/car.jpg' -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`

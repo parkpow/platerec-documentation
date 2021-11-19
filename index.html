@@ -258,6 +258,9 @@
                   <li>
                     <a href="#read-number-plates-from-an-image" class="toc-h2 toc-link" data-title="Read Number Plates from an Image">Read Number Plates from an Image</a>
                   </li>
+                  <li>
+                    <a href="#engine-configuration" class="toc-h2 toc-link" data-title="Engine Configuration">Engine Configuration</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -586,31 +589,13 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <td>Predict vehicle make, model, orientation and color. This feature is available for an <a href="https://platerecognizer.com/pricing?utm_source=docs&amp;utm_medium=website">additional fee</a>. Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are <code>true</code> or <code>false</code>.</td>
 </tr>
 <tr>
-<td>config</td>
+<td><a href="#engine-configuration">config</a></td>
 <td>No</td>
-<td>Additional engine configuration. See below.</td>
+<td>Additional engine configuration. See <a href="#engine-configuration">details</a>.</td>
 </tr>
 </tbody></table>
 
 <p>* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.</p>
-<h3 id='engine-configuration'>Engine Configuration</h3>
-<p>The <strong>config</strong> parameter is a JSON value to change the engine configuration. It can include the following values:</p>
-
-<ul>
-<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>
-<li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
-<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
-<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
-<li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>
-</ul>
-
-<p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:</p>
-
-<ul>
-<li>Custom threshold and fast mode: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
-<li>Strict region matching: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; -F region=us-ca -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
-<li>Prediction must include a vehicle: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
-</ul>
 <h3 id='json-response'>JSON Response</h3>
 <p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>
 
@@ -698,6 +683,25 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
+<h2 id='engine-configuration'>Engine Configuration</h2>
+<p>The <strong>config</strong> parameter is a JSON value to change the engine configuration. It can include the following values:</p>
+
+<ul>
+<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>
+<li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
+<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
+<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
+<li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>
+<li><code>{&quot;detection_mode&quot;:&quot;vehicle&quot;}</code>: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value <strong>vehicle</strong>.</li>
+</ul>
+
+<p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:</p>
+
+<ul>
+<li>Custom threshold and fast mode: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+<li>Strict region matching: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; -F region=us-ca -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+<li>Prediction must include a vehicle: <code>curl -F &#39;upload=@/path/to/car.jpg&#39; -F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; -H &#39;Authorization: Token my-token******&#39; https://api.platerecognizer.com/v1/plate-reader/</code></li>
+</ul>
 <h1 id='on-premise-sdk'>On-Premise SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Calling the API with just the image</span>
 curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
   http://localhost:8080/v1/plate-reader/

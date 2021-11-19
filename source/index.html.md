@@ -344,11 +344,30 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 
 Here are a couple of examples of the `config` parameter using `curl`:
 
-- Custom threshold and fast mode: `curl -F 'upload=@/path/to/car.jpg' -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
-- Strict region matching: `curl -F 'upload=@/path/to/car.jpg' -F config='{"region":"strict"}' -F region=us-ca -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
-- Prediction must include a vehicle: `curl -F 'upload=@/path/to/car.jpg' -F config='{"detection_rule":"strict"}' -H 'Authorization: Token my-token******' https://api.platerecognizer.com/v1/plate-reader/`
+- Custom threshold and fast mode: 
+```shell
+curl -F 'upload=@/path/to/car.jpg' \
+-F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' \
+-H 'Authorization: Token my-token******' \
+https://api.platerecognizer.com/v1/plate-reader/
+ ```
+ 
+- Strict region matching: 
+```shell
+curl -F 'upload=@/path/to/car.jpg' \
+-F config='{"region":"strict"}' \
+-F region=us-ca \
+-H 'Authorization: Token my-token******' \
+https://api.platerecognizer.com/v1/plate-reader/
+```
 
-
+- Prediction must include a vehicle: 
+```shell
+curl -F 'upload=@/path/to/car.jpg' \
+-F config='{"detection_rule":"strict"}' \
+-H 'Authorization: Token my-token******' \
+https://api.platerecognizer.com/v1/plate-reader/
+```
 
 
 # On-Premise SDK

@@ -435,11 +435,7 @@ https://api.platerecognizer.com/v1/plate-reader/
                         }
                     ]
                 }
-            },
-            "timestamp": null,
-            "direction": null,
-            "source_url": null,
-            "position_sec": null
+            }
         }
     ]
 }

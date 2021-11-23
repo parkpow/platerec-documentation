@@ -338,7 +338,7 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 - `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
 - `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
 - `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
-- `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**.
+- `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**. See the [response format](#vehicle-only-response).
 
 ### Examples
 
@@ -369,6 +369,83 @@ curl -F 'upload=@/path/to/car.jpg' \
 https://api.platerecognizer.com/v1/plate-reader/
 ```
 
+## Vehicle Only Response
+
+> Return value
+
+```json
+{
+    "filename": "car.jpg",
+    "timestamp": "2021-11-23 17:56:47.896406",
+    "camera_id": "my-camera",
+    "processing_time": 58.184,
+    "results": [
+        {
+            "plate": {
+                "type": "Plate",
+                "score": 0.925,
+                "box": {
+                    "xmin": 146,
+                    "ymin": 481,
+                    "xmax": 276,
+                    "ymax": 576
+                },
+                "props": {
+                    "plate": [
+                        {
+                            "value": "nhk552",
+                            "score": 0.838
+                        }
+                    ],
+                    "region": [
+                        {
+                            "value": "gb",
+                            "score": 0.931
+                        }
+                    ]
+                }
+            },
+            "vehicle": {
+                "type": "Sedan",
+                "score": 0.834,
+                "box": {
+                    "xmin": 68,
+                    "ymin": 103,
+                    "xmax": 914,
+                    "ymax": 643
+                },
+                "props": {
+                    "make_model": [
+                        {
+                            "make": "Riley",
+                            "model": "RMF",
+                            "score": 0.339
+                        }
+                    ],
+                    "orientation": [
+                        {
+                            "value": "Front",
+                            "score": 0.939
+                        }
+                    ],
+                    "color": [
+                        {
+                            "value": "black",
+                            "score": 0.846
+                        }
+                    ]
+                }
+            },
+            "timestamp": null,
+            "direction": null,
+            "source_url": null,
+            "position_sec": null
+        }
+    ]
+}
+```
+
+When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`, the output will include vehicles without a license plate. The lookup response is as follows.
 
 # On-Premise SDK
 

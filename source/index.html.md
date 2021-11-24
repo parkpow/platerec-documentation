@@ -345,6 +345,7 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 Here are a couple of examples of the `config` parameter using `curl`:
 
 - Custom threshold and fast mode: 
+
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' \
@@ -353,6 +354,7 @@ https://api.platerecognizer.com/v1/plate-reader/
  ```
  
 - Strict region matching: 
+
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"region":"strict"}' \
@@ -362,11 +364,24 @@ https://api.platerecognizer.com/v1/plate-reader/
 ```
 
 - Prediction must include a vehicle: 
+
 ```shell
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"detection_rule":"strict"}' \
 -H 'Authorization: Token my-token******' \
 https://api.platerecognizer.com/v1/plate-reader/
+```
+
+- In Python with requests:
+
+```python
+import json
+with open('/path/to/car.jpg', 'rb') as fp:
+    response = requests.post(
+        'https://api.platerecognizer.com/v1/plate-reader/',
+        data=dict(config=json.dumps(dict(region="strict"))),  # Optional
+        files=dict(upload=fp),
+        headers={'Authorization': 'Token my-token******'})
 ```
 
 ## Vehicle Only Response

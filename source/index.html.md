@@ -14,9 +14,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/marcbelmont/deep-license-plate-recognition'>Code Examples</a>
-  - 
+  -
   - <hr>
-  - 
+  -
   - © 2021 ParkPow, Inc.
   - All Rights Reserved.
   - Documentation is governed by our
@@ -286,14 +286,14 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 ### POST Parameters
 
-| Parameter | Required | Description                                                                                                                                                                                                                                                                                                                             |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload    | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                         |
-| regions   | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                                         |
-| camera_id | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
-| timestamp | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
-| mmc       | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
-| [config](#engine-configuration)    | No       | Additional engine configuration. See [details](#engine-configuration).                                                                                                                                                                                                                                                                                             |
+| Parameter                       | Required | Description                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload                          | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                         |
+| regions                         | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. *                                                                                                                                                                         |
+| camera_id                       | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
+| timestamp                       | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
+| mmc                             | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
+| [config](#engine-configuration) | No       | Additional engine configuration. See [details](#engine-configuration).                                                                                                                                                                                                                                                                  |
 
  \* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.
 
@@ -309,8 +309,8 @@ The response is a list of all the license plates found in the image. Each licens
 | results/dscore                  | Confidence level for plate **detection**.                                                                           |
 | results/score                   | Confidence level for **reading** the license plate text.                                                            |
 | results/vehicle/type            | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
-| results/vehicle/score           | Confidence level for vehicle type prediction. If we **cannot find a vehicle**, the score is set to 0.      |
-| results/vehicle/box             | Vehicle bounding box. If we **cannot find a vehicle**, the coordinates are all 0.    |
+| results/vehicle/score           | Confidence level for vehicle type prediction. If we **cannot find a vehicle**, the score is set to 0.               |
+| results/vehicle/box             | Vehicle bounding box. If we **cannot find a vehicle**, the coordinates are all 0.                                   |
 | results/region/code             | Region of license plate. Returns a code from the [country list](#countries).                                        |
 | results/region/score            | Confidence level for license plate region.                                                                          |
 | results/candidates              | List of predictions for the license plate value. The first element is the top prediction (same as `results/plate`). |
@@ -342,44 +342,35 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 
 ### Examples
 
-Here are a couple of examples of the `config` parameter using `curl`:
-
-- Custom threshold and fast mode: 
+Here are a couple of examples of how to use the `config` parameter (with Shell or Python).
 
 ```shell
+# Custom threshold and fast mode:
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' \
 -H 'Authorization: Token my-token******' \
 https://api.platerecognizer.com/v1/plate-reader/
- ```
- 
-- Strict region matching: 
 
-```shell
+# Strict region matching:
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"region":"strict"}' \
 -F region=us-ca \
 -H 'Authorization: Token my-token******' \
 https://api.platerecognizer.com/v1/plate-reader/
-```
 
-- Prediction must include a vehicle: 
-
-```shell
+# Prediction must include a vehicle:
 curl -F 'upload=@/path/to/car.jpg' \
 -F config='{"detection_rule":"strict"}' \
 -H 'Authorization: Token my-token******' \
 https://api.platerecognizer.com/v1/plate-reader/
 ```
 
-- In Python with requests:
-
 ```python
 import json
 with open('/path/to/car.jpg', 'rb') as fp:
     response = requests.post(
         'https://api.platerecognizer.com/v1/plate-reader/',
-        data=dict(config=json.dumps(dict(region="strict"))),  # Optional
+        data=dict(config=json.dumps(dict(region="strict"))),
         files=dict(upload=fp),
         headers={'Authorization': 'Token my-token******'})
 ```
@@ -621,7 +612,7 @@ The bounding box of the license plate are calculated based on the image sent by 
 
 ## Vehicle Without Plates
 
-> Version 2 of the JSON Output 
+> Version 2 of the JSON Output
 
 ```json
 [
@@ -765,13 +756,15 @@ curl -H 'Authorization: Token my-token******' \
 | resets_on   | Date when the counter will reset.                                                                                             |
 | total_calls | Maximum number of API calls you can make during the period. Need more? [Upgrade](https://app.platerecognizer.com/subscribe/). |
 
-# Stream
-
-Highly-accurate ALPR software that processes live camera or video feeds quickly & efficiently. See [documentation](https://app.platerecognizer.com/stream-docs).
-
 # ─
+
+# Doc for Other Products
+
+The documentation for Stream, our Highly-accurate ALPR software that processes live camera or video feeds quickly & efficiently, is on a different page.
+
+For Stream and other products, see [this documentation](https://app.platerecognizer.com/stream-docs).
 
 # FAQ
 
-Can't make it work? 
+Can't make it work?
 Check our [step by step guides](https://guides.platerecognizer.com/) or [FAQ](https://platerecognizer.com/help/).

@@ -701,30 +701,41 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 <p>Here are a couple of examples of the <code>config</code> parameter using <code>curl</code>:</p>
 
 <ul>
-<li><p>Custom threshold and fast mode: 
-<code>shell
-curl -F &#39;upload=@/path/to/car.jpg&#39; \
--F config=&#39;{&quot;mode&quot;:&quot;fast&quot;, &quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}&#39; \
--H &#39;Authorization: Token my-token******&#39; \
-https://api.platerecognizer.com/v1/plate-reader/
-</code></p></li>
-<li><p>Strict region matching: 
-<code>shell
-curl -F &#39;upload=@/path/to/car.jpg&#39; \
--F config=&#39;{&quot;region&quot;:&quot;strict&quot;}&#39; \
--F region=us-ca \
--H &#39;Authorization: Token my-token******&#39; \
-https://api.platerecognizer.com/v1/plate-reader/
-</code></p></li>
-<li><p>Prediction must include a vehicle: 
-<code>shell
-curl -F &#39;upload=@/path/to/car.jpg&#39; \
--F config=&#39;{&quot;detection_rule&quot;:&quot;strict&quot;}&#39; \
--H &#39;Authorization: Token my-token******&#39; \
-https://api.platerecognizer.com/v1/plate-reader/
-</code></p></li>
+<li>Custom threshold and fast mode: </li>
 </ul>
-<h2 id='vehicle-only-response'>Vehicle Only Response</h2>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+<span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
+https://api.platerecognizer.com/v1/plate-reader/
+</code></pre></div>
+<ul>
+<li>Strict region matching: </li>
+</ul>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+<span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"region":"strict"}'</span> <span class="se">\</span>
+<span class="nt">-F</span> <span class="nv">region</span><span class="o">=</span>us-ca <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
+https://api.platerecognizer.com/v1/plate-reader/
+</code></pre></div>
+<ul>
+<li>Prediction must include a vehicle: </li>
+</ul>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</span> <span class="se">\</span>
+<span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s1">'{"detection_rule":"strict"}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Token my-token******'</span> <span class="se">\</span>
+https://api.platerecognizer.com/v1/plate-reader/
+</code></pre></div>
+<ul>
+<li>In Python with requests:</li>
+</ul>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/path/to/car.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s">'https://api.platerecognizer.com/v1/plate-reader/'</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">"strict"</span><span class="p">))),</span>  <span class="c1"># Optional
+</span>        <span class="n">files</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">upload</span><span class="o">=</span><span class="n">fp</span><span class="p">),</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token my-token******'</span><span class="p">})</span>
+</code></pre></div><h2 id='vehicle-only-response'>Vehicle Only Response</h2>
 <blockquote>
 <p>Return value</p>
 </blockquote>

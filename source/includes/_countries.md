@@ -195,6 +195,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Swaziland                                     | sz                              |            |
 | Sweden                                        | se                              | Yes        |
 | Switzerland                                   | ch                              | Yes        |
+| Taiwan                                    | tw                              |            |
 | Tajikistan                                    | tj                              |            |
 | Tanzania                                      | tz                              |            |
 | [Thailand](#thailand)                         | [th](#thailand)                 | Yes        |

@@ -276,6 +276,8 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 
 This Snapshot API endpoint reads all license plates from an image.
 
+To programmatically process a bunch of images in a folder, refer to our [Snapshot Guides](https://guides.platerecognizer.com/docs/snapshot/bulk-processing).
+
 If you need to detect vehicles and decode license plates from a live camera or video feed, consider using [Plate Recognizer Stream](https://platerecognizer.com/stream/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) to request a Free Trial of Stream.
 
 If you need to blur license plates, consider using [Plate Recognizer Blur](https://platerecognizer.com/blur/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.

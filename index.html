@@ -689,12 +689,12 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 <p>A lookup request can accept the parameter <strong>config</strong>. It is a JSON value to change the engine configuration. It can include the following values:</p>
 
 <ul>
-<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.</li>
-<li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
-<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
-<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
 <li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>
 <li><code>{&quot;detection_mode&quot;:&quot;vehicle&quot;}</code>: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value <strong>vehicle</strong>. See the <a href="#vehicle-only-response">response format</a>.</li>
+<li><code>{&quot;region&quot;:&quot;strict&quot;}</code>: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value <code>abc1234</code> will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates. A region must be specified in order for this parameter to work.</li>
+<li><code>{&quot;threshold_d&quot;:0.2, &quot;threshold_o&quot;:0.6}</code>: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.</li>
+<li><code>{&quot;mode&quot;:&quot;fast&quot;}</code>: The number of detection steps is always 1. On average it gives a <strong>30% speed-up</strong>. May result in lower accuracy when using images with small vehicles.</li>
+<li><code>{&quot;mode&quot;:&quot;redaction&quot;}</code>: Used for Plate Recognizer Blur. It includes more candidates during the plate detection step. This configuration will <strong>miss fewer plates</strong> but will increase the number of false positives (objects that are not license plates).</li>
 </ul>
 <h3 id='examples'>Examples</h3>
 <p>Here are a couple of examples of how to use the <code>config</code> parameter (with Shell or Python).</p>

@@ -286,6 +286,8 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 `POST https://api.platerecognizer.com/v1/plate-reader/`
 
+\* The CORS policy of this endpoint allows requests from all origins.
+
 ### POST Parameters
 
 | Parameter                       | Required | Description                                                                                                                                                                                                                                                                                                                             |
@@ -504,6 +506,8 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 ### HTTP Request
 
 `POST http://localhost:8080/v1/plate-reader/`
+
+\* The CORS policy of this endpoint allows requests from all origins.
 
 ### POST Parameters
 

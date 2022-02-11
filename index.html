@@ -557,6 +557,8 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <p>If you need to blur license plates, consider using <a href="https://platerecognizer.com/blur/?utm_source=docs&amp;utm_medium=website">Plate Recognizer Blur</a>. <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> for more info.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://api.platerecognizer.com/v1/plate-reader/</code></p>
+
+<p>* The CORS policy of this endpoint allows requests from all origins.</p>
 <h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
 <tr>
@@ -836,6 +838,8 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://localhost:8080/v1/plate-reader/</code></p>
+
+<p>* The CORS policy of this endpoint allows requests from all origins.</p>
 <h3 id='post-parameters-2'>POST Parameters</h3>
 <table><thead>
 <tr>

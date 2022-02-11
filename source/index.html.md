@@ -335,12 +335,12 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 
 A lookup request can accept the parameter **config**. It is a JSON value to change the engine configuration. It can include the following values:
 
-- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
-- `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
-- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
-- `{"mode":"redaction"}`: Used for license plate redaction. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
 - `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
 - `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**. See the [response format](#vehicle-only-response).
+- `{"region":"strict"}`: Only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value `abc1234` will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates. A region must be specified in order for this parameter to work.
+- `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
+- `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
+- `{"mode":"redaction"}`: Used for Plate Recognizer Blur. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
 
 ### Examples
 

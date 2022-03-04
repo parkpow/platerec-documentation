@@ -455,9 +455,9 @@ Detection Zones exclude overlay texts, street signs or other objects.
 }
 ```
 
-When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`, the output will include vehicles without a license plate. The lookup response is as follows.
+When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`, the output includes vehicles without a license plate. The lookup response is as follows.
 
-- Each result is now a dictionary with two optional elements: `plate` and `vehicle`.
+- Each element of the list is now an object with two optional elements: `plate` and `vehicle`.
 - The license plate text is stored in `plate.props.plate` as a list. The first element is the top prediction.
 - The license plate region is in `plate.props.region`.
 - The vehicle properties (orientation, make model and color) are in `vehicle.props`.  Each include the top 3 predictions.

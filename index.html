@@ -797,10 +797,10 @@ https://api.platerecognizer.com/v1/plate-reader/
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>When the <a href="#engine-configuration">parameter</a> <code>detection_mode</code> is set to <code>vehicle</code>, the output will include vehicles without a license plate. The lookup response is as follows.</p>
+<p>When the <a href="#engine-configuration">parameter</a> <code>detection_mode</code> is set to <code>vehicle</code>, the output includes vehicles without a license plate. The lookup response is as follows.</p>
 
 <ul>
-<li>Each result is now a dictionary with two optional elements: <code>plate</code> and <code>vehicle</code>.</li>
+<li>Each element of the list is now an object with two optional elements: <code>plate</code> and <code>vehicle</code>.</li>
 <li>The license plate text is stored in <code>plate.props.plate</code> as a list. The first element is the top prediction.</li>
 <li>The license plate region is in <code>plate.props.region</code>.</li>
 <li>The vehicle properties (orientation, make model and color) are in <code>vehicle.props</code>.  Each include the top 3 predictions.</li>

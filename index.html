@@ -575,7 +575,7 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <tr>
 <td>regions</td>
 <td>No</td>
-<td>Match the license plate pattern of a specific region or <a href="#countries">regions</a>. This parameter can be used <strong>multiple times</strong> to specify more than one region. *</td>
+<td>Match the license plate pattern of a specific region or <a href="#countries">regions</a>. This parameter can be used <strong>multiple times</strong> to specify more than one region. It is <strong>treated as a guide</strong> and the template will be ignored if the prediction differs too much from it. That&#39;s because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.</td>
 </tr>
 <tr>
 <td>camera_id</td>
@@ -598,8 +598,6 @@ curl <span class="nt">-F</span> <span class="s1">'upload=@/path/to/car.jpg'</spa
 <td>Additional engine configuration. See <a href="#engine-configuration">details</a>.</td>
 </tr>
 </tbody></table>
-
-<p>* The regions parameter is used as a guide and the template will be ignored if the prediction differs too much from it. It works this way because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.</p>
 <h3 id='json-response'>JSON Response</h3>
 <p>The response is a list of all the license plates found in the image. Each license plate has the following elements:</p>
 

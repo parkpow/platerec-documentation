@@ -378,9 +378,9 @@ with open('/path/to/car.jpg', 'rb') as fp:
         headers={'Authorization': 'Token my-token******'})
 ```
 
-### [Detection Zones](https://app.platerecognizer.com/detection-zone/)
+## Detection Zones
 
-Detection Zones exclude overlay texts, street signs or other objects. 
+[Detection Zones](https://app.platerecognizer.com/detection-zone/) exclude overlay texts, street signs or other objects. 
 
 ## Vehicle Only Response
 

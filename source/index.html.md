@@ -31,7 +31,7 @@ search: true
 
 # Introduction
 
-Welcome to the Plate Recognizer **Snapshot API**!  You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/?utm_source=docs&utm_medium=website).
+Welcome to the Plate Recognizer **Snapshot API**! You can use our API to access our API endpoints, which can read license plates from images. For detailed instructions on how to install the SDK, go [here](https://app.platerecognizer.com/sdk/?utm_source=docs&utm_medium=website).
 
 We have multiple language bindings. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
@@ -39,10 +39,9 @@ We have multiple language bindings. You can view code examples in the dark area 
 If you are looking for the documentation for Stream, Parkpow or another product, check our <a href="https://guides.platerecognizer.com/">guides</a> instead.
 </aside>
 
-
 # Authentication
 
-Plate Recognizer Snapshot API is only available to registered users.  [Sign up](https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website) for a Free Trial and get an **API key**. It has to be included in all API calls. The HTTP **headers** must contain:
+Plate Recognizer Snapshot API is only available to registered users. [Sign up](https://app.platerecognizer.com/accounts/signup/?utm_source=docs&utm_medium=website) for a Free Trial and get an **API key**. It has to be included in all API calls. The HTTP **headers** must contain:
 
 `Authorization: Token my-token******`
 
@@ -131,44 +130,65 @@ with open('/path/to/car.jpg', 'rb') as fp:
 ```
 
 ```shell
-# Calling the API with 2 regions (Mexico and California). On Windows, use curl -F "upload=@C:\images\car.jpg".
-curl -F 'upload=@/path/to/car.jpg' \
+# On Linux
+# Calling the API with 2 regions (Mexico and California).
+curl -F "upload=@/path/to/car.jpg" \
   -F regions=mx \
   -F regions=us-ca \
-  -H 'Authorization: Token my-token******' \
+  -H "Authorization: Token my-token******" \
   https://api.platerecognizer.com/v1/plate-reader/
 
-# Calling the API with a custom engine configuration and region California. On Windows, use curl -F "upload=@C:\images\car.jpg".
-curl -F 'upload=@/path/to/car.jpg' \
-  -F regions=us-ca -F config='{"region":"strict"}' \
-  -H 'Authorization: Token my-token******' \
+# Calling the API with a custom engine configuration and region California.
+curl -F "upload=@/path/to/car.jpg" \
+  -F regions=us-ca \
+  -F config="{\"region\":\"strict\"}" \
+  -H "Authorization: Token my-token******" \
   https://api.platerecognizer.com/v1/plate-reader/
+```
+
+```shell
+# On Windows
+# Calling the API with 2 regions (Mexico and California).
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F regions=mx ^
+  -F regions=us-ca ^
+  -H "Authorization: Token my-token******" ^
+  https://api.platerecognizer.com/v1/plate-reader/
+
+# Calling the API with a custom engine configuration and region California.
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F regions=us-ca ^
+  -F config="{\"region\":\"strict\"}" ^
+  -H "Authorization: Token my-token******" ^
+  https://api.platerecognizer.com/v1/plate-reader/
+
 ```
 
 ```javascript
 // Using Node-RED?
 // Check https://github.com/parkpow/node-red-contrib-plate-recognizer
 
-const fetch = require('node-fetch');
-const FormData = require('form-data');
-const fs = require('fs');
+const fetch = require("node-fetch");
+const FormData = require("form-data");
+const fs = require("fs");
 
-let image_path = '/path/to/car.jpg'
+let image_path = "/path/to/car.jpg";
 let body = new FormData();
-body.append('upload', fs.createReadStream(image_path));
+body.append("upload", fs.createReadStream(image_path));
 // Or body.append('upload', base64Image);
-body.append('regions', 'us-ca'); // Change to your country
+body.append("regions", "us-ca"); // Change to your country
 fetch("https://api.platerecognizer.com/v1/plate-reader/", {
-        method: 'POST',
-        headers: {
-            "Authorization": "Token my-token******"
-        },
-        body: body
-    }).then(res => res.json())
-    .then(json => console.log(json))
-    .catch((err) => {
-        console.log(err);
-    });
+  method: "POST",
+  headers: {
+    Authorization: "Token my-token******",
+  },
+  body: body,
+})
+  .then((res) => res.json())
+  .then((json) => console.log(json))
+  .catch((err) => {
+    console.log(err);
+  });
 ```
 
 ```csharp
@@ -207,70 +227,68 @@ fetch("https://api.platerecognizer.com/v1/plate-reader/", {
 // https://github.com/marcbelmont/deep-license-plate-recognition/blob/master/cpp/windows/ConsoleApplication2/ConsoleApplication2.cpp#L29
 ```
 
-
-
 > Return value
 
 ```json
 {
-    "processing_time": 288.758,
-    "results": [
-        {
-            "box": {
-                "xmin": 143,
-                "ymin": 481,
-                "xmax": 282,
-                "ymax": 575
-            },
-            "plate": "nhk552",
-            "region": {
-                "code": "gb",
-                "score": 0.747
-            },
-            "vehicle": {
-                "score": 0.798,
-                "type": "Sedan",
-                "box": {
-                    "xmin": 67,
-                    "ymin": 113,
-                    "xmax": 908,
-                    "ymax": 653
-                }
-            },
-            "score": 0.904,
-            "candidates": [
-                {
-                    "score": 0.904,
-                    "plate": "nhk552"
-                }
-            ],
-            "dscore": 0.99,
-            // Make Model, Orientation and Color are only available if you set mmc=true
-            "model_make": [
-                {
-                    "make": "Riley",
-                    "model": "RMF",
-                    "score": 0.306
-                }
-            ],
-            "color": [
-                {
-                    "color": "black",
-                    "score": 0.937
-                }
-            ],
-            "orientation": [
-                {
-                    "orientation": "Front",
-                    "score": 0.937
-                }
-            ]
+  "processing_time": 288.758,
+  "results": [
+    {
+      "box": {
+        "xmin": 143,
+        "ymin": 481,
+        "xmax": 282,
+        "ymax": 575
+      },
+      "plate": "nhk552",
+      "region": {
+        "code": "gb",
+        "score": 0.747
+      },
+      "vehicle": {
+        "score": 0.798,
+        "type": "Sedan",
+        "box": {
+          "xmin": 67,
+          "ymin": 113,
+          "xmax": 908,
+          "ymax": 653
         }
-    ],
-    "filename": "1617_7M83K_car.jpg",
-    "version": 1,
-    "camera_id": null,
-    "timestamp": "2020-10-12T16:17:27.574008Z"
+      },
+      "score": 0.904,
+      "candidates": [
+        {
+          "score": 0.904,
+          "plate": "nhk552"
+        }
+      ],
+      "dscore": 0.99,
+      // Make Model, Orientation and Color are only available if you set mmc=true
+      "model_make": [
+        {
+          "make": "Riley",
+          "model": "RMF",
+          "score": 0.306
+        }
+      ],
+      "color": [
+        {
+          "color": "black",
+          "score": 0.937
+        }
+      ],
+      "orientation": [
+        {
+          "orientation": "Front",
+          "score": 0.937
+        }
+      ]
+    }
+  ],
+  "filename": "1617_7M83K_car.jpg",
+  "version": 1,
+  "camera_id": null,
+  "timestamp": "2020-10-12T16:17:27.574008Z"
 }
 ```
 
@@ -290,16 +308,14 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 
 ### POST Parameters
 
-| Parameter                       | Required | Description                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| upload                          | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                         |
-| regions                         | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. It is **treated as a guide** and the template will be ignored if the prediction differs too much from it. That's because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one.                                                                                                                                                                         |
-| camera_id                       | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                               |
-| timestamp                       | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                       |
-| mmc                             | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`. |
-| [config](#engine-configuration) | No       | Additional engine configuration. See [details](#engine-configuration).                                                                                                                                                                                                                                                                  |
-
-
+| Parameter                       | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| upload                          | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image.                                                                                                                                                                                                                                                                           |
+| regions                         | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. It is **treated as a guide** and the template will be ignored if the prediction differs too much from it. That's because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one. |
+| camera_id                       | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| timestamp                       | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                                                                                                         |
+| mmc                             | No       | Predict vehicle make, model, orientation and color. This feature is available for an [additional fee](https://platerecognizer.com/pricing?utm_source=docs&utm_medium=website). Set parameter to true (mmc=true) if you have this feature enabled/purchased to get vehicle make, model and color. Possible values are `true` or `false`.                                                                                   |
+| [config](#engine-configuration) | No       | Additional engine configuration. See [details](#engine-configuration).                                                                                                                                                                                                                                                                                                                                                    |
 
 ### JSON Response
 
@@ -350,24 +366,47 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 Here are a couple of examples of how to use the `config` parameter (with Shell or Python).
 
 ```shell
+# On Linux
 # Custom threshold and fast mode:
-curl -F 'upload=@/path/to/car.jpg' \
--F config='{"mode":"fast", "threshold_d":0.2, "threshold_o":0.6}' \
--H 'Authorization: Token my-token******' \
-https://api.platerecognizer.com/v1/plate-reader/
+curl -F "upload=@/path/to/car.jpg" \
+  -F config="{\"mode\":\"fast\", \"threshold_d\":0.2, \"threshold_o\":0.6}" \
+  -H "Authorization: Token my-token******" \
+  https://api.platerecognizer.com/v1/plate-reader/
 
 # Strict region matching:
-curl -F 'upload=@/path/to/car.jpg' \
--F config='{"region":"strict"}' \
--F region=us-ca \
--H 'Authorization: Token my-token******' \
-https://api.platerecognizer.com/v1/plate-reader/
+curl -F "upload=@/path/to/car.jpg" \
+  -F config="{\"region\":\"strict\"}" \
+  -F region=us-ca \
+  -H "Authorization: Token my-token******" \
+  https://api.platerecognizer.com/v1/plate-reader/
 
 # Prediction must include a vehicle:
-curl -F 'upload=@/path/to/car.jpg' \
--F config='{"detection_rule":"strict"}' \
--H 'Authorization: Token my-token******' \
-https://api.platerecognizer.com/v1/plate-reader/
+curl -F "upload=@/path/to/car.jpg" \
+  -F config="{\"detection_rule\":\"strict\"}" \
+  -H "Authorization: Token my-token******" \
+  https://api.platerecognizer.com/v1/plate-reader/
+```
+
+```shell
+# On Windows
+# Custom threshold and fast mode:
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F config="{\"mode\":\"fast\", \"threshold_d\":0.2, \"threshold_o\":0.6}" ^
+  -H "Authorization: Token my-token******" ^
+  https://api.platerecognizer.com/v1/plate-reader/
+
+# Strict region matching:
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F config="{\"region\":\"strict\"}" ^
+  -F region=us-ca ^
+  -H "Authorization: Token my-token******" ^
+  https://api.platerecognizer.com/v1/plate-reader/
+
+# Prediction must include a vehicle:
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F config="{\"detection_rule\":\"strict\"}" ^
+  -H "Authorization: Token my-token******" ^
+  https://api.platerecognizer.com/v1/plate-reader/
 ```
 
 ```python
@@ -382,7 +421,7 @@ with open('/path/to/car.jpg', 'rb') as fp:
 
 ## Detection Zones
 
-[Detection Zones](https://app.platerecognizer.com/detection-zone/) exclude overlay texts, street signs or other objects. 
+[Detection Zones](https://app.platerecognizer.com/detection-zone/) exclude overlay texts, street signs or other objects.
 
 ## Vehicle Only Response
 
@@ -390,69 +429,69 @@ with open('/path/to/car.jpg', 'rb') as fp:
 
 ```json
 {
-    "filename": "car.jpg",
-    "timestamp": "2021-11-23 17:56:47.896406",
-    "camera_id": "my-camera",
-    "processing_time": 58.184,
-    "results": [
-        {
-            "plate": {
-                "type": "Plate",
-                "score": 0.925,
-                "box": {
-                    "xmin": 146,
-                    "ymin": 481,
-                    "xmax": 276,
-                    "ymax": 576
-                },
-                "props": {
-                    "plate": [
-                        {
-                            "value": "nhk552",
-                            "score": 0.838
-                        }
-                    ],
-                    "region": [
-                        {
-                            "value": "gb",
-                            "score": 0.931
-                        }
-                    ]
-                }
-            },
-            "vehicle": {
-                "type": "Sedan",
-                "score": 0.834,
-                "box": {
-                    "xmin": 68,
-                    "ymin": 103,
-                    "xmax": 914,
-                    "ymax": 643
-                },
-                "props": {
-                    "make_model": [
-                        {
-                            "make": "Riley",
-                            "model": "RMF",
-                            "score": 0.339
-                        }
-                    ],
-                    "orientation": [
-                        {
-                            "value": "Front",
-                            "score": 0.939
-                        }
-                    ],
-                    "color": [
-                        {
-                            "value": "black",
-                            "score": 0.846
-                        }
-                    ]
-                }
+  "filename": "car.jpg",
+  "timestamp": "2021-11-23 17:56:47.896406",
+  "camera_id": "my-camera",
+  "processing_time": 58.184,
+  "results": [
+    {
+      "plate": {
+        "type": "Plate",
+        "score": 0.925,
+        "box": {
+          "xmin": 146,
+          "ymin": 481,
+          "xmax": 276,
+          "ymax": 576
+        },
+        "props": {
+          "plate": [
+            {
+              "value": "nhk552",
+              "score": 0.838
             }
+          ],
+          "region": [
+            {
+              "value": "gb",
+              "score": 0.931
+            }
+          ]
         }
-    ]
+      },
+      "vehicle": {
+        "type": "Sedan",
+        "score": 0.834,
+        "box": {
+          "xmin": 68,
+          "ymin": 103,
+          "xmax": 914,
+          "ymax": 643
+        },
+        "props": {
+          "make_model": [
+            {
+              "make": "Riley",
+              "model": "RMF",
+              "score": 0.339
+            }
+          ],
+          "orientation": [
+            {
+              "value": "Front",
+              "score": 0.939
+            }
+          ],
+          "color": [
+            {
+              "value": "black",
+              "score": 0.846
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -461,44 +500,60 @@ When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`
 - Each element of the list is now an object with two optional elements: `plate` and `vehicle`.
 - The license plate text is stored in `plate.props.plate` as a list. The first element is the top prediction.
 - The license plate region is in `plate.props.region`.
-- The vehicle properties (orientation, make model and color) are in `vehicle.props`.  Each include the top 3 predictions.
-
+- The vehicle properties (orientation, make model and color) are in `vehicle.props`. Each include the top 3 predictions.
 
 # On-Premise SDK
 
 ## Recognition API
 
 ```shell
+# On Linux
 # Calling the API with just the image
-curl -F 'upload=@/path/to/car.jpg' \
+curl -F "upload=@/path/to/car.jpg" \
   http://localhost:8080/v1/plate-reader/
 
 # Calling with API with optional parameters config and mmc
 # The region is set to Mexico and California
-curl -F 'upload=@/path/to/car.jpg' \
+curl -F "upload=@/path/to/car.jpg" \
   -F regions=mx \
   -F regions=us-ca \
   -F mmc=true \
-  -F config='{"mode":"fast"}' \
+  -F config="{\"mode\":\"fast\"}" \
   http://localhost:8080/v1/plate-reader/
 
 ```
 
+```shell
+# On Windows
+# Calling the API with just the image
+curl -F "upload=@c:\path\to\car.jpg" ^
+  http://localhost:8080/v1/plate-reader/
+
+# Calling with API with optional parameters config and mmc
+# The region is set to Mexico and California
+curl -F "upload=@c:\path\to\car.jpg" ^
+  -F regions=mx ^
+  -F regions=us-ca ^
+  -F mmc=true ^
+  -F config="{\"mode\":\"fast\"}" ^
+  http://localhost:8080/v1/plate-reader/
+
+```
 
 > Return value
 
 ```json
 {
-  "usage":{
-    "max_calls":1000,
-    "calls":44
+  "usage": {
+    "max_calls": 1000,
+    "calls": 44
   },
-  "results":[
+  "results": [
     // Same as cloud API example above.
   ],
   "camera_id": "null",
   "timestamp": "2020-01-16 17:00:00",
-  "filename":"car.jpg"
+  "filename": "car.jpg"
 }
 ```
 
@@ -516,11 +571,9 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 | --------- | -------- | --------------------------------------------------------------------------------- |
 | -         | -        | **All** the parameters from [recognition API](#read-number-plates-from-an-image). |
 
-
 ### JSON Response
 
 Returns the same parameters as the [recognition API](#read-number-plates-from-an-image). In addition to that, it returns the **number of calls** used.
-
 
 ## SDK version
 
@@ -528,9 +581,9 @@ Returns the same parameters as the [recognition API](#read-number-plates-from-an
 
 ```json
 {
-    "version": "1.3.8",
-    "license_key": "XXX",
-    "webhooks": []
+  "version": "1.3.8",
+  "license_key": "XXX",
+  "webhooks": []
 }
 ```
 
@@ -541,7 +594,6 @@ Returns the same parameters as the [recognition API](#read-number-plates-from-an
 ### JSON Response
 
 Returns the SDK version, license key and webhooks.
-
 
 # WebHooks
 
@@ -632,10 +684,11 @@ The bounding box of the license plate are calculated based on the image sent by 
 Get number of recognition calls done during the current month.
 
 ### HTTP Request
+
 `GET https://api.platerecognizer.com/v1/statistics/`
 
 ```shell
-curl -H 'Authorization: Token my-token******' \
+curl -H "Authorization: Token my-token******" \
   https://api.platerecognizer.com/v1/statistics/
 ```
 

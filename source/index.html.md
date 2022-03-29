@@ -332,6 +332,8 @@ The response is a list of all the license plates found in the image. Each licens
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
 
+### [Error Responses](#errors)
+
 ## Engine Configuration
 
 A lookup request can accept the parameter **config**. It is a JSON value to change the engine configuration. It can include the following values:

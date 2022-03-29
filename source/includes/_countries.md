@@ -476,4 +476,3 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 | Tacna         | pe-tac      |
 | Tumbes        | pe-tum      |
 | Ucayali       | pe-uca      |
-_countries

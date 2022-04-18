@@ -426,7 +426,8 @@ You must replace <code>my-token******</code> with your personal API key. For exa
         <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Token my-token******'</span><span class="p">})</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Linux</span>
 <span class="c"># Calling the API with 2 regions (Mexico and California).</span>
-curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</span> <span class="se">\</span>
+curl <span class="nt">-o</span> /tmp/car.jpg https://app.platerecognizer.com/static/demo.jpg <span class="c"># Get an image</span>
+curl <span class="nt">-F</span> <span class="s2">"upload=@/tmp/car.jpg"</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx <span class="se">\</span>
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Token my-token******"</span> <span class="se">\</span>
@@ -440,7 +441,8 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</spa
   https://api.platerecognizer.com/v1/plate-reader/
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Windows</span>
 <span class="c"># Calling the API with 2 regions (Mexico and California).</span>
-curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="se">\p</span><span class="s2">ath</span><span class="se">\t</span><span class="s2">o</span><span class="se">\c</span><span class="s2">ar.jpg"</span> ^
+curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/demo.jpg
+curl <span class="nt">-F</span> <span class="s2">"upload=@car.jpg"</span> ^
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>mx ^
   <span class="nt">-F</span> <span class="nv">regions</span><span class="o">=</span>us-ca ^
   <span class="nt">-H</span> <span class="s2">"Authorization: Token my-token******"</span> ^
@@ -846,7 +848,8 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 </ul>
 <h1 id='on-premise-sdk'>On-Premise SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Linux</span>
 <span class="c"># Calling the API with just the image</span>
-curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</span> <span class="se">\</span>
+curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/demo.jpg <span class="c"># Get an image</span>
+curl <span class="nt">-F</span> <span class="s2">"upload=@car.jpg"</span> <span class="se">\</span>
   http://localhost:8080/v1/plate-reader/
 
 <span class="c"># Calling with API with optional parameters config and mmc</span>
@@ -860,7 +863,8 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</spa
 
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Windows</span>
 <span class="c"># Calling the API with just the image</span>
-curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="se">\p</span><span class="s2">ath</span><span class="se">\t</span><span class="s2">o</span><span class="se">\c</span><span class="s2">ar.jpg"</span> ^
+curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/demo.jpg
+curl <span class="nt">-F</span> <span class="s2">"upload=@car.jpg"</span> ^
   http://localhost:8080/v1/plate-reader/
 
 <span class="c"># Calling with API with optional parameters config and mmc</span>

@@ -132,7 +132,8 @@ with open('/path/to/car.jpg', 'rb') as fp:
 ```shell
 # On Linux
 # Calling the API with 2 regions (Mexico and California).
-curl -F "upload=@/path/to/car.jpg" \
+curl -o /tmp/car.jpg https://app.platerecognizer.com/static/demo.jpg # Get an image
+curl -F "upload=@/tmp/car.jpg" \
   -F regions=mx \
   -F regions=us-ca \
   -H "Authorization: Token my-token******" \
@@ -149,7 +150,8 @@ curl -F "upload=@/path/to/car.jpg" \
 ```shell
 # On Windows
 # Calling the API with 2 regions (Mexico and California).
-curl -F "upload=@c:\path\to\car.jpg" ^
+curl -o car.jpg https://app.platerecognizer.com/static/demo.jpg
+curl -F "upload=@car.jpg" ^
   -F regions=mx ^
   -F regions=us-ca ^
   -H "Authorization: Token my-token******" ^
@@ -509,7 +511,8 @@ When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`
 ```shell
 # On Linux
 # Calling the API with just the image
-curl -F "upload=@/path/to/car.jpg" \
+curl -o car.jpg https://app.platerecognizer.com/static/demo.jpg # Get an image
+curl -F "upload=@car.jpg" \
   http://localhost:8080/v1/plate-reader/
 
 # Calling with API with optional parameters config and mmc
@@ -526,7 +529,8 @@ curl -F "upload=@/path/to/car.jpg" \
 ```shell
 # On Windows
 # Calling the API with just the image
-curl -F "upload=@c:\path\to\car.jpg" ^
+curl -o car.jpg https://app.platerecognizer.com/static/demo.jpg
+curl -F "upload=@car.jpg" ^
   http://localhost:8080/v1/plate-reader/
 
 # Calling with API with optional parameters config and mmc

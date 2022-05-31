@@ -91,7 +91,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Grenada                                       | gd                              |            |
 | Guadeloupe                                    | gp                              |            |
 | Guam                                          | gu                              |            |
-| Guatamala                                     | gp                              |            |
+| Guatemala                                     | gp                              |            |
 | Guernsey                                      | gg                              |            |
 | Guinea                                        | gn                              |            |
 | Guinea-Bissau                                 | gw                              |            |

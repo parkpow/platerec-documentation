@@ -375,14 +375,15 @@ Replace `platerecognizer/alpr` by `platerecognizer/alpr:thailand` in the [instal
 
 ### Australia
 
-| State             | Region code |
-| ----------------- | ----------- |
-| New South Wales   | au-nsw      |
-| Queensland        | au-qld      |
-| South Australia   | au-sa       |
-| Tasmania          | au-tas      |
-| Victoria          | au-vic      |
-| Western Australia | au-wa       |
+| State                        | Region code |
+| ---------------------------- | ----------- |
+| Australian Capital Territory | au-act      |
+| New South Wales              | au-nsw      |
+| Queensland                   | au-qld      |
+| South Australia              | au-sa       |
+| Tasmania                     | au-tas      |
+| Victoria                     | au-vic      |
+| Western Australia            | au-wa       |
 
 ### Brazil
 

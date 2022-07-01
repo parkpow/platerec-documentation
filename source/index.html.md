@@ -579,7 +579,7 @@ Our service is also available on-premises. [Get started](https://app.platerecogn
 
 Returns the same parameters as the [recognition API](#read-number-plates-from-an-image). In addition to that, it returns the **number of calls** used.
 
-## SDK version
+## SDK Version
 
 > Return value
 
@@ -592,6 +592,8 @@ Returns the same parameters as the [recognition API](#read-number-plates-from-an
   "webhooks": []
 }
 ```
+
+Show version, webhooks and usage information.
 
 ### HTTP Request
 

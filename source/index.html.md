@@ -587,6 +587,8 @@ Returns the same parameters as the [recognition API](#read-number-plates-from-an
 {
   "version": "1.3.8",
   "license_key": "XXX",
+  "total_calls": 2500,
+  "usage": {"calls": 10},
   "webhooks": []
 }
 ```
@@ -685,7 +687,7 @@ The bounding box of the license plate are calculated based on the image sent by 
 
 # Statistics
 
-Get number of recognition calls done during the current month.
+Get number of recognition calls done during the current month. This API is for **Snapshot Cloud only**. For Snapshot SDK, use the [info API](#sdk-version).
 
 ### HTTP Request
 

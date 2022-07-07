@@ -976,9 +976,11 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 </span></code></pre></div>
 <p>Our service also supports webhooks. It allows you to receive a HTTP <strong>POST</strong> request to a target URL of your choosing. Go to <a href="https://app.platerecognizer.com/accounts/webhooks/">webhooks settings page</a> to manage your webhooks or add a new webhook target. If you are using Stream, see those <a href="https://guides.platerecognizer.com/docs/stream/configuration#webhook-parameters">instructions</a>.</p>
 
-<p>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</p>
-
-<p>The <code>target_url</code> should return a <strong>valid HTTP status code</strong> (200). If the <code>target_url</code> consistently returns an error code, the hook will be removed and an email will be sent to the account owner.</p>
+<ul>
+<li>The <code>target_url</code> should return a <strong>valid HTTP status code</strong> (200). If the <code>target_url</code> consistently returns an error code, the hook will be removed and an email will be sent to the account owner.</li>
+<li>To quickly test out this feature, you can use <a href="http://webhook.site">http://webhook.site</a>. It generates a unique target URL and displays all the requests made to that URL.</li>
+<li>A webhook is sent for each call to the recognition API even when no license plate is found.</li>
+</ul>
 
 <aside class="notice">
 We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.

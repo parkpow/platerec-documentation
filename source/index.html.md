@@ -650,9 +650,9 @@ Returns the SDK version, license key and webhooks.
 
 Our service also supports webhooks. It allows you to receive a HTTP **POST** request to a target URL of your choosing. Go to [webhooks settings page](https://app.platerecognizer.com/accounts/webhooks/) to manage your webhooks or add a new webhook target. If you are using Stream, see those [instructions](https://guides.platerecognizer.com/docs/stream/configuration#webhook-parameters).
 
-To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
-
-The `target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
+- The `target_url` should return a **valid HTTP status code** (200). If the `target_url` consistently returns an error code, the hook will be removed and an email will be sent to the account owner.
+- To quickly test out this feature, you can use [http://webhook.site](http://webhook.site). It generates a unique target URL and displays all the requests made to that URL.
+- A webhook is sent for each call to the recognition API even when no license plate is found.
 
 <aside class="notice">
 We have sample code for how to <a href="https://github.com/marcbelmont/deep-license-plate-recognition/tree/master/webhooks/">set up a webhook</a> on your own machine.

@@ -593,7 +593,12 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 <tr>
 <td>upload</td>
 <td>Yes</td>
-<td>The file to be uploaded. The parameter can either be the <strong>file bytes</strong> (using Content-Type multipart/form-data) OR a <strong>base64</strong> encoded image.</td>
+<td>The file to be uploaded. The parameter can either be the <strong>file bytes</strong> (using Content-Type multipart/form-data) OR a <strong>base64</strong> encoded image. This parameter becomes <strong>optional if upload_url parameter is present.</strong></td>
+</tr>
+<tr>
+<td>upload_url</td>
+<td>No</td>
+<td>The url of file to be uploaded. This parameter is to be used as <strong>an alternative to upload parameter.</strong></td>
 </tr>
 <tr>
 <td>regions</td>

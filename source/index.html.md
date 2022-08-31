@@ -145,6 +145,9 @@ curl -F "upload=@/path/to/car.jpg" \
   -F config="{\"region\":\"strict\"}" \
   -H "Authorization: Token my-token******" \
   https://api.platerecognizer.com/v1/plate-reader/
+  
+# Calling the API with an image URL.
+curl -X POST -F upload_url="https://app.platerecognizer.com/static/demo.jpg" -H "Authorization: Token my-token*****" https://api.platerecognizer.com/v1/plate-reader
 ```
 
 ```shell

@@ -439,6 +439,9 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</spa
   <span class="nt">-F</span> <span class="nv">config</span><span class="o">=</span><span class="s2">"{</span><span class="se">\"</span><span class="s2">region</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">strict</span><span class="se">\"</span><span class="s2">}"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: Token my-token******"</span> <span class="se">\</span>
   https://api.platerecognizer.com/v1/plate-reader/
+
+<span class="c"># Calling the API with an image URL.</span>
+curl <span class="nt">-X</span> POST <span class="nt">-F</span> <span class="nv">upload_url</span><span class="o">=</span><span class="s2">"https://app.platerecognizer.com/static/demo.jpg"</span> <span class="nt">-H</span> <span class="s2">"Authorization: Token my-token*****"</span> https://api.platerecognizer.com/v1/plate-reader
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Windows</span>
 <span class="c"># Calling the API with 2 regions (Mexico and California).</span>
 curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/demo.jpg

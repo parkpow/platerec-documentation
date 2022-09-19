@@ -366,6 +366,7 @@ A lookup request can accept the parameter **config**. It is a JSON value to chan
 - `{"threshold_d":0.2, "threshold_o":0.6}`: By default the engine will use those thresholds to filter the detection and OCR results. Anything below that will be discarded. You can set different values.
 - `{"mode":"fast"}`: The number of detection steps is always 1. On average it gives a **30% speed-up**. May result in lower accuracy when using images with small vehicles.
 - `{"mode":"redaction"}`: Used for Plate Recognizer Blur. It includes more candidates during the plate detection step. This configuration will **miss fewer plates** but will increase the number of false positives (objects that are not license plates).
+- `{"text_formats":["..."]}`: List of regular expressions. They are used to guide the engine's predictions. For example, if you want the output to be 3 digits and 2 letters, you would use `{"text_formats":["[0-9][0-9][0-9][a-z][a-z]"]}`. [More information](https://www.programiz.com/python-programming/regex) about the format. 
 
 ### Examples
 

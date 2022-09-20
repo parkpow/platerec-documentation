@@ -334,7 +334,7 @@
             <li></li>
             <li>© 2021 ParkPow, Inc.</li>
             <li>All Rights Reserved.</li>
-            <li>Documentation is governed by our</li>
+            <li>Documenton is governed by our</li>
             <li><a href="https://platerecognizer.com/terms-of-use-privacy-policy/">Terms</a>.</li>
         </ul>
     </div>
@@ -855,7 +855,13 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 <li>The license plate region is in <code>plate.props.region</code>.</li>
 <li>The vehicle properties (orientation, make model and color) are in <code>vehicle.props</code>. Each include the top 3 predictions.</li>
 </ul>
-<h1 id='on-premise-sdk'>On-Premise SDK</h1><h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Linux</span>
+<h1 id='on-premise-sdk'>On-Premise SDK</h1>
+<p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
+
+<aside class="notice">
+  Are you using the on-premise API from a different device? Make sure that your firewall allows it. For example, you can disable the Windows Defender firewall to check if it is blocking the API calls.
+</aside>
+<h2 id='recognition-api'>Recognition API</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># On Linux</span>
 <span class="c"># Calling the API with just the image</span>
 curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/demo.jpg <span class="c"># Get an image</span>
 curl <span class="nt">-F</span> <span class="s2">"upload=@car.jpg"</span> <span class="se">\</span>
@@ -901,9 +907,7 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-16 17:00:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"car.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Our service is also available on-premises. <a href="https://app.platerecognizer.com/sdk/">Get started</a> with the SDK. It has a <strong>similar interface</strong> as the <a href="#read-number-plates-from-an-image">recognition API</a> and it is hosted locally. See differences below.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://localhost:8080/v1/plate-reader/</code></p>
 
 <p>* The CORS policy of this endpoint allows requests from all origins.</p>

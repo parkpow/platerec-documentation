@@ -19,7 +19,7 @@ toc_footers:
   -
   - © 2021 ParkPow, Inc.
   - All Rights Reserved.
-  - Documentation is governed by our
+  - Documenton is governed by our
   - <a href="https://platerecognizer.com/terms-of-use-privacy-policy/">Terms</a>.
 
 includes:
@@ -511,6 +511,12 @@ When the [parameter](#engine-configuration) `detection_mode` is set to `vehicle`
 
 # On-Premise SDK
 
+Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has a **similar interface** as the [recognition API](#read-number-plates-from-an-image) and it is hosted locally. See differences below.
+
+<aside class="notice">
+  Are you using the on-premise API from a different device? Make sure that your firewall allows it. For example, you can disable the Windows Defender firewall to check if it is blocking the API calls.
+</aside>
+
 ## Recognition API
 
 ```shell
@@ -565,8 +571,6 @@ curl -F "upload=@c:\path\to\car.jpg" ^
   "filename": "car.jpg"
 }
 ```
-
-Our service is also available on-premises. [Get started](https://app.platerecognizer.com/sdk/) with the SDK. It has a **similar interface** as the [recognition API](#read-number-plates-from-an-image) and it is hosted locally. See differences below.
 
 ### HTTP Request
 

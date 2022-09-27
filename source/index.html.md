@@ -331,8 +331,8 @@ The response is a list of all the license plates found in the image. Each licens
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | results/plate                   | Text of the license plate.                                                                                          |
 | results/box                     | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.     |
-| results/dscore                  | Confidence level for plate **detection**.                                                                           |
-| results/score                   | Confidence level for **reading** the license plate text.                                                            |
+| results/dscore                  | Confidence level for plate **detection**. See below for more details.                                                                           |
+| results/score                   | Confidence level for **reading** the license plate text. See below for more details.                                                            |
 | results/vehicle/type            | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
 | results/vehicle/score           | Confidence level for vehicle type prediction. If we **cannot find a vehicle**, the score is set to 0.               |
 | results/vehicle/box             | Vehicle bounding box. If we **cannot find a vehicle**, the coordinates are all 0.                                   |
@@ -348,7 +348,7 @@ The response is a list of all the license plates found in the image. Each licens
 | results/orientation/score       | Confidence level for vehicle orientation prediction.                                                                |
 
 - Scores vary between 0 and 1. A prediction with a **score close to 1** indicates high confidence.
-- The value **dscore** is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.
+- The value **dscore** is the confidence level of the object detection. A score close to 1 indicates a high confidence. For example, if you don't want to miss any vehicles and you can tolerate some false positives, you can decide to use all results with a score above 0.3. However, if you want to avoid false positives and can tolerate missing a few vehicles, then discarding results below 0.7 is preferable. It depends on the use case and quality of the images you use.
 
 <aside class="notice">
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.

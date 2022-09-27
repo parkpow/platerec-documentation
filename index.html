@@ -648,11 +648,11 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 </tr>
 <tr>
 <td>results/dscore</td>
-<td>Confidence level for plate <strong>detection</strong>.</td>
+<td>Confidence level for plate <strong>detection</strong>. See below for more details.</td>
 </tr>
 <tr>
 <td>results/score</td>
-<td>Confidence level for <strong>reading</strong> the license plate text.</td>
+<td>Confidence level for <strong>reading</strong> the license plate text. See below for more details.</td>
 </tr>
 <tr>
 <td>results/vehicle/type</td>
@@ -710,7 +710,7 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 
 <ul>
 <li>Scores vary between 0 and 1. A prediction with a <strong>score close to 1</strong> indicates high confidence.</li>
-<li>The value <strong>dscore</strong> is dependent on the type of image we are processing. For example, if the images are coming from a highway camera you may have a threshold of X for good license plate detection. But if images are coming from a parking lot you may have a threshold of Y. So a good dscore has to be determined based on the images you are sending to us.</li>
+<li>The value <strong>dscore</strong> is the confidence level of the object detection. A score close to 1 indicates a high confidence. For example, if you don&#39;t want to miss any vehicles and you can tolerate some false positives, you can decide to use all results with a score above 0.3. However, if you want to avoid false positives and can tolerate missing a few vehicles, then discarding results below 0.7 is preferable. It depends on the use case and quality of the images you use.</li>
 </ul>
 
 <aside class="notice">

@@ -7,7 +7,8 @@ Don't see your country listed?   [Contact us](https://platerecognizer.com/contac
 The column **Prediction** indicates if the region is supported by our region classification predictor (field `results/region/code`).
 
 <aside class="warn">
-  Some countries are only supported with the on-premise SDK. They include Thailand (detects Thai characters) and Germany/Austria (identifies umlauts, space gaps), Japan and Egypt.  See all the [countries specific Snapshot SDK](https://guides.platerecognizer.com/docs/snapshot/manual-install/#list-of-docker-images) and [Stream](https://guides.platerecognizer.com/docs/stream/manual-install/#list-of-docker-images).
+  Some countries are only supported with the <b>on-premise SDK</b>. They include Thailand (detects Thai characters) and Germany/Austria (identifies umlauts, space gaps), Japan and Egypt.  
+  See all the <a href="https://guides.platerecognizer.com/docs/snapshot/manual-install/#list-of-docker-images">countries specific Snapshot SDK</a> and <a href="https://guides.platerecognizer.com/docs/stream/manual-install/#list-of-docker-images">Stream</a>.
 </aside>
 
 ## Country Codes
@@ -71,6 +72,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Dominica                                      | dm                              |            |
 | Dominican republic                            | do                              |            |
 | Ecuador                                       | ec                              |            |
+| Egypt                                         | [eg](#egypt)                    | Yes        |
 | El Salvador                                   | sv                              |            |
 | Equatorial Guinea                             | gq                              |            |
 | Eritrea                                       | er                              |            |
@@ -111,6 +113,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Israel                                        | il                              | Yes        |
 | Italy                                         | it                              | Yes        |
 | Jamaica                                       | jm                              |            |
+| Japan                                         | [jp](#japan)                    | Yes        |
 | Jersey                                        | je                              |            |
 | Jordan                                        | jo                              |            |
 | Kazakhstan                                    | kz                              | Yes        |
@@ -197,7 +200,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Swaziland                                     | sz                              |            |
 | Sweden                                        | se                              | Yes        |
 | Switzerland                                   | ch                              | Yes        |
-| Taiwan                                    | tw                              |            |
+| Taiwan                                        | tw                              |            |
 | Tajikistan                                    | tj                              |            |
 | Tanzania                                      | tz                              |            |
 | [Thailand](#thailand)                         | [th](#thailand)                 | Yes        |
@@ -282,6 +285,235 @@ The column **Prediction** indicates if the region is supported by our region cla
 | West Virginia        | us-wv       |
 | Wisconsin            | us-wi       |
 | Wyoming              | us-wy       |
+
+### Japan
+
+<aside class="warn">
+This country is only available in Snapshot SDK.
+</aside>
+
+| State    | Region code |
+| -------- | ----------- |
+| 一宮     | ACI         |
+| 春日井   | ACK         |
+| 名古屋   | ACN         |
+| 愛       | ACN         |
+| 豊橋     | ACT         |
+| 三河     | ACM         |
+| 岡崎     | ACZ         |
+| 豊田     | ACY         |
+| 秋田     | ATA         |
+| 秋       | ATA         |
+| 青森     | AMA         |
+| 青       | AMA         |
+| 戸       | AMH         |
+| 千葉     | CBC         |
+| 千       | CBC         |
+| 成田     | CBT         |
+| 習志野   | CBN         |
+| 船橋     | CBN         |
+| 野田     | CBD         |
+| 柏       | CBK         |
+| 浦       | CBS         |
+| 愛媛     | EH          |
+| 福井     | FI          |
+| 福岡     | FOF         |
+| 福       | FOF         |
+| 留米     | FOR         |
+| 福島     | FS          |
+| 会津     | FSA         |
+| 岐阜     | GFG         |
+| 岐       | GF          |
+| 飛騨     | GFH         |
+| 飛驒     | GFH         |
+| 群馬     | GMG         |
+| 群       | GM          |
+| 前橋     | GMM         |
+| 高崎     | GMT         |
+| 福山     | HSF         |
+| 広島     | HSH         |
+| 広       | HSH         |
+| 旭川     | AKA         |
+| 旭       | AKA         |
+| 函館     | HDH         |
+| 函       | HDH         |
+| 北見     | KIK         |
+| 北       | KIK         |
+| 釧路     | KRK         |
+| 釧       | KRK         |
+| 室蘭     | MRM         |
+| 室       | MRM         |
+| 帯広     | OHO         |
+| 帯       | OHO         |
+| 札幌     | SPS         |
+| 札       | SPS         |
+| 姫路     | HGH         |
+| 水戸     | IGM         |
+| 茨城     | IGM         |
+| 茨       | IGM         |
+| 土浦     | IGT         |
+| 石川     | IKI         |
+| 石       | IKI         |
+| 金沢     | IKK         |
+| 岩手     | ITI         |
+| 岩       | ITI         |
+| 平泉     | ITH         |
+| 盛岡     | ITM         |
+| 香川     | KAK         |
+| 香       | KAK         |
+| 島       | KOK         |
+| 鹿       | KOK         |
+| 奄美     | KOA         |
+| 相模     | KNS         |
+| 川崎     | KNK         |
+| 横浜     | KNY         |
+| 神       | KNY         |
+| 熊本     | KUK         |
+| 熊       | KUK         |
+| 三重     | MEM         |
+| 三       | MEM         |
+| 鈴鹿     | MES         |
+| 宮城     | MGM         |
+| 宮       | MG          |
+| 仙台     | MGS         |
+| 宮崎     | MZ          |
+| 松本     | NNM         |
+| 諏訪     | NNS         |
+| 長野     | NNN         |
+| 長       | NN          |
+| 長崎     | NS          |
+| 佐世保   | NSS         |
+| 奈良     | NRN         |
+| 奈       | NR          |
+| 長岡     | NGO         |
+| 新潟     | NGN         |
+| 新       | NG          |
+| 岡山     | OYO         |
+| 岡       | OY          |
+| 倉敷     | OYK         |
+| 沖縄     | ONO         |
+| 沖       | ONO         |
+| 和泉     | OSZ         |
+| 泉       | OSZ         |
+| 堺       | OSS         |
+| 佐賀     | SAS         |
+| 佐       | SAS         |
+| 春日部   | STB         |
+| 越谷     | STY         |
+| 熊谷     | STK         |
+| 川口     | STW         |
+| 所沢     | STT         |
+| 川越     | STG         |
+| 滋賀     | SIS         |
+| 滋       | SIS         |
+| 島根     | SN          |
+| 嶋       | SN          |
+| 浜松     | SZH         |
+| 沼津     | SZN         |
+| 伊豆     | SZI         |
+| 静岡     | SZS         |
+| 静       | SZS         |
+| 宇都宮   | TGU         |
+| 栃木     | TGU         |
+| 栃       | TGU         |
+| 那須     | TGN         |
+| 徳島     | TST         |
+| 徳       | TST         |
+| 足立     | TKA         |
+| 足       | TKA         |
+| 多摩     | TKT         |
+| 多       | TKT         |
+| 練馬     | TKN         |
+| 練       | TKN         |
+| 杉並     | TKM         |
+| 世田谷   | TKG         |
+| 鳥取     | TTT         |
+| 鳥       | TTT         |
+| 富山     | TYT         |
+| 富       | TYT         |
+| 和歌山   | WKW         |
+| 和       | WKW         |
+| 山形     | YA          |
+| 山口     | YUY         |
+| 山       | YUY         |
+| 下関     | YUS         |
+| 山梨     | YN          |
+| 富士山   | YNF         |
+| 八王子   | TKH         |
+| 尾張小牧 | ACO         |
+| 筑豊     | FOC         |
+| 北九州   | FOK         |
+| いわき   | FSI         |
+| 郡山     | FSK         |
+| 神戸     | HGK         |
+| つくば   | IGK         |
+| つくば   | IGK         |
+| 湘南     | KNN         |
+| 高知     | KCK         |
+| 高       | KCK         |
+| 京都     | KTK         |
+| 京       | KTK         |
+| 大分     | OT          |
+| 大阪     | OSO         |
+| 大       | OSO         |
+| なにわ   | OSN         |
+| 大宮     | STO         |
+| 埼玉     | STO         |
+| 埼       | STO         |
+| とちぎ   | TCK         |
+| 王子     | TKH         |
+| 品川     | TKS         |
+| 品       | TKS         |
+| 庄       | YAS         |
+| 江東     | YOI         |
+| 鹿児島   | LSC         |
+| 袖ヶ浦   | OIT         |
+| 市川     | SC          |
+| 松戸     | SHT         |
+| 市原     | SHM         |
+| 庄内     | SNA         |
+| 板橋     | SBR         |
+| 八戸     | AMH         |
+| 久留米   | FOR         |
+| とちぎ   | TCK         |
+| 高松     | KAK         |
+
+### Egypt
+
+<aside class="warn">
+This country is only available in Snapshot SDK.
+</aside>
+
+| State            | Region Code |
+| ---------------- | ----------- |
+| Ad Daqahlīyah    | DK          |
+| Al Baḩr al Aḩmar | BA          |
+| Al Buḩayrah      | BH          |
+| Al Fayyūm        | FYM         |
+| Al Gharbīyah     | GH          |
+| Al Iskandarīyah  | ALX         |
+| Al Ismā'īlīyah   | IS          |
+| Al Jīzah         | GZ          |
+| Al Minūfīyah     | MNF         |
+| Al Minyā         | MN          |
+| Al Qāhirah       | C           |
+| Al Qalyūbīyah    | KB          |
+| Al Uqşur         | LX          |
+| Al Wādī al Jadīd | WAD         |
+| As Suways        | SUZ         |
+| Ash Sharqīyah    | SHR         |
+| Aswān            | ASN         |
+| Asyūţ            | AST         |
+| Banī Suwayf      | BNS         |
+| Būr Sa‘īd        | PTS         |
+| Dumyāţ           | DT          |
+| Janūb Sīnā'      | JS          |
+| Kafr ash Shaykh  | KFS         |
+| Maţrūḩ           | MT          |
+| Qinā             | KN          |
+| Shamāl Sīnā'     | SIN         |
+| Sūhāj            | SHG         |
+
 
 ### Thailand
 

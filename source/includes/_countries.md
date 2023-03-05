@@ -72,7 +72,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Dominica                                      | dm                              |            |
 | Dominican republic                            | do                              |            |
 | Ecuador                                       | ec                              |            |
-| Egypt                                         | [eg](#egypt)                    | Yes        |
+| [Egypt](#egypt)                               | [eg](#egypt)                    | Yes        |
 | El Salvador                                   | sv                              |            |
 | Equatorial Guinea                             | gq                              |            |
 | Eritrea                                       | er                              |            |
@@ -113,7 +113,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Israel                                        | il                              | Yes        |
 | Italy                                         | it                              | Yes        |
 | Jamaica                                       | jm                              |            |
-| Japan                                         | [jp](#japan)                    | Yes        |
+| [Japan](#japan)                               | [jp](#japan)                    | Yes        |
 | Jersey                                        | je                              |            |
 | Jordan                                        | jo                              |            |
 | Kazakhstan                                    | kz                              | Yes        |
@@ -163,7 +163,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Panama                                        | pa                              |            |
 | Papua New Guinea                              | pg                              |            |
 | Paraguay                                      | py                              |            |
-| [Peru](#peru)                                 | pe                              |            |
+| [Peru](#peru)                                 | [pe](#peru)                     | Yes        |
 | Philippines                                   | ph                              |            |
 | Poland                                        | pl                              | Yes        |
 | Portugal                                      | pt                              | Yes        |

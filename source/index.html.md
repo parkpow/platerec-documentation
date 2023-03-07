@@ -24,6 +24,14 @@ toc_footers:
 
 includes:
   - countries
+  - country_ae
+  - country_au
+  - country_br
+  - country_ca
+  - country_eg
+  - country_jp
+  - country_pe
+  - country_th
   - errors
 
 search: true
@@ -145,7 +153,7 @@ curl -F "upload=@/path/to/car.jpg" \
   -F config="{\"region\":\"strict\"}" \
   -H "Authorization: Token my-token******" \
   https://api.platerecognizer.com/v1/plate-reader/
-  
+
 # Calling the API with an image URL.
 curl -X POST -F upload_url="https://app.platerecognizer.com/static/demo.jpg" -H "Authorization: Token my-token*****" https://api.platerecognizer.com/v1/plate-reader
 ```
@@ -314,9 +322,9 @@ If you need to blur license plates, consider using [Plate Recognizer Blur](https
 ### POST Parameters
 
 | Parameter                       | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | upload                          | Yes      | The file to be uploaded. The parameter can either be the **file bytes** (using Content-Type multipart/form-data) OR a **base64** encoded image. This parameter becomes **optional if upload_url parameter is present.**                                                                                                                                                                                                   |
-| upload_url                      | No       | The url of file to be uploaded. This parameter is to be used as **an alternative to upload parameter.**                                                                                                                                                                                                                                       |
+| upload_url                      | No       | The url of file to be uploaded. This parameter is to be used as **an alternative to upload parameter.**                                                                                                                                                                                                                                                                                                                   |
 | regions                         | No       | Match the license plate pattern of a specific region or [regions](#countries). This parameter can be used **multiple times** to specify more than one region. It is **treated as a guide** and the template will be ignored if the prediction differs too much from it. That's because we want to still be able to read plates from foreign vehicles. The system may sometimes mistake a local vehicle for a foreign one. |
 | camera_id                       | No       | Unique camera identifier.                                                                                                                                                                                                                                                                                                                                                                                                 |
 | timestamp                       | No       | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp. For example, `2019-08-19T13:11:25`. The timestamp has to be in UTC.                                                                                                                                                                                                                                                                                         |
@@ -331,8 +339,8 @@ The response is a list of all the license plates found in the image. Each licens
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | results/plate                   | Text of the license plate.                                                                                          |
 | results/box                     | Bounding box for the license plate. Coordinates in pixel of the top left and bottom right corners of the plate.     |
-| results/dscore                  | Confidence level for plate **detection**. See below for more details.                                                                           |
-| results/score                   | Confidence level for **reading** the license plate text. See below for more details.                                                            |
+| results/dscore                  | Confidence level for plate **detection**. See below for more details.                                               |
+| results/score                   | Confidence level for **reading** the license plate text. See below for more details.                                |
 | results/vehicle/type            | Vehicle type: Big Truck, Bus, Motorcycle, Pickup Truck, Sedan, SUV, Van, Unknown.                                   |
 | results/vehicle/score           | Confidence level for vehicle type prediction. If we **cannot find a vehicle**, the score is set to 0.               |
 | results/vehicle/box             | Vehicle bounding box. If we **cannot find a vehicle**, the coordinates are all 0.                                   |

@@ -314,7 +314,7 @@ If you need to detect vehicles and decode license plates from a live camera or v
 If you need to blur license plates, consider using [Plate Recognizer Blur](https://platerecognizer.com/blur/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.
 
 <aside class="success">
-    By default, we only return vehicles **with a license plate**. To include vehicles without a license plate, set the <a href="/#engine-configuration">engine configuration</a> to <code>{"detection_mode":"vehicle"}</code>.
+    By default, we only return vehicles with a license plate. To include vehicles <b>without a license plate</b>, set the <a href="/#engine-configuration">engine configuration</a> to <code>{"detection_mode":"vehicle"}</code>.
 </aside>
 
 ### HTTP Request

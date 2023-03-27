@@ -313,6 +313,10 @@ If you need to detect vehicles and decode license plates from a live camera or v
 
 If you need to blur license plates, consider using [Plate Recognizer Blur](https://platerecognizer.com/blur/?utm_source=docs&utm_medium=website). [Contact us](https://platerecognizer.com/contact?utm_source=docs&utm_medium=website) for more info.
 
+<aside class="success">
+    By default, we only return vehicles **with a license plate**. To include vehicles without a license plate, set the <a href="/#engine-configuration">engine configuration</a> to <code>{"detection_mode":"vehicle"}</code>.
+</aside>
+
 ### HTTP Request
 
 `POST https://api.platerecognizer.com/v1/plate-reader/`
@@ -366,7 +370,7 @@ View complete examples for <a href="https://github.com/marcbelmont/deep-license-
 
 ## Engine Configuration
 
-A lookup request can accept the parameter **config**. It is a JSON value to change the engine configuration. It can include the following values:
+A lookup request can accept the parameter `config`. It is a JSON value to change the engine configuration. It can include the following values:
 
 - `{"detection_rule":"strict"}`: The license plates that are detected outside a vehicle will be discarded.
 - `{"detection_mode":"vehicle"}`: The default detection mode (plate) only returns vehicles if a license plate is also detected. To get vehicles without plates, use the value **vehicle**. See the [response format](#vehicle-only-response).

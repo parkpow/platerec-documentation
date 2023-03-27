@@ -581,6 +581,10 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 <p>If you need to detect vehicles and decode license plates from a live camera or video feed, consider using <a href="https://platerecognizer.com/stream/?utm_source=docs&amp;utm_medium=website">Plate Recognizer Stream</a>. <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> to request a Free Trial of Stream.</p>
 
 <p>If you need to blur license plates, consider using <a href="https://platerecognizer.com/blur/?utm_source=docs&amp;utm_medium=website">Plate Recognizer Blur</a>. <a href="https://platerecognizer.com/contact?utm_source=docs&amp;utm_medium=website">Contact us</a> for more info.</p>
+
+<aside class="success">
+    By default, we only return vehicles **with a license plate**. To include vehicles without a license plate, set the <a href="/#engine-configuration">engine configuration</a> to <code>{"detection_mode":"vehicle"}</code>.
+</aside>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://api.platerecognizer.com/v1/plate-reader/</code></p>
 
@@ -717,7 +721,7 @@ curl <span class="nt">-F</span> <span class="s2">"upload=@c:</span><span class="
 View complete examples for <a href="https://github.com/marcbelmont/deep-license-plate-recognition">ALPR API integration</a>. Easily do batching and use the API on a video. Examples are written in multiple languages.
 </aside>
 <h3 id='error-responses'><a href="#errors">Error Responses</a></h3><h2 id='engine-configuration'>Engine Configuration</h2>
-<p>A lookup request can accept the parameter <strong>config</strong>. It is a JSON value to change the engine configuration. It can include the following values:</p>
+<p>A lookup request can accept the parameter <code>config</code>. It is a JSON value to change the engine configuration. It can include the following values:</p>
 
 <ul>
 <li><code>{&quot;detection_rule&quot;:&quot;strict&quot;}</code>: The license plates that are detected outside a vehicle will be discarded.</li>

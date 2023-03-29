@@ -89,6 +89,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Gambia                                        | gm                              |            |
 | Georgia                                       | ge                              | Yes        |
 | Germany                                       | de                              | Yes        |
+| Ghana                                         | gh                              |            |
 | Gibraltar                                     | gi                              |            |
 | Greece                                        | gr                              | Yes        |
 | Greenland                                     | gl                              |            |

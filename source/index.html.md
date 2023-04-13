@@ -32,6 +32,7 @@ includes:
   - country_jp
   - country_pe
   - country_th
+  - country_us
   - errors
 
 search: true

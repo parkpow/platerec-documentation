@@ -5,7 +5,7 @@ on:
 name: Build and Deploy on documentation
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@master
     - name: Build documentation 🛠

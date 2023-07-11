@@ -31,6 +31,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Austria                                       | at                              | Yes        |
 | Azerbaijan                                    | az                              | Yes        |
 | Bahamas                                       | bs                              |            |
+| Bahrain                                       | bh                              |            |
 | Barbados                                      | bb                              |            |
 | Belarus                                       | by                              | Yes        |
 | Belgium                                       | be                              | Yes        |

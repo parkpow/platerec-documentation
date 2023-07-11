@@ -161,6 +161,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | North Macedonia                               | mk                              |            |
 | Northern Mariana Islands                      | np                              |            |
 | Norway                                        | no                              | Yes        |
+| Oman                                          | om                              |            |
 | Palau                                         | pw                              |            |
 | Panama                                        | pa                              |            |
 | Papua New Guinea                              | pg                              |            |

@@ -122,6 +122,7 @@ The column **Prediction** indicates if the region is supported by our region cla
 | Kenya                                         | ke                              |            |
 | Kiribati                                      | ki                              |            |
 | Korea, Republic of                            | kr                              |            |
+| Kuwait                                        | kw                              |            |
 | Kyrgyztan                                     | kg                              |            |
 | Latvia                                        | lv                              | Yes        |
 | Lebanon                                       | lb                              |            |

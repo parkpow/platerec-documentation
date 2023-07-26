@@ -871,6 +871,9 @@ curl <span class="nt">-o</span> car.jpg https://app.platerecognizer.com/static/d
 curl <span class="nt">-F</span> <span class="s2">"upload=@car.jpg"</span> <span class="se">\</span>
   http://localhost:8080/v1/plate-reader/
 
+<span class="c"># Sending the image in base64</span>
+curl <span class="nt">-F</span> <span class="s2">"upload=</span><span class="si">$(</span><span class="nb">base64</span> <span class="s1">'image.jpg'</span><span class="si">)</span><span class="s2">"</span> http://localhost:8080/v1/plate-reader/
+
 <span class="c"># Calling with API with optional parameters config and mmc</span>
 <span class="c"># The region is set to Mexico and California</span>
 curl <span class="nt">-F</span> <span class="s2">"upload=@/path/to/car.jpg"</span> <span class="se">\</span>

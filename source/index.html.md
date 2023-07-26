@@ -539,6 +539,9 @@ curl -o car.jpg https://app.platerecognizer.com/static/demo.jpg # Get an image
 curl -F "upload=@car.jpg" \
   http://localhost:8080/v1/plate-reader/
 
+# Sending the image in base64
+curl -F "upload=$(base64 'image.jpg')" http://localhost:8080/v1/plate-reader/
+
 # Calling with API with optional parameters config and mmc
 # The region is set to Mexico and California
 curl -F "upload=@/path/to/car.jpg" \
